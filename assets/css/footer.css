@@ -1,0 +1,46 @@
+ .fotleft a:hover{
+	color: #fff;
+}
+
+.footer{
+	margin-top: 20px;
+    left: 0; 
+    bottom: 0; /* Левый нижний угол */
+    padding: 13px 0; /* Поля вокруг текста */
+    text-align: center;
+	color: #fff	; /* Цвет текста */
+    width: 100%; /* Ширина слоя */
+	height: 50px; 
+	background-color:  #0B0B61;
+	min-width: 900px;
+}
+
+.footer_left, .footer_center, .footer_right{
+	padding-top: 7px;
+}
+
+.footer_left{
+	float: left;
+	width: 30%;
+	font-size: 75%;
+}
+.fotleft{
+	margin-left: 20px;
+	text-align: left;
+}
+
+.footer_center{
+	float: left;
+	width: 40%;
+}
+
+.footer_right{
+	float: right;
+	font-size: 75%;
+	width: 30%;
+}
+.fotright{
+	float: right;
+	margin-right: 20px;
+	text-align: left;
+}

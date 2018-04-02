@@ -1,0 +1,87 @@
+input[type="text"], input[type="password"], input[type="search"] {
+	width: 60%;
+	padding: 5px;
+	border-radius: 5px;
+	margin: 3px 0 0 0;
+}
+
+input[type="submit"] {
+	width: 30%;
+	padding: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	color: #fff;
+	font-weight: bold;
+}
+
+input[type="submit"]:hover{
+	color: #0B0B61;
+}
+
+.stcnt{
+	
+	overflow: hidden;
+	
+	background-color: #fff;
+}
+
+.content_left{
+	float: left;
+	width: 562px;
+}
+
+.main{
+	overflow: hidden;
+}
+
+.content{
+	margin-left: auto;
+	margin-right: auto;
+	display: inline-block;
+}
+
+.side_content h1, .side_content h2{
+	font: normal 170% 'century gothic', arial;
+	margin: 0 0 15px 0;
+	padding: 15px 0 5px 0;
+	color: #2E64FE;
+}
+
+.side_content{
+	width: 880px;
+	overflow: hidden;
+	margin: 20px auto 0 auto;
+	background-color: #fff;
+}
+
+.sidebar_right{
+	float: right;
+	width: 224px;
+}
+
+.sidebar{
+	float: right;
+	width: 222px;
+	padding: 5%;
+	margin: 0 0 16px 0;
+	border: solid 1px #f2f2f2;
+	border-radius: 5px;
+	background-color: #f9f9f9;
+	
+}
+
+
+
+
+.sidebar1{
+	float: left;
+	width: 560px;
+	padding: 5%;
+	margin: 0 0 16px 0;
+	border: solid 1px #f2f2f2;
+	border-radius: 5px;
+	background-color: #f9f9f9;
+	]
+
+
+
