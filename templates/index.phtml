@@ -1,17 +1,18 @@
-<html doctype="html">
+<!DOCTYPE html>
+<html lang="ua">
     <head>
         <title>{{$title}}</title>
         <meta name="title" content="{{$title}}" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         {{$headfiles}}
         <link rel="shortcut icon" href="img/x-icon.png" type="image/x-icon">
-        <link href="styles/footer.css" type="text/css" rel="stylesheet">
      </head>
     <body>
         {{$header}}
+        <div class="side_content">
         {{$rightblock}}
-         <!-- контент сюда попадает из файла , которий засетан в текущем контролере - например $template->setFile('templates/main.phtml') -->
-       <div class="content"> {{$content}} </div>
+        {{$content}}
+        </div>
         {{$footer}}
     </body>
 </html>

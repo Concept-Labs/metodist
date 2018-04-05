@@ -18,53 +18,6 @@ a:hover {
 	color: #0B0B61;
 }
 
-.header{
-	background-color: #0B0B61;
-   /*  background: -moz-linear-gradient(#0B0B61, #EBFFFF);
-   background: -webkit-gradient(linear, 0 0, 0 100%, from(#0B0B61), to(#EBFFFF));
-   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0B61', endColorstr='#EBFFFF'); */
-	height: 150px;
-	margin-left: 0px;
-	margin-right: 0px;
-	font-size: 0.8em;
-	min-width: 900px;
-}
-
-.logo, .main, .menubar, .side_content, .footer{
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.logo{
-	width: 880px;
-	padding-bottom: 40px;
-}
-
-.logo h1, .logo h2{
-	margin: 0 0 0 9px;
-}
-
-.logo_text h1 a{
-	color: #fff;
-}
-
-.logo_text h1, .logo_text h1 a, .logo_text h1 a:hover {
-	padding: 22px 0 0 0;
-	color: #fff;
-	letter-spacing: 0.1em;
-	text-decoration: none;
-}
-
-.logo_text h2{
-	color: #fff;
-	font-size: 15px;
-	letter-spacing: 0.2em;
-	width: 300px;
-}
-
-.logo_text h2:hover{
-	color: #04B4AE;
-}
 
 .lables{
 	margin-top: 5px;
