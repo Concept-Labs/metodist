@@ -1,0 +1,64 @@
+
+<?php 
+if(isset($_SESSION['error'])): ?>
+    <span style="color:red;"><?php echo $_SESSION['error'] ?></span> 
+<?php 
+unset($_SESSION['error']);
+endif; ?>
+<div class="registration">
+<form action="/user/registrationPost" method="post">
+            <label for="name">Імя:</label><br/>
+            <input type="text" name="name" id="name"><br/><br/>
+	
+			<label for="surname">Прізвище:</label><br/>
+            <input type="text" name="surname" id="surname"><br/><br/>
+	
+			<label for="patronymic">Побатькові:</label><br/>
+            <input type="text" name="patronymic" id="patronymic"><br/><br/>
+	
+			Ваша стать:<br/>
+			<label>
+                <input type="radio" name="pol" value="1">
+                Чоловік
+            </label>
+			<label>
+                <input type="radio" name="pol" value="0">
+                Жінка
+            </label>
+			<br/><br/>
+			Дата народження:<br/>
+			<select name="day">
+		  		<option>День</option>
+		  		<?php for($i = 01;  $i <= 31; $i++ ): ?>
+					<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+				<?php endfor; ?>
+			</select>
+			
+			<select name="month">
+		  		<option>Місяць</option>
+		  		<?php for($i = 01;  $i <= 12; $i++ ): ?>
+					<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+				<?php endfor; ?>
+			</select>
+	
+			<select name="year">
+				<option>Рік</option>
+				<?php for($i = 2018; 1950 <= $i; $i-- ): ?>
+					<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+				<?php endfor; ?>
+			</select><br/><br/>
+	
+	 		<label for="email">Ваш email:</label><br/>
+            <input type="email" name="email" id="email"><br/><br/>
+	
+			<label for="password">Ваш пароль:</label><br/>
+            <input type="password" name="password" id="password"><br/><br/>
+            
+            <label for="password">Пітвердження пароля:</label><br/>
+            <input type="password" name="password-confirm" id="password-confirm"><br/><br/>
+	
+			<input type="submit" name="enter" value="Зареєструватися">
+	
+	
+</form>
+</div>
