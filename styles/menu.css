@@ -9,6 +9,9 @@
 .menubar{
 	width: 900px;
 	height: 40px;
+    float: none;
+    bottom: 10px;
+    left: 10px;
 }
 ul.menu{
 	float: right;

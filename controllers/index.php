@@ -18,8 +18,7 @@ Class Controller_Index Extends Controller_Base
         $template->set("test", "<a href='tree'>Go to tree</a>", true);
         $template->set("linkName", "Google.com");
         $template->setFile('templates/main.phtml');
-        $template->set("logo", base_url . "img/logo.png", false);
-        
+
         $this->_renderLayout($template, true);
     }
 }
