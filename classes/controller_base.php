@@ -43,7 +43,7 @@ Abstract Class Controller_Base
             $headerMenu->setFile('templates/header/menu.phtml');  
             $_htmlHeaderMenu = $headerMenu->toHtmlWithPhp();
         	$headerTemplate->set('headerMenu', $_htmlHeaderMenu);
-        $_htmlheader = $headerTemplate->toHtml();
+        $_htmlheader = $headerTemplate->toHtmlWithPhp();
         $parentTemplate->set('header', $_htmlheader);
         
         $rightblockTemplate = clone $parentTemplate;
