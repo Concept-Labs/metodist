@@ -12,6 +12,7 @@
     float: none;
     bottom: 10px;
     left: 10px;
+    font: normal 170% 'century gothic', arial;
 }
 ul.menu{
 	float: right;
@@ -29,10 +30,12 @@ ul.menu li a{
 	color: #fff;
 	display: block;
 	padding-left: 20px;
+
 }
 
 ul.menu li a:hover{
 	color: #FFFF00;
+
 }
 
 .menu a {
@@ -42,6 +45,7 @@ ul.menu li a:hover{
     line-height: 1;
     text-decoration:none;
  	position:relative;
+    transition: all 0.6s ease-out;
 }
 .menu a:after {
 	margin-top: 7px;
@@ -64,3 +68,4 @@ ul.menu li a:hover{
     margin-top: 7px;
     width: 85%;
 }
+
