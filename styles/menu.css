@@ -38,6 +38,10 @@ ul.menu li a:hover{
 
 }
 
+ul.menu li a:focus{
+    color: #FFFF00;
+}
+
 .menu a {
    
     display: inline-block;
