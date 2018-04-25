@@ -1,5 +1,5 @@
 <?php
-Class Controller_Vukladachy Extends Controller_Base 
+Class Controller_Attestation Extends Controller_Base 
 {
     protected function _initTemplate($title)
     {
@@ -9,16 +9,16 @@ Class Controller_Vukladachy Extends Controller_Base
     
     public function index() 
     {
-        $template = $this->_initTemplate('Для викладача');
+        $template = $this->_initTemplate('Атестація');
         
         //$template->set("data", "Hello", false);
         //$template->set("name", "Vitalik", false);
-        $template->setFile('templates/vukladachy.phtml');
+        $template->setFile('templates/attestation.phtml');
         
         $this->_renderLayout($template);
     }
     
-    public function view() 
+    /*public function view() 
     {
         $template = $this->_initTemplate('this is view');
         
@@ -36,5 +36,5 @@ Class Controller_Vukladachy Extends Controller_Base
         $template->setFile('templates/maystru/add.phtml');
         
         $this->_renderLayout($template);
-    }
+    }*/
 }
