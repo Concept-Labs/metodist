@@ -1,8 +1,20 @@
+<?php
+/* @var $this Block_Menu */
+$current = $this->getCurrentUrl();
+?>
 <div class="menubar">
 	<ul class="menu">
-		<li class="golovna"><a href="/index">Головна</a></li>
-		<li><a href="/maystru">Майстру</a></li>
-		<li><a href="/vukladachy">Викладачу</a></li>
+		<li class="golovna <?php if($current == '/index'): ?>current<?php endif; ?>"><a href="/index">Головна</a></li>
+		<li><a href="/metodrecommendations">Метод. рекомендації</a>
+			<ul class="submenu">
+				<li><a href="/metodrecommendations/teacher">Викладачу</a></li>
+				<li><a href="/metodrecommendations/master">Майстру в/н</a></li>
+				<li><a href="/metodrecommendations/chairman_mk">Голові МК</a></li>
+				<li><a href="/metodrecommendations/young_teacher">Молодому педагогу</a></li>
+				<li><a href="/metodrecommendations/class_teacher">Класному керівнику</a></li>
+			</ul>
+		</li>
+		<li><a href="/attestation">Атестація</a></li>
 		<li><a href="#">Контакти</a></li>
 	</ul>
 </div>

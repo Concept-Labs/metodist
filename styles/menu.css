@@ -27,7 +27,7 @@ ul.menu li{
 ul.menu li a{
 	text-decoration: none;
 	font-size: 20px;
-	color: #fff;
+	color: #ff5813;
 	display: block;
 	padding-left: 20px;
 
@@ -73,3 +73,26 @@ ul.menu li a:focus{
     width: 85%;
 }
 
+.menu li a.current {
+    color: #FFFF00;
+}
+
+.submenu {
+    display:none; 
+    position: absolute;  
+    z-index: 200;
+}
+.menu ul {
+   width:250px;
+   
+} 
+.submenu li {
+    padding-top: 10px;
+    margin-top: 20px;   
+   float:none;
+   position: relative;
+} 
+ul.menu li:hover > ul.submenu{
+    display:block; 
+    margin-left: 10px;
+}
