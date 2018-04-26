@@ -48,7 +48,7 @@ Abstract Class Controller_Base
         
         $rightblockTemplate = clone $parentTemplate;
         $rightblockTemplate->setFile('templates/rightblock.phtml');
-        $_htmlrightblock = $rightblockTemplate->toHtml();
+        $_htmlrightblock = $rightblockTemplate->toHtmlWithPhp();
         $parentTemplate->set('rightblock', $_htmlrightblock);
        
         if($usePhp){
