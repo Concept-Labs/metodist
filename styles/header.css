@@ -8,6 +8,7 @@
 	margin-right: 0px;
 	font-size: 0.8em;
 	min-width: 900px;
+	
 }
 
 .logo, .main, .menubar, .side_content, .footer{
@@ -46,3 +47,4 @@
 .logo_text h2:hover{
 	color: #04B4AE;
 }
+
