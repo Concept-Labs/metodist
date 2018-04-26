@@ -15,6 +15,14 @@ Class Controller_Metodrecommendations Extends Controller_Base
         //$template->set("name", "Vitalik", false);
         $template->setFile('templates/metodrecommendations.phtml');
         
+        $db = $this->_registry->get('db');
+        $result = mysqli_query($db, " SELECT id, title, text, date, time, author FROM chairman_mk AND teacher ORDER BY date DESC ");
+
+        
+        $template->set('result', $result);
+
+        mysqli_close($db);
+
         $this->_renderLayout($template);
     }
     
@@ -25,12 +33,6 @@ Class Controller_Metodrecommendations Extends Controller_Base
         
 
         $db = $this->_registry->get('db');
-        if (!$db) {
-            echo "Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
-            echo "Код ошибки errno: " . mysqli_connect_errno() . PHP_EOL;
-            echo "Текст ошибки error: " . mysqli_connect_error() . PHP_EOL;
-            exit;
-        }
         $result = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM teacher ORDER BY id DESC ");
         
         $template->set('result', $result);
@@ -44,6 +46,13 @@ Class Controller_Metodrecommendations Extends Controller_Base
     {
         $template = $this->_initTemplate('Рекомендації майстру в/н');
         $template->setFile('templates/metodrecommendations/master.phtml');
+
+        $db = $this->_registry->get('db');
+        $result = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM master ORDER BY id DESC ");
+        
+        $template->set('result', $result);
+
+        mysqli_close($db);
         $this->_renderLayout($template);
     }
 
@@ -51,6 +60,13 @@ Class Controller_Metodrecommendations Extends Controller_Base
     {
         $template = $this->_initTemplate('Рекомендації голові МК');
         $template->setFile('templates/metodrecommendations/chairman_mk.phtml');
+
+        $db = $this->_registry->get('db');
+        $result = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM chairman_mk ORDER BY id DESC ");
+        
+        $template->set('result', $result);
+
+        mysqli_close($db);
         $this->_renderLayout($template);
     }
 
@@ -58,6 +74,13 @@ Class Controller_Metodrecommendations Extends Controller_Base
     {
         $template = $this->_initTemplate('Рекомендації молодому педагогу');
         $template->setFile('templates/metodrecommendations/young_teacher.phtml');
+
+        $db = $this->_registry->get('db');
+        $result = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM young_teacher ORDER BY id DESC ");
+        
+        $template->set('result', $result);
+
+        mysqli_close($db);
         $this->_renderLayout($template);
     }
 
@@ -65,6 +88,13 @@ Class Controller_Metodrecommendations Extends Controller_Base
     {
         $template = $this->_initTemplate('Рекомендації класному керівнику');
         $template->setFile('templates/metodrecommendations/class_teacher.phtml');
+
+        $db = $this->_registry->get('db');
+        $result = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM class_teacher ORDER BY id DESC ");
+        
+        $template->set('result', $result);
+
+        mysqli_close($db);
         $this->_renderLayout($template);
     }
 }

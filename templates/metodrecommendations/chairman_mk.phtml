@@ -1,0 +1,11 @@
+	<?php 
+	$result = $this->get('result');	
+	while ($row = mysqli_fetch_array($result)) {
+		?>
+
+		<h1><?php echo $row['title']."<br/>"; ?></h1>
+		<p><?php echo $row['text']."<br/>"; ?></p>
+		<p>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
+			<span class="author">Автор новини: <?php echo $row['author']."<br/>"; ?></span>
+		</p>		
+		<?php } ?>
