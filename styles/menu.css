@@ -1,5 +1,5 @@
 .menu{
-	padding-top: 20px;
+	padding-top: 10px;
 }
 
 .menu li.golovna a{
@@ -22,18 +22,22 @@ ul.menu li{
 	padding: 0 0 0 9px;
 	list-style: none;
 	margin: 1px 2px 0 0;
+  
+
 }
 
 ul.menu li a{
 	text-decoration: none;
 	font-size: 20px;
-	color: #ff5813;
+	color: #fff;
 	display: block;
 	padding-left: 20px;
+    padding-top: 10px;
+
 
 }
 
-ul.menu li a:hover{
+ul.menu > li > a:hover{
 	color: #FFFF00;
 
 }
@@ -51,7 +55,7 @@ ul.menu li a:focus{
  	position:relative;
     transition: all 0.6s ease-out;
 }
-.menu a:after {
+ul.menu > li > a:after {
 	margin-top: 7px;
     background-color: #FFFF00;
     display: block;
@@ -81,19 +85,44 @@ ul.menu li a:focus{
     display:none; 
     position: absolute;  
     z-index: 200;
+    padding-top: 10px;
+    
+
 }
 .menu ul {
    width:250px;
    
 } 
+
+
 .submenu li {
     z-index: 10;
     padding-top: 10px;
     margin-top: 20px;   
-   float:none;
-   position: relative;
+    float:none;
+    position: relative;
+    width: 242px;
+    height: 45px;
+    background-color: #0B0B61;
+    border-radius: 5px;
+    box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
 } 
+
+.submenu li:hover{
+    background:#E6E6E6;
+    transition: all 0.6s ease-out;
+    color: #000;
+}
+
+.submenu li a:hover{
+    color: #000;
+    transition: all 0.6s ease-out;
+    height: 45px;
+    width: 242px;
+}
+
+
 ul.menu li:hover > ul.submenu{
     display:block; 
-    margin-left: 10px;
+    margin-left: 20px;
 }
