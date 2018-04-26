@@ -22,6 +22,21 @@ Class Controller_Metodrecommendations Extends Controller_Base
     {
         $template = $this->_initTemplate('Рекомендації викладачу');
         $template->setFile('templates/metodrecommendations/teacher.phtml');
+        
+
+        $db = $this->_registry->get('db');
+        if (!$db) {
+            echo "Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
+            echo "Код ошибки errno: " . mysqli_connect_errno() . PHP_EOL;
+            echo "Текст ошибки error: " . mysqli_connect_error() . PHP_EOL;
+            exit;
+        }
+        $result = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM teacher ORDER BY id DESC ");
+        
+        $template->set('result', $result);
+
+        mysqli_close($db);
+
         $this->_renderLayout($template);
     }
     

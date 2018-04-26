@@ -56,7 +56,7 @@ Abstract Class Controller_Base
         } else {
             $html = $template->toHtml();
         }
-        $parentTemplate->set('content', $html);
+        $parentTemplate->set('content', $template->toHtmlWithPhp());
         		
         $footerTemplate = clone $parentTemplate;
         $footerTemplate->setFile('templates/footer.phtml');

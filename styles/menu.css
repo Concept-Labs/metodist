@@ -83,6 +83,7 @@ ul.menu li a:hover{
    
 } 
 .submenu li {
+    z-index: 10;
     padding-top: 10px;
     margin-top: 20px;   
    float:none;

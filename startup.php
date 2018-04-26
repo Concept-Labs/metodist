@@ -5,7 +5,7 @@
 	$registry = new Registry;
 	//устанавливаем соединение с базой данных
 	require_once ( site_path .'config.php' );
-	$db = new PDO('mysql:host='.$dbhost.';dbname='.$dbname, $dbuser, $dbpass );
-    $db->query('SET NAMES utf8mb4_general_ci;');
+	$db = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname );
+	mysqli_set_charset ($db , 'utf8' );
 	$registry->set ('db', $db);
 ?>
