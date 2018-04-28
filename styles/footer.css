@@ -1,5 +1,5 @@
  .fotleft a:hover{
-	color: #fff;
+	color: #0B0B61;
 }
 
 .footer{
@@ -8,10 +8,10 @@
     bottom: 0; /* Левый нижний угол */
     padding: 13px 0; /* Поля вокруг текста */
     text-align: center;
-	color: #fff	; /* Цвет текста */
+	color: #000	; /* Цвет текста */
     width: 100%; /* Ширина слоя */
 	height: 50px; 
-	background-color:  #0B0B61;
+	background-color:  #fff;
 	min-width: 900px;
 }
 
@@ -43,4 +43,45 @@
 	float: right;
 	margin-right: 20px;
 	text-align: left;
+}
+
+.footcontent{
+	height: 300px;
+	background-color: #0101DF;
+
+}
+
+.footcontent h2{
+	text-align: left;
+	padding-bottom: 10px;
+	font: normal 170% 'century gothic', arial;
+}
+.footcontent_size{
+	
+	color: #fff;
+	width: 900px;
+	overflow: hidden;
+	margin: 20px auto 0 auto;
+
+}
+
+.footcontent_left{
+	float: left;
+	overflow: hidden;
+	width: 300px;
+	height: 230px;
+	padding-top: 50px;
+}
+
+.footcontent_right{
+	float: right;
+	overflow: hidden;
+	width: 350px;
+	height: 230px;
+	padding-top: 50px;
+	text-align: left;
+}
+
+.fot_bottom{
+	background-color: #0B0B61;
 }

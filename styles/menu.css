@@ -4,6 +4,7 @@
 
 .menu li.golovna a{
 	color: #81BEF7;
+    font-weight: bold;
 }
 
 .menubar{
@@ -93,7 +94,9 @@ ul.menu > li > a:after {
    width:250px;  
 } 
 
-
+.submenu li a{
+    height: 45px;
+}
 
 .submenu li {
     z-index: 10;
@@ -103,13 +106,13 @@ ul.menu > li > a:after {
     position: relative;
     width: 242px;
     height: 45px;
-    background-color: #0B0B61;
+    background-color: #0101DF;
     border-radius: 5px;
     box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
 } 
 
 .submenu li:hover{
-    background:#E6E6E6;
+    background:#A9BCF5;
     transition: all 0.4s ease-out;
     color: #000;
 }
