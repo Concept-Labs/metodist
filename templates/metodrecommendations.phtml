@@ -2,10 +2,25 @@
 	<div class="content_left">
 
 		<div class="sidebar1">
-			<h3>Для майстра</h3>			
-			<p>
-			Доброго дня, ми вас вітаєм!
-			</p>
+				<?php 
+	$result = $this->get('result');	
+	while ($row = mysqli_fetch_array($result)) {
+		?>
+
+		<h1><?php echo $row['title']."<br/>"; ?></h1>
+		<p><?php echo $row['text']."<br/>"; ?></p>
+		<p>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
+			<span class="author">Автор новини: <?php echo $row['author']."<br/>"; ?></span>
+		</p>
+		<a href="edit.php?id=<?php echo $row['id'] ?>">Редактировать новость</a>
+		<a class="author" href="delete.php?id=<?php echo $row['id'] ?>">Удалить новость</a>
+		<hr/>
+		
+		
+		<?php } 
+
+		?>
+
 		</div>
 	</div>
 </div>		 
