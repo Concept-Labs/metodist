@@ -1,6 +1,5 @@
+<div class="content_left">	
 	<?php 
-<<<<<<< HEAD
-
 	// Ограничиваем количество ссылок, которые будут выводиться перед и
 // после текущей страницы
 	$limit=3;
@@ -19,15 +18,16 @@
 	for ($i = 0; $i<$num_result; $i++) {
 		while ($row = mysqli_fetch_array($result1)) {
 			?>
-
-			<h1><?php echo $row['title']."<br/>"; ?></h1>
-			<p><?php echo $row['text']."<br/>"; ?></p>
-			<p>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
-				<span class="author">Автор новини: <?php echo $row['author']."<br/>"; ?></span>
-			</p>
-			<a href="edit.php?id=<?php echo $row['id'] ?>">Редактировать новость</a>
-			<a class="author" href="delete.php?id=<?php echo $row['id'] ?>">Удалить новость</a>
-			<hr/>
+			<div class="sidebar2">
+				<h1><?php echo $row['title']."<br/>"; ?></h1>
+				<p><?php echo $row['text']."<br/>"; ?></p>
+				<p>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
+					<span class="author">Автор новини: <?php echo $row['author']."<br/>"; ?></span>
+				</p>
+				<a href="edit.php?id=<?php echo $row['id'] ?>">Редактировать новость</a>
+				<a class="author" href="delete.php?id=<?php echo $row['id'] ?>">Удалить новость</a>
+			</div>
+			
 			<?php }     
 		}
 		if ($num > $quantity) {
@@ -88,23 +88,4 @@
 				}
 			}
 			?>
-=======
-	$result = $this->get('result');	
-	while ($row = mysqli_fetch_array($result)) {
-		?>
-		<div class="content_left">
-			<div class="sidebar2">
-				<h1><?php echo $row['title']."<br/>"; ?></h1>
-				<p><?php echo $row['text']."<br/>"; ?></p>
-				<br/>
-				<span>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
-					<span class="author">Опублікував: <?php echo $row['author']."<br/>"; ?></span>
-				</span>
-				<a href="edit.php?id=<?php echo $row['id'] ?>">Редактировать новость</a>
-				<a class="author" href="delete.php?id=<?php echo $row['id'] ?>">Удалить новость</a>
-			</div>
-		</div>	
-
-		<?php } 
-		?>
->>>>>>> 0b11443bf4120cbcb37c96a8ceea2d6f5e3d2caa
+		</div>

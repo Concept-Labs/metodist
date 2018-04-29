@@ -1,65 +1,66 @@
+<div class="content_left">
+	<div class="sidebar2">
 
-<?php 
-if(isset($_SESSION['error'])): ?>
-    <span style="color:red;"><?php echo $_SESSION['error'] ?></span> 
-<?php 
-unset($_SESSION['error']);
-endif; ?>
-<div class="sidebar2">
-	<h2>Реєстрація</h2>
+		<h2>Реєстрація</h2>
 		<form action="/user/registrationPost" method="post">
-		            <label for="name"></label><br/>
-		            <input type="text" name="name" id="name" placeholder=" Імя"><br/>
+			<label for="name"></label><br/>
+			<input type="text" name="name" id="name" placeholder=" Імя"><br/>
 			
-					<label for="surname"></label><br/>
-		            <input type="text" name="surname" id="surname" placeholder=" Прізвище"><br/>
+			<label for="surname"></label><br/>
+			<input type="text" name="surname" id="surname" placeholder=" Прізвище"><br/>
+					<?php 
+		if(isset($_SESSION['error'])): ?>
+		<span style="color:red;"><?php echo $_SESSION['error'] ?></span> 
+		<?php 
+		unset($_SESSION['error']);
+		endif; ?>
+			<label for="patronymic"></label><br/>
+			<input type="text" name="patronymic" id="patronymic" placeholder=" Побатькові"><br/><br/>
 			
-					<label for="patronymic"></label><br/>
-		            <input type="text" name="patronymic" id="patronymic" placeholder=" Побатькові"><br/><br/>
+			Ваша стать:<br/>
+			<label class="radio">
+				<input type="radio" name="pol" value="1">
+				<div class="radio__text">Чоловік</div>
+			</label>
+			<label class="radio">
+				<input type="radio" name="pol" value="0">
+				<div class="radio__text">Жінка</div> 
+			</label>
+			<br/><br/>
+			Дата народження:<br/>
+			<select name="day">
+				<option>День</option>
+				<?php for($i = 01;  $i <= 31; $i++ ): ?>
+					<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+				<?php endfor; ?>
+			</select>
+
+			<select name="month">
+				<option>Місяць</option>
+				<?php for($i = 01;  $i <= 12; $i++ ): ?>
+					<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+				<?php endfor; ?>
+			</select>
 			
-					Ваша стать:<br/>
-					<label class="radio">
-		                <input type="radio" name="pol" value="1">
-		                <div class="radio__text">Чоловік</div>
-		            </label>
-					<label class="radio">
-		                <input type="radio" name="pol" value="0">
-		               <div class="radio__text">Жінка</div> 
-		            </label>
-					<br/><br/>
-					Дата народження:<br/>
-					<select name="day">
-				  		<option>День</option>
-				  		<?php for($i = 01;  $i <= 31; $i++ ): ?>
-							<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-						<?php endfor; ?>
-					</select>
-					
-					<select name="month">
-				  		<option>Місяць</option>
-				  		<?php for($i = 01;  $i <= 12; $i++ ): ?>
-							<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-						<?php endfor; ?>
-					</select>
+			<select name="year">
+				<option>Рік</option>
+				<?php for($i = 2018; 1950 <= $i; $i-- ): ?>
+					<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+				<?php endfor; ?>
+			</select><br/>
 			
-					<select name="year">
-						<option>Рік</option>
-						<?php for($i = 2018; 1950 <= $i; $i-- ): ?>
-							<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-						<?php endfor; ?>
-					</select><br/>
+			<label for="email"></label><br/>
+			<input type="email" name="email" id="email" placeholder=" Ваш email"><br/>
 			
-			 		<label for="email"></label><br/>
-		            <input type="email" name="email" id="email" placeholder=" Ваш email"><br/>
+			<label for="password"></label><br/>
+			<input type="password" name="password" id="password" placeholder=" Ваш пароль"><br/>
+
+			<label for="password"></label><br/>
+			<input type="password" name="password-confirm" id="password-confirm" placeholder=" Пітвердження пароля"><br/><br/>
 			
-					<label for="password"></label><br/>
-		            <input type="password" name="password" id="password" placeholder=" Ваш пароль"><br/>
-		            
-		            <label for="password"></label><br/>
-		            <input type="password" name="password-confirm" id="password-confirm" placeholder=" Пітвердження пароля"><br/><br/>
-			
-					<input type="submit" name="enter" value="Зареєструватися">
+			<input type="submit" name="enter" value="Зареєструватися">
 			
 			
 		</form>
 	</div>
+</div>
