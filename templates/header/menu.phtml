@@ -2,10 +2,10 @@
 /* @var $this Block_Menu */
 $current = $this->getCurrentUrl();
 ?>
-<div class="menubar">
+<nav class="menubar">
 	<ul class="menu">
 		<li class="golovna <?php if($current == '/index'): ?>current<?php endif; ?>"><a href="/index">Головна</a></li>
-		<li><a href="/metodrecommendations">Метод. рекомендації</a>
+		<li><a href="/metodrecommendations" >Метод. рекомендації</a>
 			<ul class="submenu">
 				<li><a href="/metodrecommendations/teacher">Викладачу</a></li>
 				<li><a href="/metodrecommendations/master">Майстру в/н</a></li>
@@ -17,4 +17,4 @@ $current = $this->getCurrentUrl();
 		<li><a href="/attestation">Атестація</a></li>
 		<li><a href="#">Контакти</a></li>
 	</ul>
-</div>
+</nav>

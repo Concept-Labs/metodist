@@ -47,7 +47,7 @@ p{
 }
 
 .stcnt{
-	width: 620px;
+	width: 650px;
 	overflow: hidden;
 	
 	background-color: #fff;
@@ -55,7 +55,7 @@ p{
 
 .content_left{
 	float: left;
-	width: 630px;
+	width: 650px;
 }
 
 .main{
@@ -76,7 +76,7 @@ p{
 }
 
 .side_content{
-	width: 880px;
+	width: 900px;
 	overflow: hidden;
 	margin: 20px auto 0 auto;
 	background-color: #fff;
@@ -95,6 +95,7 @@ p{
 	border: solid 1px #f2f2f2;
 	border-radius: 5px;
 	background-color: #f9f9f9;
+
 	
 }
 
@@ -103,22 +104,24 @@ p{
 
 .sidebar1{
 	float: left;
-	width: 560px;
+	width: 570px;
 	padding: 5%;
 	margin: 0 0 16px 0;
 	border: solid 1px #f2f2f2;
 	border-radius: 5px;
-	background-color: #f9f9f9;
+	background-color: #E6E6E6;
+	box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
 	}
 
 .sidebar2{
 	float: left;
-	width: 530px;
+	width: 570px;
 	padding: 5%;
 	margin: 0 0 16px 0;
 	border: solid 1px #f2f2f2;
 	border-radius: 5px;
-	background-color: #f9f9f9;
+	background-color: #E6E6E6;
+	box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
 	]	
 
 

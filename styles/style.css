@@ -7,6 +7,7 @@
 
 p {
     text-indent: 20px; /* Отступ первой строки в пикселах */
+    text-align: justify;
    }
 
 a{
@@ -18,6 +19,11 @@ a:hover {
 	color: #0B0B61;
 }
 
+.sidebar_right a:hover, .footer a:hover {
+  color: #0B0B61;
+  font-weight: bold;
+  font-size: 1.02em;
+}
 
 .lables{
 	margin-top: 5px;

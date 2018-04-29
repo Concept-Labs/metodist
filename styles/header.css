@@ -1,8 +1,8 @@
 .header{
 	background-color: #0B0B61;
-   /*  background: -moz-linear-gradient(#0B0B61, #EBFFFF);
-   background: -webkit-gradient(linear, 0 0, 0 100%, from(#0B0B61), to(#EBFFFF));
-   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0B61', endColorstr='#EBFFFF'); */
+   background: -moz-linear-gradient(#0B0B3B, #0101DF);
+   background: -webkit-gradient(linear, 0 0, 0 100%, from(#0B0B3B), to(#0101DF));
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0B61', endColorstr='#EBFFFF');
 	height: 150px;
 	margin-left: 0px;
 	margin-right: 0px;
