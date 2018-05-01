@@ -20,7 +20,7 @@ Abstract Class Controller_Base
     protected function _initTemplate($title)
     {
 		$this->_baseTemplate->addCss('styles/header.css');
-		$this->_baseTemplate->addJs('script/menusckroll.js');
+		$this->_baseTemplate->addJs('');
         $this->_baseTemplate->addCss('styles/style.css');
 		$this->_baseTemplate->addCss('styles/menu.css');
 		$this->_baseTemplate->addCss('styles/site_content.css');

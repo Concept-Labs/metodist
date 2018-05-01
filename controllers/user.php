@@ -20,9 +20,47 @@ Class Controller_User Extends Controller_Base
     public function login() 
     {
         $template = $this->_initTemplate('Вход');
-        
-        
+
         $template->setFile('templates/user/login.phtml');
+
+        $db = $this->_registry->get('db');
+        
+        
+        $errorsl = array();
+        //для дебага розкоментувати слід срочку
+        //print_r($data); die;
+        //тут реєструємо
+        //проверяем данні
+        if (isset($_POST['login'])) {            
+            $email = htmlspecialchars(stripslashes(trim($_POST['email'])));
+            $password = htmlspecialchars(stripslashes(md5($_POST['password'])));
+
+            $result = mysqli_query($db, "SELECT * FROM users WHERE email='$email'");
+            $row = mysqli_fetch_array($result);
+
+            if (empty(trim($_POST['email']))) {
+                $errorsl = 'Введіть email';
+            }
+            elseif (empty($row['id'])) {
+                $errorsl = 'Невірний email';
+            } 
+            elseif (empty($_POST['password'])) {
+                $errorsl = 'Введіть пароль';
+            } 
+            elseif (empty($row['password'] == $password)) {
+                $errorsl = 'Невірний пароль';
+            }
+
+            if (empty($errorsl)) {
+                $_SESSION['email']=$row['email']; 
+                $_SESSION['id']=$row['id'];
+            }
+
+        }
+             
+
+        $template->set('errorsl', $errorsl);
+        mysqli_close($db);
         
         $this->_renderLayout($template);
     }
@@ -31,72 +69,89 @@ Class Controller_User Extends Controller_Base
     {
         $template = $this->_initTemplate('Регистрация');
         
-       
+
         $template->setFile('templates/user/registration.phtml');
-        
-        $this->_renderLayout($template, true);
-    }
-    
-    public function registrationPost()
-    {
+
+        $db = $this->_registry->get('db');
+
         $data = $_POST;
+        $template->set('data', $data);
+        $errors = array();
         //для дебага розкоментувати слід срочку
         //print_r($data); die;
-        
+        //тут реєструємо
         //проверяем данні
-        if($data['password'] != $data['password-confirm']){
-            $_SESSION['error'] = 'Помилка: пароль і підтвердження пароля не співпадають';
-        }
-        if(empty($data['name'])){
-            $_SESSION['error'] = 'Помилка: поле імя не може бути пустим';
-        } elseif(empty($data['surname'])) {
-            $_SESSION['error'] = 'Помилка: поле прізвище не може бути пустим';
-        }elseif(empty($data['patronymic'])) {
-            $_SESSION['error'] = 'Помилка: поле побатькові не може бути пустим';
-        }elseif(empty($data['pol'])) {
-            $_SESSION['error'] = 'Помилка: вкажіть свою стать';
-        }elseif(empty($data['email'])) {
-            $_SESSION['error'] = 'Помилка: вкажіть свій email';
-        }elseif(empty($data['password'])) {
-            $_SESSION['error'] = 'Помилка: вкажіть свій пароль';
-        }//elseif(...  дальше добавте інші провірки
-        else { //нема помилки
-            try {
-                //дата народження в форматі MySql - 1983-03-21
+        if (isset($data['enter'])) {
+            $name = htmlspecialchars(stripslashes(trim($data['name'])));
+            $surname = htmlspecialchars(stripslashes(trim($data['surname'])));
+            $patronymic = htmlspecialchars(stripslashes(trim($data['patronymic'])));
+            $email = htmlspecialchars(stripslashes(trim($data['email'])));
+            $password = htmlspecialchars(stripslashes(md5($data['password'])));
+
+            $_SESSION['name']=$name; 
+            $_SESSION['patronymic']=$patronymic;
+
+            $result = mysqli_query($db, "SELECT id FROM users WHERE email='$email'");
+            $myrow = mysqli_fetch_array($result);
+            
+            if (empty(trim($data['name']))) {
+                $errors = 'Введіть імя';
+            } 
+            elseif (empty(trim($data['surname']))) {
+                $errors = 'Введіть прізвище';
+            } 
+            elseif (empty(trim($data['patronymic']))) {
+                $errors = 'Введіть побатькові';
+            } 
+            elseif (empty($data['pol'])) {
+                $errors = 'Вкажіть свою стать';
+            } 
+            elseif (empty(trim($data['email']))) {
+                $errors = 'Введіть email';
+            }
+            elseif (!empty($myrow['id'])) {
+                $errors = 'Вибачте, введений вами email вже зареєстрован. Введіть другий email.';
+            } 
+            elseif (empty($data['password'])) {
+                $errors = 'Введіть пароль';
+            } 
+            elseif ($data['password'] != $data['password-confirm']) {
+                $errors = 'Пароль і підтвердження пароля не співпадають';
+            }
+
+            if (empty($errors)) { //нема помилки
+              //дата народження в форматі MySql - 1983-03-21
                 $birthDate = date('Y-m-d', strtotime($_POST['year'].'/'. $_POST['month'] .'/'. $_POST['day']));
                 
                 //тут записиваем в базу данних
-                $db = $this->_registry->get('db');
                 /* @var $db PDO */
-                $sql = "INSERT INTO `user` (`id`, `name`, `surname`, `patronymic`, `pol`, `date`, `email`, `password`, `country`) "
-                    ." VALUES (null, '{$data['name']}', '{$data['surname']}', '{$data['patronymic']}', '{$data['pol']}', '{$birthDate}',"
-                    ." '{$data['email']}', '{$data['password']}', '{$data['country']}');";
-                $db->query($sql);
-                if($db->errorCode() != '00000'){
-                    $error = $db->errorInfo();
-                    $_SESSION['error'] = $error[2];
-                }
-                //розкоментувати слід строчку для емуляції помилки
-                // throw new Exception('Помилка: нету записи в базу');
-            } catch (Exception $ex) {
-                //тут обрабативаем ошибку
-                $_SESSION['error'] = $ex->getMessage();
+                $sql = mysqli_query($db, "INSERT INTO `users` (`id`, `name`, `surname`, `patronymic`, `pol`, `date`, `email`, `password`) "
+                    ." VALUES (null, '{$name}', '{$surname}', '{$patronymic}', '{$data['pol']}', '{$birthDate}',"
+                    ." '{$email}', '{$password}');");
+                header("Location: /user/registrationSuccess"); /* Redirect browser */
+                exit();
             }
+            
         }
-        
-        if(isset($_SESSION['error'])){
-            header("Location: /user/registration");
-            exit();
-        }
-        //если все ок - идем на сакес пейдж
-        header("Location: /user/registrationSuccess"); /* Redirect browser */
-        exit();
+        $template->set('errors', $errors);
+        mysqli_close($db);       
+        $this->_renderLayout($template, true);
     }
+    
     
     public function registrationSuccess()
     {
         $template = $this->_initTemplate('Регистрация');
         $template->setFile('templates/user/registration-success.phtml');
+
+        $this->_renderLayout($template, true);
+    }
+    public function logout() 
+    {
+        $template = $this->_initTemplate('Вход');
+
+        $template->setFile('templates/user/logout.phtml');
+
         $this->_renderLayout($template, true);
     }
 }
