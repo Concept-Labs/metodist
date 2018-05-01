@@ -14,9 +14,9 @@
 	} 
 
 	$num_result = $this->get('num_result');	
-	$result1 = $this->get('result1');    
+	$result = $this->get('result');    
 	for ($i = 0; $i<$num_result; $i++) {
-		while ($row = mysqli_fetch_array($result1)) {
+		while ($row = mysqli_fetch_array($result)) {
 			?>
 			<div class="sidebar1">
 				<h1><?php echo $row['title']."<br/>"; ?></h1>
