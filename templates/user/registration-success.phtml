@@ -1,25 +1,16 @@
-<?php 
+<div class="content_left">
+	<div class="sidebar2">
+		<?php 
 
-
-
-if (isset($_POST['enter'])) {
-    $_SESSION['name'] = strip_tags(trim($_POST['name']));
-    $_SESSION['surname'] = strip_tags(trim($_POST['surname']));
-    $_SESSION['patronymic'] = strip_tags(trim($_POST['patronymic']));
-}
-
-if (isset($_SESSION['name'])) {
-	 ?>
-
-   <div style="text-align: center;"><?php echo $_SESSION['name']." ".$_SESSION['patronymic'].", спасибо что зарегистрировались на нашем сайте.";?></div>
-<?php	}
-	else {
-		echo "Нет даних.";
- 
- } 
-
-
-echo "string";
- ?>
+		if (isset($_SESSION['name']) && isset($_SESSION['patronymic'])) {
+			?>
+			<div><?php echo $_SESSION['name']." ".$_SESSION['patronymic']?>, дякуємо за реєстрацію, тепер Ви можете <a href="<?php echo base_url . 'user/login'; ?>">авторизуватися</a> на сайті!</div>
+			<?php	}
+			else {
+				echo "ні";
+			}
+			?>
+		</div>
+	</div>
 
 

@@ -1,19 +1,90 @@
+<div class="content_left">
 	<?php 
-	$result = $this->get('result');	
-	while ($row = mysqli_fetch_array($result)) {
-		?>
-		<div class="content_left">
+	// Ограничиваем количество ссылок, которые будут выводиться перед и
+// после текущей страницы
+	$limit=3;
+	
+	$page = $this->get('page');
+	$pages = $this->get('pages');	
+	$num = $this->get('num');
+	$quantity = $this->get('quantity');
+
+	if ($num > $quantity) {
+		echo '<strong style="color: #df0000">Сторінка № ' . $page .'</strong><br /><br />';
+	}	
+
+	$num_result = $this->get('num_result');	
+	$result1 = $this->get('result1');    
+	for ($i = 0; $i<$num_result; $i++) {
+		while ($row = mysqli_fetch_array($result1)) {
+			?>
 			<div class="sidebar2">
 				<h1><?php echo $row['title']."<br/>"; ?></h1>
 				<p><?php echo $row['text']."<br/>"; ?></p>
-				<br/>
-				<span>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
-					<span class="author">Опублікував: <?php echo $row['author']."<br/>"; ?></span>
-				</span>
+				<p>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
+					<span class="author">Автор новини: <?php echo $row['author']."<br/>"; ?></span>
+				</p>
 				<a href="edit.php?id=<?php echo $row['id'] ?>">Редактировать новость</a>
 				<a class="author" href="delete.php?id=<?php echo $row['id'] ?>">Удалить новость</a>
 			</div>
-		</div>	
+			<?php }     
+		}
+		if ($num > $quantity) {
+			echo 'Сторінки: ';
 
-		<?php } 
-		?>
+		// Выводим ссылки "назад" и "на первую страницу"
+			if ($page>=1) {
+
+    // Значение page= для первой страницы всегда равно единице, 
+    // поэтому так и пишем
+				echo '<a href="'.base_url . 'metodrecommendations/young_teacher?page=1"><<</a> &nbsp; ';
+
+    // Так как мы количество страниц до этого уменьшили на единицу, 
+    // то для того, чтобы попасть на предыдущую страницу, 
+    // нам не нужно ничего вычислять
+				echo '<a href="' .base_url . 'metodrecommendations/young_teacher?page=' . $page . 
+				'">< </a> &nbsp; ';
+			}
+
+        // На данном этапе номер текущей страницы = $page+1
+			$this1 = $page+1;
+
+// Узнаем с какой ссылки начинать вывод
+			$start = $this1-$limit;
+
+// Узнаем номер последней ссылки для вывода
+			$end = $this1+$limit;
+
+// Выводим ссылки на все страницы
+// Начальное число $j в нашем случае должно равнятся единице, а не нулю
+			for ($j = 1; $j<$pages; $j++) {
+
+    // Выводим ссылки только в том случае, если их номер больше или равен
+    // начальному значению, и меньше или равен конечному значению
+				if ($j>=$start && $j<=$end) {
+
+        // Ссылка на текущую страницу выделяется жирным
+					if ($j==($page)) echo '<a href="'.base_url . 'metodrecommendations/young_teacher?page=' . $j . '"><strong style="color: #df0000">' . $j . 
+						'</strong></a> &nbsp; ';
+
+        // Ссылки на остальные страницы
+						else echo '<a href="' .base_url . 'metodrecommendations/young_teacher?page=' . 
+							$j . '">' . $j . '</a> &nbsp; ';
+					}
+				}
+
+        // Выводим ссылки "вперед" и "на последнюю страницу"
+				if ($j>$page && ($page+2)<$j) {
+
+    // Чтобы попасть на следующую страницу нужно увеличить $pages на 2
+					echo '<a href="' .base_url . 'metodrecommendations/young_teacher?page=' . ($page+2) . 
+					'"> ></a> &nbsp; ';
+
+    // Так как у нас $j = количество страниц + 1, то теперь 
+    // уменьшаем его на единицу и получаем ссылку на последнюю страницу
+					echo '<a href="' .base_url . 'metodrecommendations/young_teacher?page=' . ($j-1) . 
+					'">>></a> &nbsp; ';
+				}
+			}
+			?>
+		</div>

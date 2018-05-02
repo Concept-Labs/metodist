@@ -1,41 +1,43 @@
-		
 			
-			<div class="sidebar_right">
-				
-				<div class="sidebar">
-					
-					<h2><img src="<?php echo base_url . 'img/lupa.png'; ?>" alt="">  Пошук</h2>
-					<form action="#" method="post">
-						<input type="search" id="search_form" placeholder=" ваш запит" />
-						<input type="submit" class="btn" value="знайти" />
-					</form>
+<div class="sidebar_right">
 
-				</div>
-				
-				<div class="sidebar">
-					<h2>Вхід</h2>
-					<form action="#" method="post" id="login">
-						<input type="text" name="login" placeholder=" ваш логін" />
-						<input type="password" name="pswrd" id="pswrd" placeholder=" ваш пароль" />
-						<input type="submit" value="увійти" />
-					</form>
-					<div class="lables">
-						<span><a href="#">Забули пароль?</a></span> | <span><a href="/user/registration">Реєстрація</a></span>
-					</div>
-				</div>
+		<div class="sidebar">
+		<?php 
+		if (!isset($_SESSION['email'])) { ?>	
+		<div class="lables">
+			<span><a href="<?php echo base_url . 'user/login'; ?>">Увійти</a></span> | <span><a href="<?php echo base_url . '/user/registration'; ?>">Реєстрація</a></span>
+		</div>
 
-				<div class="sidebar">
-					<h2>Для вас шановні</h2>
-					<a href="/qualifications">Підвищення кваліфікації</a></br>
-					<a href="/internship">Стажування</a></br>
-					<a href="/pedagogical_experience">Поширення педагогічного досвіду</a>
+		<?php }
+		else {
+			echo 'Ви увійшли, як '.$_SESSION['email']; ?>
+			<br/>
+			<a href="<?php echo base_url .'user/logout'; ?>">Вийти</a>
+		<?php }
+		?>					
+	</div>
 
-				</div>
-				<div class="sidebar">
-					<h2>Новини</h2>
-					<a href="#">Добавили пошук на сайті.</a></br>
-					<a href="#">Нові вироби учнів.</a></br>
-					<a href="#">Скоро з'явиться реєстрація.</a>
-				</div>
-			</div>
-		
+	<div class="sidebar">
+
+		<h2><img src="<?php echo base_url . 'img/lupa.png'; ?>" alt="">  Пошук</h2>
+		<form action="#" method="post">
+			<input type="search" id="search_form" placeholder=" ваш запит" />
+			<input type="submit" class="btn" value="знайти" />
+		</form>
+
+	</div>
+
+	<div class="sidebar">
+		<h2>Для вас шановні</h2>
+		<a href="/qualifications">Підвищення кваліфікації</a></br>
+		<a href="/internship">Стажування</a></br>
+		<a href="/pedagogical_experience">Поширення педагогічного досвіду</a>
+
+	</div>
+	<div class="sidebar">
+		<h2>Новини</h2>
+		<a href="#">Добавили пошук на сайті.</a></br>
+		<a href="#">Нові вироби учнів.</a></br>
+		<a href="#">Скоро з'явиться реєстрація.</a>
+	</div>
+</div>

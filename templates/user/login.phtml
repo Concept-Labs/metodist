@@ -1,8 +1,29 @@
-<div class="stylis">
-<label for="login-field">Логин:</label>
-            <input type="login" name="login" id="login-field" maxlength="26" size="10">
-           
-            <label for="password-field">Пароль:</label>
-            <input type="password" name="password" id="password-field" size="10">
-		<input class="vhod" type="submit" name="vhod" value="Войти">
-	</div>
+<div class="content_left">
+
+    <?php        
+    $errorsl = $this->get('errorsl');
+
+    if (!empty($errorsl)) { ?>
+    <div class="sidebar2">
+        <span style="color:red;"><?php echo $errorsl; ?></span>
+    </div> 
+    <?php }
+    if (!isset($_SESSION['email'])) {            
+        ?>
+        <div class="sidebar2">
+            <h2>Вхід</h2>
+            <form action="<?php echo base_url . 'user/login'; ?>" method="post">
+                <input type="text" name="email" value="<?php echo @$_POST['email']; ?>" placeholder=" ваш email" />
+                <input type="password" name="password" id="pswrd" placeholder=" ваш пароль" />
+                <input type="submit" name="login" value="увійти" />
+            </form>
+            <div class="lables">
+                <span><a href="#">Забули пароль?</a></span> 
+            </div>
+        </div>
+        <?php }
+        else {
+            header("Location: /");
+        }  ?>
+
+    </div>

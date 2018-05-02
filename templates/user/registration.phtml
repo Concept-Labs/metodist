@@ -1,65 +1,70 @@
-
-<?php 
-if(isset($_SESSION['error'])): ?>
-    <span style="color:red;"><?php echo $_SESSION['error'] ?></span> 
-<?php 
-unset($_SESSION['error']);
-endif; ?>
-<div class="sidebar2">
-	<h2>Реєстрація</h2>
-		<form action="/user/registrationPost" method="post">
-		            <label for="name"></label><br/>
-		            <input type="text" name="name" id="name" placeholder=" Імя"><br/>
-			
-					<label for="surname"></label><br/>
-		            <input type="text" name="surname" id="surname" placeholder=" Прізвище"><br/>
-			
-					<label for="patronymic"></label><br/>
-		            <input type="text" name="patronymic" id="patronymic" placeholder=" Побатькові"><br/><br/>
-			
-					Ваша стать:<br/>
-					<label class="radio">
-		                <input type="radio" name="pol" value="1">
-		                <div class="radio__text">Чоловік</div>
-		            </label>
-					<label class="radio">
-		                <input type="radio" name="pol" value="0">
-		               <div class="radio__text">Жінка</div> 
-		            </label>
-					<br/><br/>
-					Дата народження:<br/>
-					<select name="day">
-				  		<option>День</option>
-				  		<?php for($i = 01;  $i <= 31; $i++ ): ?>
-							<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-						<?php endfor; ?>
-					</select>
-					
-					<select name="month">
-				  		<option>Місяць</option>
-				  		<?php for($i = 01;  $i <= 12; $i++ ): ?>
-							<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-						<?php endfor; ?>
-					</select>
-			
-					<select name="year">
-						<option>Рік</option>
-						<?php for($i = 2018; 1950 <= $i; $i-- ): ?>
-							<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-						<?php endfor; ?>
-					</select><br/>
-			
-			 		<label for="email"></label><br/>
-		            <input type="email" name="email" id="email" placeholder=" Ваш email"><br/>
-			
-					<label for="password"></label><br/>
-		            <input type="password" name="password" id="password" placeholder=" Ваш пароль"><br/>
-		            
-		            <label for="password"></label><br/>
-		            <input type="password" name="password-confirm" id="password-confirm" placeholder=" Пітвердження пароля"><br/><br/>
-			
-					<input type="submit" name="enter" value="Зареєструватися">
-			
-			
-		</form>
+<div class="content_left">		
+	<?php
+	$data = $this->get('data');
+	$errors = $this->get('errors');
+	
+	if (!empty($errors)) { ?>
+	<div class="sidebar2">
+		<span style="color:red;"><?php echo $errors; ?></span> 
 	</div>
+	<?php } ?>
+	<div class="sidebar2">
+
+		<h2>Реєстрація</h2>
+		<form action="/user/registration" method="post">
+			<label for="name"></label><br/>
+			<input type="text" name="name" id="name" value="<?php echo @$data['name']; ?>" placeholder=" Імя" ><br/>
+
+			<label for="surname"></label><br/>
+			<input type="text" name="surname" id="surname" value="<?php echo @$data['surname']; ?>" placeholder=" Прізвище" ><br/>
+
+			<label for="patronymic"></label><br/>
+			<input type="text" name="patronymic" id="patronymic" value="<?php echo @$data['patronymic']; ?>" placeholder=" Побатькові" ><br/><br/>
+
+			Ваша стать:<br/>
+			<label class="radio">
+				<input type="radio" name="pol" value="1" >
+				<div class="radio__text">Чоловік</div>
+			</label>
+			<label class="radio">
+				<input type="radio" name="pol" value="0" >
+				<div class="radio__text">Жінка</div> 
+			</label>
+			<br/><br/>
+			Дата народження:<br/>
+			<select name="day">
+				<option >День</option>
+				<?php for($i = 01;  $i <= 31; $i++ ): ?>
+					<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+				<?php endfor; ?>
+			</select>
+
+			<select name="month">
+				<option>Місяць</option>
+				<?php for($i = 01;  $i <= 12; $i++ ): ?>
+					<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+				<?php endfor; ?>
+			</select>
+
+			<select name="year">
+				<option>Рік</option>
+				<?php for($i = 2018; 1950 <= $i; $i-- ): ?>
+					<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+				<?php endfor; ?>
+			</select><br/>
+
+			<label for="email"></label><br/>
+			<input type="email" name="email" id="email" value="<?php echo @$data['email']; ?>" placeholder=" Ваш email" ><br/>
+
+			<label for="password"></label><br/>
+			<input type="password" name="password" id="password" placeholder=" Ваш пароль" ><br/>
+
+			<label for="password"></label><br/>
+			<input type="password" name="password-confirm" id="password-confirm" placeholder=" Пітвердження пароля" ><br/><br/>
+
+			<input type="submit" name="enter" value="Зареєструватися">
+
+
+		</form>
+	</div>	
+</div>
