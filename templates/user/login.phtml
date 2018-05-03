@@ -4,8 +4,8 @@
     $errorsl = $this->get('errorsl');
 
     if (!empty($errorsl)) { ?>
-    <div class="sidebar2">
-        <span style="color:red;"><?php echo $errorsl; ?></span>
+    <div class="sidebar_error">
+        <span style="color:white;"><?php echo $errorsl; ?></span>
     </div> 
     <?php }
     if (!isset($_SESSION['email'])) {            

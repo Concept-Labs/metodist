@@ -1,0 +1,46 @@
+.page{
+	bottom: 10px;
+	font-weight: bold;
+	width: 25px;
+	padding: 1%;
+	background: #D8D8D8 ;
+	border: 0px;
+	border-radius: 5px;
+	color: #0101DF; 
+	transition: all 0.3s ease-out;
+	box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
+}
+
+  .page:hover {
+ 	color: #fff;
+ 	transition: all 0.3s ease-out;
+	background:  #0B0B61;
+    background: -moz-linear-gradient(#0B0B3B, #0101DF);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#0B0B3B), to(#0101DF));
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0B61', endColorstr='#EBFFFF');
+ }
+
+ .page_active{
+ 	bottom: 10px;
+	width: 25px;
+	padding: 1%;
+	border: 0px;
+	color: #fff; 
+	border-radius: 5px;
+	transition: all 0.3s ease-out;
+	background: -moz-linear-gradient(#0B0B3B, #0101DF);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#0B0B3B), to(#0101DF));
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0B61', endColorstr='#EBFFFF');
+   box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
+ }
+
+.page_active:hover{
+	color: #fff; !important
+}
+
+span.page_center{
+	width: 650px;
+	margin-left: 25%;
+	
+	
+}

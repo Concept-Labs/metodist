@@ -4,8 +4,8 @@
 	$errors = $this->get('errors');
 	
 	if (!empty($errors)) { ?>
-	<div class="sidebar2">
-		<span style="color:red;"><?php echo $errors; ?></span> 
+	<div class="sidebar_error">
+		<span style="color:white;"><?php echo $errors; ?></span> 
 	</div>
 	<?php } ?>
 	<div class="sidebar2">
@@ -13,22 +13,22 @@
 		<h2>Реєстрація</h2>
 		<form action="/user/registration" method="post">
 			<label for="name"></label><br/>
-			<input type="text" name="name" id="name" value="<?php echo @$data['name']; ?>" placeholder=" Імя" ><br/>
+			<input type="text" name="name" id="name" value="<?php echo @$data['name']; ?>" placeholder=" І'мя" ><br/>
 
 			<label for="surname"></label><br/>
 			<input type="text" name="surname" id="surname" value="<?php echo @$data['surname']; ?>" placeholder=" Прізвище" ><br/>
 
 			<label for="patronymic"></label><br/>
-			<input type="text" name="patronymic" id="patronymic" value="<?php echo @$data['patronymic']; ?>" placeholder=" Побатькові" ><br/><br/>
+			<input type="text" name="patronymic" id="patronymic" value="<?php echo @$data['patronymic']; ?>" placeholder=" По батькові" ><br/><br/>
 
 			Ваша стать:<br/>
 			<label class="radio">
 				<input type="radio" name="pol" value="1" >
-				<div class="radio__text">Чоловік</div>
+				<div class="radio__text">Чоловіча</div>
 			</label>
 			<label class="radio">
 				<input type="radio" name="pol" value="0" >
-				<div class="radio__text">Жінка</div> 
+				<div class="radio__text">Жіноча</div> 
 			</label>
 			<br/><br/>
 			Дата народження:<br/>
@@ -60,7 +60,7 @@
 			<input type="password" name="password" id="password" placeholder=" Ваш пароль" ><br/>
 
 			<label for="password"></label><br/>
-			<input type="password" name="password-confirm" id="password-confirm" placeholder=" Пітвердження пароля" ><br/><br/>
+			<input type="password" name="password-confirm" id="password-confirm" placeholder=" Підтвердження пароля" ><br/><br/>
 
 			<input type="submit" name="enter" value="Зареєструватися">
 

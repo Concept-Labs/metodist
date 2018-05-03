@@ -31,7 +31,7 @@ Class Controller_User Extends Controller_Base
         //print_r($data); die;
         //тут реєструємо
         //проверяем данні
-        if (isset($_POST['login'])) {            
+        if (isset($_POST['login'])) {    !        
             $email = htmlspecialchars(stripslashes(trim($_POST['email'])));
             $password = htmlspecialchars(stripslashes(md5($_POST['password'])));
 
@@ -39,16 +39,16 @@ Class Controller_User Extends Controller_Base
             $row = mysqli_fetch_array($result);
 
             if (empty(trim($_POST['email']))) {
-                $errorsl = 'Введіть email';
+                $errorsl = 'Введіть email!';
             }
             elseif (empty($row['id'])) {
-                $errorsl = 'Невірний email';
+                $errorsl = 'Невірний email!';
             } 
             elseif (empty($_POST['password'])) {
-                $errorsl = 'Введіть пароль';
+                $errorsl = 'Введіть пароль!';
             } 
             elseif (empty($row['password'] == $password)) {
-                $errorsl = 'Невірний пароль';
+                $errorsl = 'Невірний пароль!';
             }
 
             if (empty($errorsl)) {
@@ -95,28 +95,28 @@ Class Controller_User Extends Controller_Base
             $myrow = mysqli_fetch_array($result);
             
             if (empty(trim($data['name']))) {
-                $errors = 'Введіть імя';
+                $errors = "Введіть і'мя!";
             } 
             elseif (empty(trim($data['surname']))) {
-                $errors = 'Введіть прізвище';
+                $errors = 'Введіть прізвище!';
             } 
             elseif (empty(trim($data['patronymic']))) {
-                $errors = 'Введіть побатькові';
+                $errors = 'Введіть по батькові!';
             } 
             elseif (empty($data['pol'])) {
-                $errors = 'Вкажіть свою стать';
+                $errors = 'Вкажіть свою стать!';
             } 
             elseif (empty(trim($data['email']))) {
-                $errors = 'Введіть email';
+                $errors = 'Введіть email!';
             }
             elseif (!empty($myrow['id'])) {
-                $errors = 'Вибачте, введений вами email вже зареєстрован. Введіть другий email.';
+                $errors = 'Вибачте, введений вами email вже зареєстрований. Введіть, будь ласка, другий email!';
             } 
             elseif (empty($data['password'])) {
-                $errors = 'Введіть пароль';
+                $errors = 'Введіть пароль!';
             } 
             elseif ($data['password'] != $data['password-confirm']) {
-                $errors = 'Пароль і підтвердження пароля не співпадають';
+                $errors = 'Пароль і підтвердження пароля не співпадають!';
             }
 
             if (empty($errors)) { //нема помилки

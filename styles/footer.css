@@ -3,14 +3,14 @@
 }
 
 .footer{
-	margin-top: 20px;
+	
     left: 0; 
     bottom: 0; /* Левый нижний угол */
     padding: 13px 0; /* Поля вокруг текста */
     text-align: center;
 	color: #000	; /* Цвет текста */
     width: 100%; /* Ширина слоя */
-	height: 50px; 
+	height: 50px;
 	background-color:  #fff;
 	min-width: 900px;
 }
@@ -27,17 +27,20 @@
 .fotleft{
 	margin-left: 20px;
 	text-align: left;
+	background-color: #E6E6E6;
 }
 
 .footer_center{
 	float: left;
 	width: 40%;
+	background-color: #E6E6E6;
 }
 
 .footer_right{
 	float: right;
 	font-size: 75%;
 	width: 30%;
+	background-color: #E6E6E6;
 }
 .fotright{
 	float: right;
@@ -61,7 +64,7 @@
 	color: #fff;
 	width: 900px;
 	overflow: hidden;
-	margin: 20px auto 0 auto;
+	margin: 0 auto 0 auto;
 
 }
 
@@ -83,5 +86,6 @@
 }
 
 .fot_bottom{
-	background-color: #0B0B61;
+	background-color: #E6E6E6;
+	height: 50px;
 }
