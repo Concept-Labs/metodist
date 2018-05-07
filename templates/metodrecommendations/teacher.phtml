@@ -20,13 +20,11 @@
 			?>
 
 			<div class="sidebar2">
-				<h1><?php echo $row['title']."<br/>"; ?></h1>
+				<h1><a href="#"><?php echo $row['title']."<br/>"; ?></a></h1>
 				<p><?php echo $row['text']."<br/>"; ?></p>
 				<p>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
 					<span class="author">Автор новини: <?php echo $row['author']."<br/>"; ?></span>
 				</p>
-				<a href="edit.php?id=<?php echo $row['id'] ?>">Редактировать новость</a>
-				<a class="author" href="delete.php?id=<?php echo $row['id'] ?>">Удалить новость</a>
 			</div>
 		
 			<?php }     

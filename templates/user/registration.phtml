@@ -13,13 +13,13 @@
 		<h2>Реєстрація</h2>
 		<form action="/user/registration" method="post">
 			<label for="name"></label><br/>
-			<input type="text" name="name" id="name" value="<?php echo @$data['name']; ?>" placeholder=" І'мя" ><br/>
+			<input type="text" name="name" id="name" value="<?php echo @$data['name']; ?>" placeholder=" І'мя" >      <span class="obov">*Це поле є обов'язковим!</span><br/>
 
 			<label for="surname"></label><br/>
-			<input type="text" name="surname" id="surname" value="<?php echo @$data['surname']; ?>" placeholder=" Прізвище" ><br/>
+			<input type="text" name="surname" id="surname" value="<?php echo @$data['surname']; ?>" placeholder=" Прізвище" ><span class="obov1">*Це поле є обов'язковим!</span><br/>
 
 			<label for="patronymic"></label><br/>
-			<input type="text" name="patronymic" id="patronymic" value="<?php echo @$data['patronymic']; ?>" placeholder=" По батькові" ><br/><br/>
+			<input type="text" name="patronymic" id="patronymic" value="<?php echo @$data['patronymic']; ?>" placeholder=" По батькові" ><span class="obov1">*Це поле є обов'язковим!</span><br/><br/>
 
 			Ваша стать:<br/>
 			<label class="radio">
@@ -29,7 +29,7 @@
 			<label class="radio">
 				<input type="radio" name="pol" value="0" >
 				<div class="radio__text">Жіноча</div> 
-			</label>
+			</label><span class="obov1">*Це поле є обов'язковим!</span>
 			<br/><br/>
 			Дата народження:<br/>
 			<select name="day">
@@ -54,13 +54,13 @@
 			</select><br/>
 
 			<label for="email"></label><br/>
-			<input type="email" name="email" id="email" value="<?php echo @$data['email']; ?>" placeholder=" Ваш email" ><br/>
+			<input type="email" name="email" id="email" value="<?php echo @$data['email']; ?>" placeholder=" Ваш email" ><span class="obov1">*Це поле є обов'язковим!</span><br/>
 
 			<label for="password"></label><br/>
-			<input type="password" name="password" id="password" placeholder=" Ваш пароль" ><br/>
+			<input type="password" name="password" id="password" placeholder=" Ваш пароль" ><span class="obov1">*Це поле є обов'язковим!</span><br/>
 
 			<label for="password"></label><br/>
-			<input type="password" name="password-confirm" id="password-confirm" placeholder=" Підтвердження пароля" ><br/><br/>
+			<input type="password" name="password-confirm" id="password-confirm" placeholder=" Підтвердження пароля" ><span class="obov1">*Це поле є обов'язковим!</span><br/><br/>
 
 			<input type="submit" name="enter" value="Зареєструватися">
 
