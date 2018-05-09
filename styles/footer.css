@@ -15,6 +15,10 @@
 	min-width: 900px;
 }
 
+.footer h2{
+	color: #fff;
+}
+
 .footer_left, .footer_center, .footer_right{
 	padding-top: 7px;
 }

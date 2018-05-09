@@ -109,7 +109,7 @@ input[type="submit"]:active{
 	border: 0px;
 	border-radius: 5px;
 	background-color: #f9f9f9;
-
+   
 	
 }
 
@@ -169,12 +169,10 @@ input[type="submit"]:active{
 
 .obov{
 	font: normal 85% 'century gothic', arial;
-	color: #fff;
+	color: #fff;	
+	opacity: 0;
+	-webkit-transition: all .5s ;
+	-o-transition: all .5s ;
+    -transition: all .5s ;
 }
-.obov1{
-	font: normal 85% 'century gothic', arial;
-	color: #E6E6E6;
-}
-.obov1:hover{
-	color: #fff;
-}
+
