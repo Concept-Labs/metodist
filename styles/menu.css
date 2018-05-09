@@ -47,20 +47,21 @@ ul.menu li a:focus{
 }
 
 .menu a {
-   
     display: inline-block;
     color:#FFFF00;
     line-height: 1;
     text-decoration:none;
  	position:relative;
     transition: all 0.6s ease-out;
-}
+}  
+
+/* Підкреслення для ссилок в меню */
 ul.menu > li > a:after {
 	margin-top: 7px;
     background-color: #FFFF00;
-    display: block;
     content: "";
     height: 3px;
+    display: block;
     width: 0%;
     left:60%;
     position:absolute;
@@ -76,55 +77,74 @@ ul.menu > li > a:after {
     margin-top: 7px;
     width: 85%;
 }
+/* Це для того щоб не працювало підкреслення для "Метод. рекомендації" */
+ul.menu > li.metodrec > a:after {
+    margin-top: 7px;
+    background-color: #FFFF00;
+    content: "";
+    height: 3px;
+    display: block;
+    width: 0%;
+    left:60%;
+    position:absolute;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    -webkit-transform:translateX(-50%);
+    -moz-transform:translateX(-50%);
+    transform:translateX(-50%);
+}
+/* кінець */
+
+ ul.submenu{
+    display:none;
+    width:250px;  
+    position: absolute;  
+    z-index: 200;
+    padding-top: 10px;
+}
+
+ul.menu li:hover ul{
+       max-height:300px;
+       display: block;
+       margin-left: 20px;
+}
+
 
 .menu li a.current {
     color: #FFFF00;
 }
 
-.submenu {
-    display:none; 
-    position: absolute;  
-    z-index: 200;
-    padding-top: 10px;
-    
-
-}
-.menubar li ul {
-   width:250px;  
-} 
-
 .submenu li a{
     height: 45px;
 }
 
-.submenu li {
+ ul.submenu li {
     z-index: 10;
-    padding-top: 10px;
-    margin-top: 20px;   
     float:none;
     position: relative;
     width: 242px;
     height: 45px;
     background-color: #0101DF;
     border-radius: 5px;
-    box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
+    box-shadow: 0.4em 0.4em 10px rgba(122,122,122,0.5);
 } 
 
+ul.menu li:hover ul{
+    max-height: 300px;
+}
+
 .submenu li:hover{
-    background:#A9BCF5;
-    transition: all 0.4s ease-out;
+    background:#CEECF5;
+    transition: all 0.2s ease-out;
     color: #000;
 }
 
 .submenu li a:hover{
     color: #000;
-    transition: all 0.4s ease-out;
+    transition: all 0.2s ease-out;
     height: 45px;
     width: 242px;
 }
 
 
-ul.menu li:hover > ul.submenu{
-    display:block; 
-    margin-left: 20px;
-}

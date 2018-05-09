@@ -3,14 +3,14 @@
 }
 
 .footer{
-	margin-top: 20px;
+	
     left: 0; 
     bottom: 0; /* Левый нижний угол */
     padding: 13px 0; /* Поля вокруг текста */
     text-align: center;
 	color: #000	; /* Цвет текста */
     width: 100%; /* Ширина слоя */
-	height: 50px; 
+	height: 50px;
 	background-color:  #fff;
 	min-width: 900px;
 }
@@ -22,32 +22,44 @@
 .footer_left{
 	float: left;
 	width: 30%;
-	font-size: 75%;
+	
 }
 .fotleft{
 	margin-left: 20px;
 	text-align: left;
+	font-size: 75%;
+	padding-top: 10px;
+	
 }
 
 .footer_center{
 	float: left;
 	width: 40%;
+	
+}
+
+.fotcenter{
+	padding-top: 10px;
 }
 
 .footer_right{
 	float: right;
-	font-size: 75%;
 	width: 30%;
+	
 }
 .fotright{
 	float: right;
 	margin-right: 20px;
 	text-align: left;
+	font-size: 75%;
+	padding-top: 10px;
 }
 
 .footcontent{
 	height: 300px;
-	background-color: #0101DF;
+	background: -moz-linear-gradient(#0101DF, #0B0174);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#0101DF), to(#0B0174));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0174', endColorstr='#EBFFFF');	
 
 }
 
@@ -61,14 +73,14 @@
 	color: #fff;
 	width: 900px;
 	overflow: hidden;
-	margin: 20px auto 0 auto;
+	margin: 0 auto 0 auto;
 
 }
 
 .footcontent_left{
 	float: left;
 	overflow: hidden;
-	width: 300px;
+	width: 390px;
 	height: 230px;
 	padding-top: 50px;
 }
@@ -82,6 +94,16 @@
 	text-align: left;
 }
 
-.fot_bottom{
-	background-color: #0B0B61;
+div.fot_bottom{
+	color: #fff;
+	background: -moz-linear-gradient(#0B0174, #E6E6E6);
+   background: -webkit-gradient(linear, 0 0, 0 120%, from(#0B0174), to(#E6E6E6));
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0174', endColorstr='#EBFFFF');
+	height: 60px;
+}
+
+.img_about{
+	float: left;
+	margin-right: 15px;
+	margin-bottom: 5px;
 }
