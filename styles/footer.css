@@ -26,6 +26,7 @@
 .footer_left{
 	float: left;
 	width: 30%;
+
 	
 }
 .fotleft{
@@ -87,6 +88,7 @@
 	width: 390px;
 	height: 230px;
 	padding-top: 50px;
+	font-size: 91%;
 }
 
 .footcontent_right{
