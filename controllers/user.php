@@ -19,7 +19,7 @@ Class Controller_User Extends Controller_Base
 
     public function login() 
     {
-        $template = $this->_initTemplate('Вход');
+        $template = $this->_initTemplate('Вхід');
 
         $template->setFile('templates/user/login.phtml');
 
@@ -67,7 +67,7 @@ Class Controller_User Extends Controller_Base
 
     public function registration() 
     {
-        $template = $this->_initTemplate('Регистрация');
+        $template = $this->_initTemplate('Реєстрація');
         
 
         $template->setFile('templates/user/registration.phtml');
@@ -125,9 +125,9 @@ Class Controller_User Extends Controller_Base
                 
                 //тут записиваем в базу данних
                 /* @var $db PDO */
-                $sql = mysqli_query($db, "INSERT INTO `users` (`id`, `name`, `surname`, `patronymic`, `pol`, `date`, `email`, `password`) "
+                $sql = mysqli_query($db, "INSERT INTO `users` (`id`, `name`, `surname`, `patronymic`, `pol`, `date`, `email`, `password`, `date_registration`) "
                     ." VALUES (null, '{$name}', '{$surname}', '{$patronymic}', '{$data['pol']}', '{$birthDate}',"
-                    ." '{$email}', '{$password}');");
+                    ." '{$email}', '{$password}', NOW());");
                 header("Location: /user/registrationSuccess"); /* Redirect browser */
                 exit();
             }
@@ -141,14 +141,14 @@ Class Controller_User Extends Controller_Base
     
     public function registrationSuccess()
     {
-        $template = $this->_initTemplate('Регистрация');
+        $template = $this->_initTemplate('Реєстрація');
         $template->setFile('templates/user/registration-success.phtml');
 
         $this->_renderLayout($template, true);
     }
     public function logout() 
     {
-        $template = $this->_initTemplate('Вход');
+        $template = $this->_initTemplate('Вихід');
 
         $template->setFile('templates/user/logout.phtml');
 
