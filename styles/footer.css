@@ -86,8 +86,8 @@
 	float: left;
 	overflow: hidden;
 	width: 390px;
-	height: 230px;
-	padding-top: 50px;
+	height: 240px;
+	margin-top: 50px;
 	font-size: 91%;
 }
 
@@ -95,8 +95,8 @@
 	float: right;
 	overflow: hidden;
 	width: 350px;
-	height: 230px;
-	padding-top: 50px;
+	height: 240px;
+	margin-top: 50px;
 	text-align: left;
 }
 
