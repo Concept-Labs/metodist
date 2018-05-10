@@ -25,6 +25,9 @@ input[type="search"]:focus, input[type="text"]:focus, input[type="login"]:focus,
 }
 
 input[type="submit"] {
+	background: -moz-linear-gradient(#F2F2F2, #848484);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#F2F2F2), to(#848484));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#848484', endColorstr='#EBFFFF');
 	position: relative;
     display: inline-block;
     vertical-align: middle;
@@ -35,11 +38,12 @@ input[type="submit"] {
 	cursor: pointer;
 	color: #000;
 	font-weight: bold;
-	transition: all 0.3s ease-out;
+	transition: all 0.4s ease-out;
 	border: 0px;
 	box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
 	margin-left: 8px;
-
+	font: normal 90% 'century gothic', arial;
+	font-weight: bold;
 }
 
 input[type="submit"]:hover{
@@ -47,7 +51,10 @@ input[type="submit"]:hover{
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#0101DF), to(#0B0B3B));
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0B61', endColorstr='#EBFFFF');
 	color: #fff;
-	
+	transition: all 0.3s ease-out;
+	-webkit-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
     
 }
 

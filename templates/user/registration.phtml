@@ -9,18 +9,21 @@
 	</div>
 	<?php } ?>
 	<div class="sidebar2">
-
 		<h2>Реєстрація</h2>
-		<form action="/user/registration" method="post">
+		<ul>
+			<form action="/user/registration" method="post">
+			<li>
 			<label for="name"></label><br/>
-			<input type="text" name="name" id="name" value="<?php echo @$data['name']; ?>" placeholder=" І'мя" >      <span class="obov">*Це поле є обов'язковим!</span><br/>
-
+			<input type="text" name="name" id="name" value="<?php echo @$data['name']; ?>" placeholder=" І'мя" required>      <br/></li>
+			<li>
 			<label for="surname"></label><br/>
-			<input type="text" name="surname" id="surname" value="<?php echo @$data['surname']; ?>" placeholder=" Прізвище" ><span class="obov">*Це поле є обов'язковим!</span><br/>
-
+			<input type="text" name="surname" id="surname" value="<?php echo @$data['surname']; ?>" placeholder=" Прізвище" required><br/>
+			</li>
+			<li>
 			<label for="patronymic"></label><br/>
-			<input type="text" name="patronymic" id="patronymic" value="<?php echo @$data['patronymic']; ?>" placeholder=" По батькові" ><span class="obov">*Це поле є обов'язковим!</span><br/><br/>
-
+			<input type="text" name="patronymic" id="patronymic" value="<?php echo @$data['patronymic']; ?>" placeholder=" По батькові" required><br/><br/>
+			</li>
+			<li>
 			Ваша стать:<br/>
 			<label class="radio">
 				<input type="radio" name="pol" value="1" >
@@ -29,9 +32,10 @@
 			<label class="radio">
 				<input type="radio" name="pol" value="0" >
 				<div class="radio__text">Жіноча</div> 
-			</label><span class="obov">*Це поле є обов'язковим!</span>
-			<br/><br/>
-			Дата народження:<br/>
+			</label>
+			<br/>
+			</li>
+			<li>Дата народження:<br/>
 			<select name="day">
 				<option >День</option>
 				<?php for($i = 01;  $i <= 31; $i++ ): ?>
@@ -51,17 +55,18 @@
 				<?php for($i = 2018; 1950 <= $i; $i-- ): ?>
 					<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
 				<?php endfor; ?>
-			</select><br/>
-
-			<label for="email"></label><br/>
-			<input type="email" name="email" id="email" value="<?php echo @$data['email']; ?>" placeholder=" Ваш email" ><span class="obov">*Це поле є обов'язковим!</span><br/>
-
+			</select>
+			</li>
+			<li><label for="email"></label><br/>
+			<input type="email" name="email" id="email" value="<?php echo @$data['email']; ?>" placeholder=" Ваш email" required><br/></li>
+			<li>
 			<label for="password"></label><br/>
-			<input type="password" name="password" id="password" placeholder=" Ваш пароль" ><span class="obov">*Це поле є обов'язковим!</span><br/>
-
+			<input type="password" name="password" id="password" placeholder=" Ваш пароль" minlength="6" required></li>
+			<li>
 			<label for="password"></label><br/>
-			<input type="password" name="password-confirm" id="password-confirm" placeholder=" Підтвердження пароля" ><span class="obov">*Це поле є обов'язковим!</span><br/><br/>
-
+			<input type="password" name="password-confirm" id="password-confirm" placeholder=" Підтвердження пароля" minlength="6" required></li>
+		</ul>
+		<br/><br/>
 			<input type="submit" name="enter" value="Зареєструватися">
 
 

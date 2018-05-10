@@ -42,7 +42,7 @@
 	font-size: 15px;
 	letter-spacing: 0.2em;
 	width: 300px;
-	
+	font: normal 120% 'century gothic', arial;
 }
 
 .logo_text h2:hover{
