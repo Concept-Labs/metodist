@@ -1,5 +1,8 @@
+.menu i{
+    padding-right: 3px;
+}
 .menu{
-	padding-top: 10px;
+	padding-top: 12px;
 }
 
 .menu li.golovna a{
@@ -19,7 +22,7 @@ ul.menu{
 }
 ul.menu li{
 	float: left;
-	padding: 0 0 0 9px;
+	padding: 0 0 0 5px;
 	list-style: none;
 	margin: 1px 2px 0 0;
   
@@ -101,7 +104,7 @@ ul.menu > li.metodrec > a:after {
     width:250px;  
     position: absolute;  
     z-index: 200;
-    padding-top: 10px;
+    padding-top: 9px;
 }
 
 ul.menu li:hover ul{
@@ -120,6 +123,7 @@ ul.menu li:hover ul{
 }
 
  ul.submenu li {
+    padding-top: 1px;
     z-index: 10;
     float:none;
     position: relative;

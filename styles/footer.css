@@ -102,8 +102,8 @@
 
 div.fot_bottom{
 	color: #fff;
-	background: -moz-linear-gradient(#0B0174, #E6E6E6);
-   background: -webkit-gradient(linear, 0 0, 0 120%, from(#0B0174), to(#E6E6E6));
+	background: -moz-linear-gradient(#0B0174, #9289FD);
+   background: -webkit-gradient(linear, 0 0, 0 130%, from(#0B0174), to(#9289FD));
    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0174', endColorstr='#EBFFFF');
 	height: 60px;
 }
