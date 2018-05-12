@@ -22,8 +22,11 @@ Abstract Class Controller_Base
 		$this->_baseTemplate->addCss('styles/header.css');
 		$this->_baseTemplate->addJs('');
         $this->_baseTemplate->addCss('styles/style.css');
+         $this->_baseTemplate->addCss('styles/input.css');
 		$this->_baseTemplate->addCss('styles/menu.css');
+         $this->_baseTemplate->addCss('styles/registration.css');
         $this->_baseTemplate->addCss('styles/storinky.css');
+        $this->_baseTemplate->addCss('styles/galery.css');
 		$this->_baseTemplate->addCss('styles/site_content.css');
         $this->_baseTemplate->addCss('styles/metodrecommendations.css');
          $this->_baseTemplate->addCss('styles/footer.css');

@@ -1,9 +1,12 @@
+.menu i{
+    padding-right: 3px;
+}
 .menu{
-	padding-top: 10px;
+	padding-top: 12px;
 }
 
 .menu li.golovna a{
-	color: #81BEF7;
+	color: #4EE8F6;
 }
 
 .menubar{
@@ -19,7 +22,7 @@ ul.menu{
 }
 ul.menu li{
 	float: left;
-	padding: 0 0 0 9px;
+	padding: 0 0 0 5px;
 	list-style: none;
 	margin: 1px 2px 0 0;
   
@@ -38,17 +41,17 @@ ul.menu li a{
 }
 
 ul.menu > li > a:hover{
-	color: #FFFF00;
+	color: #EFFBFB;
 
 }
 
 ul.menu li a:focus{
-    color: #FFFF00;
+    color: #EFFBFB;
 }
 
 .menu a {
     display: inline-block;
-    color:#FFFF00;
+    color:#EFFBFB;
     line-height: 1;
     text-decoration:none;
  	position:relative;
@@ -58,7 +61,7 @@ ul.menu li a:focus{
 /* Підкреслення для ссилок в меню */
 ul.menu > li > a:after {
 	margin-top: 7px;
-    background-color: #FFFF00;
+    background-color: #EFFBFB;
     content: "";
     height: 3px;
     display: block;
@@ -101,7 +104,7 @@ ul.menu > li.metodrec > a:after {
     width:250px;  
     position: absolute;  
     z-index: 200;
-    padding-top: 10px;
+    padding-top: 9px;
 }
 
 ul.menu li:hover ul{
@@ -120,6 +123,7 @@ ul.menu li:hover ul{
 }
 
  ul.submenu li {
+    padding-top: 1px;
     z-index: 10;
     float:none;
     position: relative;

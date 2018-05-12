@@ -31,7 +31,7 @@
 }
 
 .logo_text h1, .logo_text h1 a, .logo_text h1 a:hover {
-	padding: 22px 0 0 0;
+	padding: 23px 0 0 0;
 	color: #fff;
 	letter-spacing: 0.1em;
 	text-decoration: none;
@@ -42,7 +42,7 @@
 	font-size: 15px;
 	letter-spacing: 0.2em;
 	width: 300px;
-	
+	font: normal 120% 'century gothic', arial;
 }
 
 .logo_text h2:hover{

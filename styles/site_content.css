@@ -1,62 +1,4 @@
-input[type="text"], input[type="password"], input[type="search"], input[type="email"] {
-	width: 60%;
-	padding: 5px;
-	border-radius: 5px;
-	margin: 3px 0 0 0;
-	border: 0px;
-	box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
-	margin-top: 10px;
-}
 
-input[type="search"]:hover, input[type="text"]:hover, input[type="login"]:hover, input[type="password"]:hover, input[type="email"]:hover{
-	outline: none;
-	transition: all 0.3s ease-out;
-	 box-shadow: inset 0 2px 0 rgba(122,122,122,0.5), 
-    0.4em 0.4em 5px rgba(122,122,122,0.5),
-    0 0 6px 3px #C0C0CC;
-}
-
-input[type="search"]:focus, input[type="text"]:focus, input[type="login"]:focus, input[type="password"]:focus, input[type="email"]:focus{
-	outline: none;
-	transition: all 0.3s ease-out;
-	 box-shadow: inset 0 2px 0 rgba(122,122,122,0.5), 
-    0.4em 0.4em 5px rgba(122,122,122,0.5),
-    0 0 6px 3px #C0C0CC;
-}
-
-input[type="submit"] {
-	position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    outline: none;
-	width: 30%;
-	padding: 5px;
-	border-radius: 5px;
-	cursor: pointer;
-	color: #000;
-	font-weight: bold;
-	transition: all 0.3s ease-out;
-	border: 0px;
-	box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
-	margin-left: 8px;
-
-}
-
-input[type="submit"]:hover{
-	background: -moz-linear-gradient(#0101DF, #0B0B3B);
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#0101DF), to(#0B0B3B));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0B61', endColorstr='#EBFFFF');
-	color: #fff;
-	
-    
-}
-
-input[type="submit"]:active{
-	box-shadow: inset 0 0 0 1px rgba(122,122,122,0.5),inset 0 15px 40px rgba(122,122,122,0.5);
-	background: -moz-linear-gradient(#0B0B3B, #0101DF);
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#0B0B3B), to(#0101DF));
-   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0B61', endColorstr='#EBFFFF');
-}
 
 .stcnt{
 	width: 650px;
@@ -92,8 +34,6 @@ input[type="submit"]:active{
 	width: 900px;
 	overflow: hidden;
 	margin: 20px auto 0 auto;
-	background-color: #fff;
-
 }
 
 .sidebar_right{
@@ -101,6 +41,7 @@ input[type="submit"]:active{
 	width: 246px;
 }
 
+/* ЛІВИЙ БЛОК */
 .sidebar{
 	float: right;
 	width: 222px;
@@ -109,12 +50,9 @@ input[type="submit"]:active{
 	border: 0px;
 	border-radius: 5px;
 	background-color: #f9f9f9;
-
+   
 	
 }
-
-
-
 
 .sidebar1{
 	float: left;
@@ -127,6 +65,7 @@ input[type="submit"]:active{
 	box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
 	}
 
+/* ДЛЯ РЕЄЕСТРАЦІЇ */
 .sidebar2{
 	float: left;
 	width: 575px;
@@ -150,31 +89,13 @@ input[type="submit"]:active{
 	box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
 }
 
-.save{
-	font: normal 90% 'century gothic', arial;
-	color: #81BEF7;
-	padding-left: 485px;
-	font-weight: bold;
-	padding-top: 10px;
-	
-}
-
-.save a{
-	color: #2E64FE;
-}
-.save a:hover{
-	 text-decoration: underline;
-	
-}
 
 .obov{
 	font: normal 85% 'century gothic', arial;
-	color: #fff;
+	color: #fff;	
+	opacity: 0;
+	-webkit-transition: all .5s ;
+	-o-transition: all .5s ;
+    -transition: all .5s ;
 }
-.obov1{
-	font: normal 85% 'century gothic', arial;
-	color: #E6E6E6;
-}
-.obov1:hover{
-	color: #fff;
-}
+
