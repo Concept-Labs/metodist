@@ -34,8 +34,6 @@
 	width: 900px;
 	overflow: hidden;
 	margin: 20px auto 0 auto;
-	background-color: #fff;
-
 }
 
 .sidebar_right{
@@ -43,6 +41,7 @@
 	width: 246px;
 }
 
+/* ЛІВИЙ БЛОК */
 .sidebar{
 	float: right;
 	width: 222px;
@@ -55,9 +54,6 @@
 	
 }
 
-
-
-
 .sidebar1{
 	float: left;
 	width: 575px;
@@ -69,6 +65,7 @@
 	box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
 	}
 
+/* ДЛЯ РЕЄЕСТРАЦІЇ */
 .sidebar2{
 	float: left;
 	width: 575px;
@@ -92,22 +89,6 @@
 	box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
 }
 
-.save{
-	font: normal 90% 'century gothic', arial;
-	color: #81BEF7;
-	padding-left: 485px;
-	font-weight: bold;
-	padding-top: 10px;
-	
-}
-
-.save a{
-	color: #2E64FE;
-}
-.save a:hover{
-	 text-decoration: underline;
-	
-}
 
 .obov{
 	font: normal 85% 'century gothic', arial;

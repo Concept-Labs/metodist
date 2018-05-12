@@ -6,7 +6,7 @@
 }
 
 .menu li.golovna a{
-	color: #81BEF7;
+	color: #4EE8F6;
 }
 
 .menubar{
@@ -41,17 +41,17 @@ ul.menu li a{
 }
 
 ul.menu > li > a:hover{
-	color: #FFFF00;
+	color: #EFFBFB;
 
 }
 
 ul.menu li a:focus{
-    color: #FFFF00;
+    color: #EFFBFB;
 }
 
 .menu a {
     display: inline-block;
-    color:#FFFF00;
+    color:#EFFBFB;
     line-height: 1;
     text-decoration:none;
  	position:relative;
@@ -61,7 +61,7 @@ ul.menu li a:focus{
 /* Підкреслення для ссилок в меню */
 ul.menu > li > a:after {
 	margin-top: 7px;
-    background-color: #FFFF00;
+    background-color: #EFFBFB;
     content: "";
     height: 3px;
     display: block;
