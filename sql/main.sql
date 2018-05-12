@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 09 2018 г., 12:40
+-- Время создания: Апр 26 2018 г., 18:23
 -- Версия сервера: 10.1.30-MariaDB
 -- Версия PHP: 7.2.2
 
@@ -25,29 +25,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `users`
+-- Структура таблицы `main`
 --
 
-CREATE TABLE `users` (
-  `id` int(100) UNSIGNED NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `surname` varchar(50) NOT NULL,
-  `patronymic` varchar(50) NOT NULL,
-  `pol` varchar(1) NOT NULL,
+CREATE TABLE `main` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `text` text NOT NULL,
+  `image` varchar(100) NOT NULL DEFAULT 'default.jpg',
   `date` date NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `date_registration` datetime NOT NULL
+  `time` time NOT NULL,
+  `author` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+COMMIT;
 
+-- Индексы таблицы `main`
 --
--- Индексы сохранённых таблиц
---
-
---
--- Индексы таблицы `users`
---
-ALTER TABLE `users`
+ALTER TABLE `main`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -55,10 +49,10 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT для таблицы `users`
+-- AUTO_INCREMENT для таблицы `main`
 --
-ALTER TABLE `users`
-  MODIFY `id` int(100) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+ALTER TABLE `main`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
