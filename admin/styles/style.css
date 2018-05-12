@@ -15,7 +15,7 @@ p {
     text-indent: 20px; /* Отступ первой строки в пикселах */
     text-align: justify; /* Вирівнювання тексту по ширині */
     line-height: 22px;/* Відступ тексту зверху */
-    -webkit-user-select: none; /* Це для того, щоб користувачі не могли копіювать текст */
+    /*-webkit-user-select: none;  Це для того, щоб користувачі не могли копіювать текст */
    }
 
 a{
@@ -51,7 +51,7 @@ a:hover {
 
 select{
 	padding: 1%;
-	width: 116px;
+	width: 136px;
 	box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
 	border-radius: 5px;
 	border: 0px;
@@ -106,4 +106,8 @@ outline: none;
 }
 .radio input:focus + .radio__text:before {
   box-shadow: 0 0 0 3px rgba(255,255,0,.7);
+}
+
+.a-left{
+  float: right;
 }

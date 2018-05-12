@@ -23,9 +23,10 @@
 				<p><?php echo $row['text']."<br/>"; ?></p>
 				<p>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
 					<span class="author">Автор новини: <?php echo $row['author']."<br/>"; ?></span>
-				</p>
-				<a href="edit.php?id=<?php echo $row['id'] ?>">Редактировать новость</a>
-				<a class="author" href="delete.php?id=<?php echo $row['id'] ?>">Удалить новость</a>
+				</p> <br/>
+				<a class="a-left delete" href="delete.php?id=<?php echo $row['id'] ?>"><i class="fas fa-trash-alt"></i>Видалити</a>
+				<a class="a-left edit" href="edit.php?id=<?php echo $row['id'] ?>"><i class="fas fa-pencil-alt"></i>Редагувати</a>
+				
 			</div>
 			<?php }     
 		}

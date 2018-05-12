@@ -68,7 +68,7 @@ input[type="submit"]:active{
 .content_left{
 	float: left;
 	width: 650px;
-	margin-bottom: 15px;
+	margin-bottom: 45px;
 }
 
 .main{
@@ -109,12 +109,21 @@ input[type="submit"]:active{
 	border: 0px;
 	border-radius: 5px;
 	background-color: #f9f9f9;
-
-	
 }
 
+.sidebar ul{
+	list-style-type: none;
+}
 
-
+.sidebar > ul > li > a{
+	font-size: 120%;
+}
+.sidebar > ul > li > a:hover{
+	font-size: 120%;
+}
+.sidebar ul li ul li{
+	padding-left: 10px;
+}
 
 .sidebar1{
 	float: left;
