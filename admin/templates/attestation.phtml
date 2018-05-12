@@ -1,0 +1,159 @@
+<div class="content_left">
+	<?php 
+
+	if (!isset($_GET['articles']) && !isset($_GET['edit']) && !isset($_GET['delete'])) {
+
+	// Ограничиваем количество ссылок, которые будут выводиться перед и
+// после текущей страницы
+		$limit=3;
+
+		$page = $this->get('page');
+		$pages = $this->get('pages');	
+		$num = $this->get('num');
+		$quantity = $this->get('quantity');
+
+		if ($num > $quantity) {
+			echo '<strong style="color: #000; float:right; padding-right: 20px;">Сторінка № ' . $page .'</strong><br /><br />';
+		}	
+
+		$num_result = $this->get('num_result');	
+		$result1 = $this->get('result1');    
+		for ($i = 0; $i<$num_result; $i++) {
+			while ($row = mysqli_fetch_array($result1)) {
+				?>
+
+				<div class="sidebar2">
+					<h1><a href="<?php echo base_url . 'attestation?articles&id='.$row['id']; ?>"><?php echo $row['title']."<br/>"; ?></a></h1>
+					<p><?php $text = $row['text'];
+					$counttext = 1000;
+					$text = substr($text, 0, $counttext);
+					$text = rtrim($text);
+					$text = substr($text, 0, strrpos($text, ' '));
+					if (mb_strlen($row['text']) > $counttext) {
+						echo $text; 
+						echo "<a href=".base_url . 'attestation?articles&id='.$row['id']."> Читати далі . . .</a>";
+					} else {
+						echo $row['text'];
+					}	?></p>	<br/>		
+					<p>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
+						<span class="author">Автор: <?php echo $row['author']."<br/>"; ?></span>
+					</p><br/>
+					<a href="<?php echo base_url . 'attestation?edit&id='.$row['id']; ?>">Редагувати</a>
+					<a class="author" href="<?php echo base_url . 'attestation?delete&id='.$row['id']; ?>">Видалити</a>
+				</div>
+
+				<?php }     
+			}
+			if ($num > $quantity) {
+
+
+		// Выводим ссылки "назад" и "на первую страницу"
+				if ($page>=1) {
+
+    // Значение page= для первой страницы всегда равно единице, 
+    // поэтому так и пишем
+					echo '<span class="page_center"><a class="page" href="'.base_url . 'attestation?page=1"><<</a> &nbsp; ';
+
+    // Так как мы количество страниц до этого уменьшили на единицу, 
+    // то для того, чтобы попасть на предыдущую страницу, 
+    // нам не нужно ничего вычислять
+					echo '<a class="page" href="' .base_url . 'attestation?page=' . ($page-1) . 
+					'">< </a> &nbsp; ';
+				}
+
+        // На данном этапе номер текущей страницы = $page+1
+				$this1 = $page+1;
+
+// Узнаем с какой ссылки начинать вывод
+				$start = $this1-$limit;
+
+// Узнаем номер последней ссылки для вывода
+				$end = $this1+$limit;
+
+// Выводим ссылки на все страницы
+// Начальное число $j в нашем случае должно равнятся единице, а не нулю
+				for ($j = 1; $j<$pages; $j++) {
+
+    // Выводим ссылки только в том случае, если их номер больше или равен
+    // начальному значению, и меньше или равен конечному значению
+					if ($j>=$start && $j<=$end) {
+
+        // Ссылка на текущую страницу выделяется жирным
+						if ($j==($page)) echo '	<a class="page_active" href="'.base_url . 'attestation?page=' . $j . '"><strong>' . $j . 
+							'</strong></a> &nbsp; ';
+
+        // Ссылки на остальные страницы
+						else echo '<a class="page" href="' .base_url . 'attestation?page=' . 
+							$j . '">' . $j . '</a> &nbsp; ';
+					}
+				}
+
+        // Выводим ссылки "вперед" и "на последнюю страницу"
+				if ($j>$page && ($page+1)<$j) {
+
+    // Чтобы попасть на следующую страницу нужно увеличить $pages на 2
+					echo '<a class="page" href="' .base_url . 'attestation?page=' . ($page+1) . 
+					'"> ></a> &nbsp; ';
+
+    // Так как у нас $j = количество страниц + 1, то теперь 
+    // уменьшаем его на единицу и получаем ссылку на последнюю страницу
+					echo '<a class="page" href="' .base_url . 'attestation?page=' . ($j-1) . 
+					'">>></a> &nbsp; </span>';
+				}
+			}
+		}
+		else {
+			if (isset($_GET['articles'])) {
+				$roww = $this->get('roww');	
+				?>
+
+				<div class="sidebar2">
+					<a href="<?php echo base_url . 'attestation?edit&id='.$roww['id']; ?>">Редагувати</a>
+					<a class="author" href="<?php echo base_url . 'attestation?delete&id='.$roww['id']; ?>">Видалити</a>
+					<h1><?php echo $roww['title']."<br/>"; ?></h1>
+					<p><?php echo $roww['text']."<br/><br/>";	?></p>
+					<img src="<?php echo base_urlimg . 'media\articles\images'.DS.$roww['image'];?>" alt="<?php echo $roww['image'];?>"/><br/><br/>					
+					<p>Дата публікації: <?php echo $roww['date'];?> / <?php echo $roww['time']; ?>
+						<span class="author">Автор: <?php echo $roww['author']."<br/>"; ?></span>
+					</p>
+					
+				</div>
+
+				<?php 
+			}
+			if (isset($_GET['edit'])) {
+				$roww = $this->get('roww');	
+				?>
+				<div class="sidebar2">
+					<form action="<?php echo base_url . 'attestation?edit&id='.$roww['id']; ?>" method="post">
+
+						Заголовок:<br/>
+						<input type="text" name="title" value="<?php echo $roww['title']; ?>" /><br/><br/>
+
+						Текст: <br/>
+						<textarea name="text" cols="80" rows="20"><?php echo $roww['text']; ?></textarea><br/><br/>
+
+						Автор:
+						<input type="text" name="author"  value="<?php echo $roww['author']; ?>"/><br/><br/>
+
+
+						<input type="submit" name="save" value="Зберегти">
+					</div>
+
+				</form>
+				<?php
+			}
+
+			if (isset($_GET['delete'])) {
+				$delete = $this->get('delete');
+				if (isset($delete)) {
+					echo "<div class='sidebar2'>Стаття успішно видалена!</div>";
+				} else {
+					echo "<div class='sidebar2'>Стаття не видалено!</div>";
+				}
+			}
+
+		}
+
+		?>
+	</div>

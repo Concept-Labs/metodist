@@ -8,6 +8,8 @@
     $site_path = realpath(dirname(__FILE__)) . DIRSEP;
     define ('site_path', $site_path);
     define('base_url', 'http://' . $_SERVER['HTTP_HOST'] . DIRSEP);
+    PHP_OS == "Windows" ||
+    PHP_OS == "WINNT" ? define("DS", "\\") : define("DS", "/"); 
     include ( site_path .'startup.php' );
     // Создаём объект шаблонов
     $template = new Template( $registry );

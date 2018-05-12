@@ -1,0 +1,50 @@
+<div class="content_left">
+	<?php
+	$errore = $this->get('errore');
+	if (!empty($errore)) { 
+		echo "<div class='sidebar_error' style='color: white;'>".$errore."</div>";
+	} 
+
+	if (empty($errore)) {
+		if (!empty($_POST)) {
+			echo "<div class='sidebar2' style='color: green;'>Матеріал \"".$_POST['title']."\" успішно доданий!</div>";
+		}
+	}
+	?>
+	<div class="sidebar2">
+		<form action="<?php echo base_url . 'add'; ?>" method="post" enctype="multipart/form-data">
+
+			Назва матеріалу: <br/>
+			<input type="text" name="title"  value="<?php echo @$_POST['title']; ?>"/><br/><br/>
+
+			Текс матеріалу:<br/>
+			<textarea name="text" id="" cols="40" rows="10" value="<?php echo @$_POST['text']; ?>"></textarea><br/><br/>
+
+			Зображення:<br/>
+			<input type="file" name="image"/><br/><br/>
+
+			Розділ:<br/>
+			<select name="section">				
+				<option value="main">На головну</option>
+				<option value="teacher">Викладачу</option>
+				<option value="master">Майстру в/н</option>
+				<option value="chairman_mk">Голові МК</option>
+				<option value="young_teacher">Молодому педагогу</option>
+				<option value="class_teacher">Класному керівнику</option>
+				<option value="attestation">Атестація</option>
+				<option value="qualifications">Підвищення кваліфікації</option>
+				<option value="internship">Стажування</option>
+				<option value="pedagogical_experience">Поширення педагогічного досвіду</option>				
+			</select><br/><br/>
+
+			Додав матеріал:<br/>
+			<input type="text" name="author" value="<?php echo @$_POST['author']; ?>"/><br/><br/>
+
+			<input type="hidden" name="date" value="<?php echo date('Y-m-d') ?>" />
+
+			<input type="hidden" name="time" value="<?php echo date('H:i:s') ?>" />
+			<input type="submit" name="add" value="Добавити">
+		</form>
+		
+	</div>
+</div>
