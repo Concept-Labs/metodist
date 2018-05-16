@@ -5,6 +5,7 @@
 
 	// Ограничиваем количество ссылок, которые будут выводиться перед и
 // после текущей страницы
+<<<<<<< HEAD
 		$limit=3;
 
 		$page = $this->get('page');
@@ -12,6 +13,36 @@
 		$num = $this->get('num');
 		$quantity = $this->get('quantity');
 
+=======
+	$limit=3;
+	
+	$page = $this->get('page');
+	$pages = $this->get('pages');	
+	$num = $this->get('num');
+	$quantity = $this->get('quantity');
+
+	if ($num > $quantity) {
+		echo '<strong style="color: #df0000">Сторінка № ' . $page .'</strong><br /><br />';
+	}	
+
+	$num_result = $this->get('num_result');	
+	$result1 = $this->get('result1');    
+	for ($i = 0; $i<$num_result; $i++) {
+		while ($row = mysqli_fetch_array($result1)) {
+			?>
+			<div class="sidebar2">
+				<h1><a href="#"><?php echo $row['title']."<br/>"; ?></a></h1>
+				<p><?php echo $row['text']."<br/>"; ?></p>
+				<p>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
+					<span class="author">Автор новини: <?php echo $row['author']."<br/>"; ?></span>
+				</p>
+				<a href="edit.php?id=<?php echo $row['id'] ?>">Редактировать новость</a>
+				<a class="author" href="delete.php?id=<?php echo $row['id'] ?>">Удалить новость</a>
+			</div>
+			
+			<?php }     
+		}
+>>>>>>> 5b9224616b6664c90755d8e6aa167b1c839a4bb5
 		if ($num > $quantity) {
 			echo '<strong style="color: #000; float:right; padding-right: 20px;">Сторінка № ' . $page .'</strong><br /><br />';
 		}	

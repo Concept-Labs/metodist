@@ -25,7 +25,9 @@ input[type="search"]:focus, input[type="text"]:focus, input[type="login"]:focus,
 /* КІНЕЦЬ ФОРМ РЕЄСТРАЦІЇ*/
 
 textarea {
-	width: 60%;
+	font-size: 120%;
+	width: 99%;
+	height: 400px;
 	padding: 5px;
 	border-radius: 5px;
 	margin: 3px 0 0 0;

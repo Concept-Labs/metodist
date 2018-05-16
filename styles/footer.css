@@ -3,14 +3,11 @@
 }
 
 .footer{
-	
-    left: 0; 
-    bottom: 0; /* Левый нижний угол */
-    padding: 13px 0; /* Поля вокруг текста */
+    padding: 13px 0 0 0; /* Поля вокруг текста */
     text-align: center;
 	color: #000	; /* Цвет текста */
     width: 100%; /* Ширина слоя */
-	height: 50px;
+
 	background-color:  #fff;
 	min-width: 900px;
 }
