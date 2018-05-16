@@ -51,7 +51,7 @@ Class Controller_Metodrecommendations Extends Controller_Base
                 $sql1 = mysqli_query($db, "INSERT INTO `metodrecommendations` (`id`, `title`, `text`, `date`, `time`, `author`) VALUES (null, '{$row1['title']}', '{$row1['text']}', '{$row1['date']}', '{$row1['time']}', '{$row1['author']}')");
 
                 
-                } else {
+                } /*else {
                     $result_del1 = mysqli_query($db, "   SELECT * FROM metodrecommendations");
 
                 while ($row_del1 = mysqli_fetch_array($result_del1)) {
@@ -70,7 +70,7 @@ Class Controller_Metodrecommendations Extends Controller_Base
 
                         }
                     }
-                }
+                }*/
                 }
 
 // Достаєм всі елементи із таблиці master і поміщаємо в таблицю metodrecommendations

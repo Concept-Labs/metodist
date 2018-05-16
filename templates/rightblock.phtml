@@ -35,9 +35,41 @@
 
 	</div>
 	<div class="sidebar">
-		<h2>Новини</h2>
-		<a href="#">Добавили пошук на сайті.</a></br>
-		<a href="#">Нові вироби учнів.</a></br>
-		<a href="#">Скоро з'явиться реєстрація.</a>
+		<h2>Новини</h2>		
+<?php
+		$db = mysqli_connect('localhost', 'root', '', 'metodist' );
+	mysqli_set_charset ($db , 'utf8' );
+	        if (!$db) {
+            echo "Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
+            echo "Код ошибки errno: " . mysqli_connect_errno() . PHP_EOL;
+            echo "Текст ошибки error: " . mysqli_connect_error() . PHP_EOL;
+            exit;
+        }
+		
+// Устанавливаем количество записей, которые будут выводиться на одной странице
+// Поставьте нужное вам число. Для примера я указал одну запись на страницу
+        $quantity=5;
+
+// Делаем запрос подставляя значения переменных $quantity и $list
+        $result1 = mysqli_query($db, "SELECT * FROM news ORDER BY id DESC LIMIT $quantity");
+
+    //код для виведення матеріалу а одну сторінку
+        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
+
+        $res = mysqli_query($db, "   SELECT * FROM news WHERE id='$id'");
+
+        $roww = mysqli_fetch_array($res);
+
+        mysqli_close($db);
+
+// Считаем количество полученных записей
+        $num_result = mysqli_num_rows($result1);
+
+			while ($row = mysqli_fetch_array($result1)) {
+				?>				
+					<a href="<?php echo base_url . 'news?articles&id='.$row['id']; ?>"><?php echo $row['title']."<br/>"; ?></a>				
+				<?php }     
+			?>
+
 	</div>
 </div>

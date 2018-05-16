@@ -144,7 +144,17 @@ Class Controller_Metodrecommendations Extends Controller_Base
         $list=--$page*$quantity;
 
 // Делаем запрос подставляя значения переменных $quantity и $list
-        $result = mysqli_query($db, "SELECT id, title, text, date, time, author FROM metodrecommendations ORDER BY id DESC LIMIT $quantity OFFSET $list;");  
+        $result = mysqli_query($db, "SELECT id, title, text, date, time, author FROM metodrecommendations ORDER BY id DESC LIMIT $quantity OFFSET $list;"); 
+
+            //код для виведення матеріалу а одну сторінку
+        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
+
+
+        $res = mysqli_query($db, "   SELECT * FROM metodrecommendations WHERE id='$id'");
+
+
+        $roww = mysqli_fetch_array($res);
+        $template->set('roww', $roww); 
 
         mysqli_close($db);
         $template->set('result', $result);
@@ -216,6 +226,16 @@ Class Controller_Metodrecommendations Extends Controller_Base
 // Делаем запрос подставляя значения переменных $quantity и $list
         $result1 = mysqli_query($db, "SELECT id, title, text, date, time, author FROM teacher ORDER BY id DESC LIMIT $quantity OFFSET $list;");
 
+            //код для виведення матеріалу а одну сторінку
+        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
+
+
+        $res = mysqli_query($db, "   SELECT * FROM teacher WHERE id='$id'");
+
+
+        $roww = mysqli_fetch_array($res);
+        $template->set('roww', $roww);
+
         mysqli_close($db);
         $template->set('result1', $result1);
 // Считаем количество полученных записей
@@ -286,6 +306,16 @@ Class Controller_Metodrecommendations Extends Controller_Base
 
 // Делаем запрос подставляя значения переменных $quantity и $list
         $result1 = mysqli_query($db, "SELECT id, title, text, date, time, author FROM master ORDER BY id DESC LIMIT $quantity OFFSET $list;");
+
+            //код для виведення матеріалу а одну сторінку
+        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
+
+
+        $res = mysqli_query($db, "   SELECT * FROM master WHERE id='$id'");
+
+
+        $roww = mysqli_fetch_array($res);
+        $template->set('roww', $roww);
 
         mysqli_close($db);
         $template->set('result1', $result1);
@@ -359,6 +389,16 @@ Class Controller_Metodrecommendations Extends Controller_Base
 // Делаем запрос подставляя значения переменных $quantity и $list
         $result1 = mysqli_query($db, "SELECT id, title, text, date, time, author FROM chairman_mk ORDER BY id DESC LIMIT $quantity OFFSET $list;");
 
+            //код для виведення матеріалу а одну сторінку
+        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
+
+
+        $res = mysqli_query($db, "   SELECT * FROM chairman_mk WHERE id='$id'");
+
+
+        $roww = mysqli_fetch_array($res);
+        $template->set('roww', $roww);
+
         mysqli_close($db);
         $template->set('result1', $result1);
 // Считаем количество полученных записей
@@ -430,6 +470,16 @@ Class Controller_Metodrecommendations Extends Controller_Base
 // Делаем запрос подставляя значения переменных $quantity и $list
         $result1 = mysqli_query($db, "SELECT id, title, text, date, time, author FROM young_teacher ORDER BY id DESC LIMIT $quantity OFFSET $list;");
 
+            //код для виведення матеріалу а одну сторінку
+        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
+
+
+        $res = mysqli_query($db, "   SELECT * FROM young_teacher WHERE id='$id'");
+
+
+        $roww = mysqli_fetch_array($res);
+        $template->set('roww', $roww);
+
         mysqli_close($db);
         $template->set('result1', $result1);
 // Считаем количество полученных записей
@@ -500,6 +550,16 @@ Class Controller_Metodrecommendations Extends Controller_Base
 
 // Делаем запрос подставляя значения переменных $quantity и $list
         $result1 = mysqli_query($db, "SELECT id, title, text, date, time, author FROM class_teacher ORDER BY id DESC LIMIT $quantity OFFSET $list;");
+
+            //код для виведення матеріалу а одну сторінку
+        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
+
+
+        $res = mysqli_query($db, "   SELECT * FROM class_teacher WHERE id='$id'");
+
+
+        $roww = mysqli_fetch_array($res);
+        $template->set('roww', $roww);
 
         mysqli_close($db);
         $template->set('result1', $result1);

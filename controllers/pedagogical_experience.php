@@ -33,6 +33,16 @@ Class Controller_Pedagogical_Experience Extends Controller_Base
         }
 // Узнаем количество всех доступных записей 
         $result = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM pedagogical_experience");
+
+            //код для виведення матеріалу а одну сторінку
+        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
+
+
+        $res = mysqli_query($db, "   SELECT * FROM pedagogical_experience WHERE id='$id'");
+
+
+        $roww = mysqli_fetch_array($res);
+        $template->set('roww', $roww);
         
         $template->set('result', $result);
         $num = mysqli_num_rows($result);

@@ -71,6 +71,16 @@ Class Controller_Attestation Extends Controller_Base
 // Делаем запрос подставляя значения переменных $quantity и $list
         $result1 = mysqli_query($db, "SELECT id, title, text, date, time, author FROM attestation ORDER BY id DESC LIMIT $quantity OFFSET $list;");
 
+            //код для виведення матеріалу а одну сторінку
+        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
+
+
+        $res = mysqli_query($db, "   SELECT * FROM attestation WHERE id='$id'");
+
+
+        $roww = mysqli_fetch_array($res);
+        $template->set('roww', $roww);
+
         mysqli_close($db);
         $template->set('result1', $result1);
 // Считаем количество полученных записей

@@ -1,5 +1,5 @@
 <?php
-Class Controller_Internship Extends Controller_Base 
+Class Controller_News Extends Controller_Base 
 {
     protected function _initTemplate($title)
     {
@@ -9,10 +9,10 @@ Class Controller_Internship Extends Controller_Base
     
     public function index() 
     {
-        $template = $this->_initTemplate('Стажування');
+        $template = $this->_initTemplate('Новини');
         
-        $template->setFile('templates/internship.phtml');
-        
+        $template->setFile('templates/news.phtml');
+
         $db = $this->_registry->get('db');
 // Устанавливаем количество записей, которые будут выводиться на одной странице
 // Поставьте нужное вам число. Для примера я указал одну запись на страницу
@@ -28,16 +28,16 @@ Class Controller_Internship Extends Controller_Base
 // страницу, чтобы избежать ошибки
         if ($page<1) {
             $page=1;
-             header("Location: /metodrecommendations/teacher?page=1");
+            header("Location: /news?page=1");
             exit();
         }
+
 // Узнаем количество всех доступных записей 
-        $result = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM internship");
-        
+        $result = mysqli_query($db, "   SELECT * FROM news");
+
         $template->set('result', $result);
         $num = mysqli_num_rows($result);
         $template->set('num', $num);
-
 // Вычисляем количество страниц, чтобы знать сколько ссылок выводить
         $pages = $num/$quantity;
 
@@ -56,7 +56,6 @@ Class Controller_Internship Extends Controller_Base
         $template->set('pages', $pages);
 // Выводим заголовок с номером текущей страницы 
 
-
 // Переменная $list указывает с какой записи начинать выводить данные.
 // Если это число не определено, то будем выводить
 // с самого начала, то-есть с нулевой записи
@@ -68,13 +67,13 @@ Class Controller_Internship Extends Controller_Base
         $list=--$page*$quantity;
 
 // Делаем запрос подставляя значения переменных $quantity и $list
-        $result1 = mysqli_query($db, "SELECT id, title, text, date, time, author FROM internship ORDER BY id DESC LIMIT $quantity OFFSET $list;");
+        $result1 = mysqli_query($db, "SELECT * FROM news ORDER BY id DESC LIMIT $quantity OFFSET $list;");
 
-            //код для виведення матеріалу а одну сторінку
+    //код для виведення матеріалу а одну сторінку
         $id = isset($_GET['id']) ? $_GET['id'] : 0; 
 
 
-        $res = mysqli_query($db, "   SELECT * FROM internship WHERE id='$id'");
+        $res = mysqli_query($db, "   SELECT * FROM news WHERE id='$id'");
 
 
         $roww = mysqli_fetch_array($res);
@@ -85,7 +84,9 @@ Class Controller_Internship Extends Controller_Base
 // Считаем количество полученных записей
         $num_result = mysqli_num_rows($result1);
         $template->set('num_result', $num_result);
+        
 
         $this->_renderLayout($template);
     }
+    
 }
