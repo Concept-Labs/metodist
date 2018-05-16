@@ -33,10 +33,10 @@ input[type="submit"] {
 	background: -moz-linear-gradient(#F2F2F2, #848484);
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#F2F2F2), to(#848484));
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#848484', endColorstr='#EBFFFF');
-	position: relative;
+	
     display: inline-block;
     vertical-align: middle;
-    outline: none;
+  
 	width: 30%;
 	padding: 5px;
 	border-radius: 5px;
