@@ -7,13 +7,17 @@
 	border: 0px;
 	border-radius: 5px;
 	color: #0101DF; 
-	transition: all 0.2s ease-out;
+	-webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
 	box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
 }
 
   .page:hover {
  	color: #fff;
- 	transition: all 0.2s ease-out;
+ 	-webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
  	background-color: #0B0B61;
 	background: -moz-linear-gradient(#0101DF, #0B0B3B);
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#0101DF), to(#0B0B3B));
@@ -29,7 +33,9 @@
 	border: 0px;
 	color: #fff; 
 	border-radius: 5px;
-	transition: all 0.3s ease-out;
+	-webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
 	background: -moz-linear-gradient(#0101DF, #0B0B3B);
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#0101DF), to(#0B0B3B));
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0B61', endColorstr='#EBFFFF');

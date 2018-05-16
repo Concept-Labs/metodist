@@ -23,6 +23,7 @@ Abstract Class Controller_Base
 		$this->_baseTemplate->addJs('');
         $this->_baseTemplate->addCss('styles/style.css');
          $this->_baseTemplate->addCss('styles/input.css');
+         $this->_baseTemplate->addCss('styles/contact.css');
 		$this->_baseTemplate->addCss('styles/menu.css');
          $this->_baseTemplate->addCss('styles/registration.css');
         $this->_baseTemplate->addCss('styles/storinky.css');

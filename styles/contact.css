@@ -1,0 +1,113 @@
+.contact span{
+  font-size: 130%;
+}
+
+.contact h2 {
+  /* чтобы линии не выходили за ширину блока заголовка */
+  overflow: hidden;
+}
+.contact h2:before,
+.contact h2:after {
+  content: '';
+
+  /* делаем линию строчно-блочной */
+  display: inline-block;
+
+  /* выравниваем вертикально по середине */
+  vertical-align: bottom;
+  margin-bottom: 6px;
+
+  /* не позволяем ширине превысить 100% (будет добавлен бордюр) */
+  box-sizing: border-box;
+
+  /* установка ширины в 100% делает линию равной ширине тега заголовка
+  ** благодаря этому линия заполнит все свободное пространство
+  ** слева и справа от текста
+  */
+  width: 100%;
+  height: 3px;
+  background:  #2E64FE;
+
+  /* добавляем к линии левый и правый бордюр цветом основного фона заголовка
+  ** благодаря этому создается нужный отступ между линиями и текстом
+  */
+  border: solid #E6E6E6;
+  border-width: 0 10px;
+}
+.contact h2:before {
+  /* смещаем левую линию влево отрицательным отступом, равным 100% ширины
+  ** благодаря этому линия встает слева от текста
+  */
+  margin-left: -100%;
+}
+.contact h2:after {
+  /* смещаем правую линию вправо отрицательным отступом, равным 100% ширины
+  ** благодаря этому линия встает справа от текста
+  */
+  margin-right: -100%;
+}
+
+.contact span{
+  padding-top: 50px;
+  border-bottom: 1px solid #2E64FE;
+  width: 100%;
+}
+.s-left{
+  float: left;
+}
+.s-right{
+  float: right;
+}
+.s-right a{
+  float: right;
+}
+
+.tooltipcon{
+  color: #2E64FE;
+  position: relative;
+  cursor: pointer;
+}
+.tooltipcon:before,
+.tooltipcon:after{
+  display: block;
+  position: absolute;
+ 
+  margin-left:380px;
+
+  -webkit-transition: .4s all;
+  -moz-transition: .4s all;
+  transition: .4s all;
+}
+.tooltipcon:before{
+  width: 200px;
+  padding:10px; 
+  padding-right: 20px;
+  color: #E8A200;
+  content: attr(data-title);
+  
+  top: 40px;
+  border-radius: 5px;
+
+  text-align: center;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.tooltipcon:hover:before,
+.tooltipcon:hover:after{
+  margin-left: 35%;
+  visibility: visible;
+  opacity: 1;
+}
+.con:before{
+  width: 220px;}
+
+.con:hover:before,
+.con:hover:after{
+  margin-left: 36%;
+  visibility: visible;
+  opacity: 1;
+}.
+
+
