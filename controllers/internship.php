@@ -32,7 +32,7 @@ Class Controller_Internship Extends Controller_Base
             exit();
         }
 // Узнаем количество всех доступных записей 
-        $result = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM internship");
+        $result = mysqli_query($db, "   SELECT * FROM internship");
         
         $template->set('result', $result);
         $num = mysqli_num_rows($result);
@@ -68,7 +68,7 @@ Class Controller_Internship Extends Controller_Base
         $list=--$page*$quantity;
 
 // Делаем запрос подставляя значения переменных $quantity и $list
-        $result1 = mysqli_query($db, "SELECT id, title, text, date, time, author FROM internship ORDER BY id DESC LIMIT $quantity OFFSET $list;");
+        $result1 = mysqli_query($db, "SELECT * FROM internship ORDER BY id DESC LIMIT $quantity OFFSET $list;");
 
             //код для виведення матеріалу а одну сторінку
         $id = isset($_GET['id']) ? $_GET['id'] : 0; 

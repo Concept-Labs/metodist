@@ -28,21 +28,11 @@ Class Controller_Pedagogical_Experience Extends Controller_Base
 // страницу, чтобы избежать ошибки
         if ($page<1) {
             $page=1;
-             header("Location: /metodrecommendations/teacher?page=1");
+            header("Location: /metodrecommendations/teacher?page=1");
             exit();
         }
 // Узнаем количество всех доступных записей 
-        $result = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM pedagogical_experience");
-
-            //код для виведення матеріалу а одну сторінку
-        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
-
-
-        $res = mysqli_query($db, "   SELECT * FROM pedagogical_experience WHERE id='$id'");
-
-
-        $roww = mysqli_fetch_array($res);
-        $template->set('roww', $roww);
+        $result = mysqli_query($db, "   SELECT * FROM pedagogical_experience");
         
         $template->set('result', $result);
         $num = mysqli_num_rows($result);
@@ -78,7 +68,17 @@ Class Controller_Pedagogical_Experience Extends Controller_Base
         $list=--$page*$quantity;
 
 // Делаем запрос подставляя значения переменных $quantity и $list
-        $result1 = mysqli_query($db, "SELECT id, title, text, date, time, author FROM pedagogical_experience ORDER BY id DESC LIMIT $quantity OFFSET $list;");
+        $result1 = mysqli_query($db, "SELECT * FROM pedagogical_experience ORDER BY id DESC LIMIT $quantity OFFSET $list;");
+
+//код для виведення матеріалу а одну сторінку
+        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
+
+
+        $res = mysqli_query($db, "   SELECT * FROM pedagogical_experience WHERE id='$id'");
+
+
+        $roww = mysqli_fetch_array($res);
+        $template->set('roww', $roww);
 
         mysqli_close($db);
         $template->set('result1', $result1);
