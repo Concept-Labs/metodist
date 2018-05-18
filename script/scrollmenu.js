@@ -1,10 +1,9 @@
-<script>
-var h_hght = 150; // высота шапки
+var h_hght = 92; // высота шапки
 var h_mrg = 0;    // отступ когда шапка уже не видна
                  
 $(function(){
  
-    var elem = $('#top_nav');
+    var elem = $('.menubar');
     var top = $(this).scrollTop();
      
     if(top > h_hght){
@@ -22,4 +21,3 @@ $(function(){
     });
  
 });
-</script>

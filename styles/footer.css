@@ -59,7 +59,7 @@
 
 .footcontent{
 	height: 300px;
-	background-color: #0B0B61;
+	background-color:#0101DF;
 	background: -moz-linear-gradient(#0101DF, #0B0174);
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#0101DF), to(#0B0174));
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0174', endColorstr='#EBFFFF');	
@@ -100,7 +100,7 @@
 
 div.fot_bottom{
 	color: #fff;
-	background-color: #0B0B61;
+	background-color: #0101DF;
 	background: -moz-linear-gradient(#0B0174, #9289FD);
    background: -webkit-gradient(linear, 0 0, 0 130%, from(#0B0174), to(#9289FD));
    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0174', endColorstr='#EBFFFF');
