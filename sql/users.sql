@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 09 2018 г., 12:40
+-- Время создания: Май 18 2018 г., 20:46
 -- Версия сервера: 10.1.30-MariaDB
 -- Версия PHP: 7.2.2
 
@@ -33,7 +33,6 @@ CREATE TABLE `users` (
   `name` varchar(50) NOT NULL,
   `surname` varchar(50) NOT NULL,
   `patronymic` varchar(50) NOT NULL,
-  `pol` varchar(1) NOT NULL,
   `date` date NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,

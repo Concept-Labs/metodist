@@ -102,10 +102,7 @@ Class Controller_User Extends Controller_Base
             } 
             elseif (empty(trim($data['patronymic']))) {
                 $errors = 'Введіть по батькові!';
-            } 
-            elseif (empty($data['pol'])) {
-                $errors = 'Вкажіть свою стать!';
-            } 
+            }
             elseif (empty(trim($data['email']))) {
                 $errors = 'Введіть email!';
             }
@@ -125,8 +122,8 @@ Class Controller_User Extends Controller_Base
                 
                 //тут записиваем в базу данних
                 /* @var $db PDO */
-                $sql = mysqli_query($db, "INSERT INTO `users` (`id`, `name`, `surname`, `patronymic`, `pol`, `date`, `email`, `password`, `date_registration`) "
-                    ." VALUES (null, '{$name}', '{$surname}', '{$patronymic}', '{$data['pol']}', '{$birthDate}',"
+                $sql = mysqli_query($db, "INSERT INTO `users` (`id`, `name`, `surname`, `patronymic`, `date`, `email`, `password`, `date_registration`) "
+                    ." VALUES (null, '{$name}', '{$surname}', '{$patronymic}', '{$birthDate}',"
                     ." '{$email}', '{$password}', NOW());");
                 header("Location: /user/registrationSuccess"); /* Redirect browser */
                 exit();
