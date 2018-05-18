@@ -34,12 +34,12 @@ Class Controller_Metodrecommendations Extends Controller_Base
             exit();
         }
 // Достаєм всі елементи із таблиці teacher і поміщаємо в таблицю metodrecommendations
-        $result1 = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM teacher");
+        $result1 = mysqli_query($db, "   SELECT * FROM teacher");
 
         while ($row1 = mysqli_fetch_array($result1)) {
             $title1 = $row1['title'];
             
-            $resultat1 = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM metodrecommendations WHERE title='$title1'");
+            $resultat1 = mysqli_query($db, "   SELECT * FROM metodrecommendations WHERE title='$title1'");
 
             $myrow1 = mysqli_fetch_array($resultat1);
             
@@ -190,7 +190,7 @@ Class Controller_Metodrecommendations Extends Controller_Base
         }
 
 // Узнаем количество всех доступных записей 
-        $result = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM teacher");
+        $result = mysqli_query($db, "   SELECT * FROM teacher");
         
         $template->set('result', $result);
         $num = mysqli_num_rows($result);
@@ -224,7 +224,7 @@ Class Controller_Metodrecommendations Extends Controller_Base
         $list=--$page*$quantity;
 
 // Делаем запрос подставляя значения переменных $quantity и $list
-        $result1 = mysqli_query($db, "SELECT id, title, text, date, time, author FROM teacher ORDER BY id DESC LIMIT $quantity OFFSET $list;");
+        $result1 = mysqli_query($db, "SELECT * FROM teacher ORDER BY id DESC LIMIT $quantity OFFSET $list;");
 
             //код для виведення матеріалу а одну сторінку
         $id = isset($_GET['id']) ? $_GET['id'] : 0; 
@@ -270,7 +270,7 @@ Class Controller_Metodrecommendations Extends Controller_Base
         }
 
 // Узнаем количество всех доступных записей 
-        $result = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM master");
+        $result = mysqli_query($db, "   SELECT * FROM master");
         
         $template->set('result', $result);
         $num = mysqli_num_rows($result);
@@ -305,7 +305,7 @@ Class Controller_Metodrecommendations Extends Controller_Base
         $list=--$page*$quantity;
 
 // Делаем запрос подставляя значения переменных $quantity и $list
-        $result1 = mysqli_query($db, "SELECT id, title, text, date, time, author FROM master ORDER BY id DESC LIMIT $quantity OFFSET $list;");
+        $result1 = mysqli_query($db, "SELECT * FROM master ORDER BY id DESC LIMIT $quantity OFFSET $list;");
 
             //код для виведення матеріалу а одну сторінку
         $id = isset($_GET['id']) ? $_GET['id'] : 0; 
@@ -351,7 +351,7 @@ Class Controller_Metodrecommendations Extends Controller_Base
         }
 
 // Узнаем количество всех доступных записей 
-        $result = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM chairman_mk");
+        $result = mysqli_query($db, "   SELECT * FROM chairman_mk");
         
         $template->set('result', $result);
         $num = mysqli_num_rows($result);
@@ -387,7 +387,7 @@ Class Controller_Metodrecommendations Extends Controller_Base
         $list=--$page*$quantity;
 
 // Делаем запрос подставляя значения переменных $quantity и $list
-        $result1 = mysqli_query($db, "SELECT id, title, text, date, time, author FROM chairman_mk ORDER BY id DESC LIMIT $quantity OFFSET $list;");
+        $result1 = mysqli_query($db, "SELECT * FROM chairman_mk ORDER BY id DESC LIMIT $quantity OFFSET $list;");
 
             //код для виведення матеріалу а одну сторінку
         $id = isset($_GET['id']) ? $_GET['id'] : 0; 
@@ -432,7 +432,7 @@ Class Controller_Metodrecommendations Extends Controller_Base
             exit();
         }
 // Узнаем количество всех доступных записей 
-        $result = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM young_teacher");
+        $result = mysqli_query($db, "   SELECT * FROM young_teacher");
         
         $template->set('result', $result);
         $num = mysqli_num_rows($result);
@@ -468,7 +468,7 @@ Class Controller_Metodrecommendations Extends Controller_Base
         $list=--$page*$quantity;
 
 // Делаем запрос подставляя значения переменных $quantity и $list
-        $result1 = mysqli_query($db, "SELECT id, title, text, date, time, author FROM young_teacher ORDER BY id DESC LIMIT $quantity OFFSET $list;");
+        $result1 = mysqli_query($db, "SELECT * FROM young_teacher ORDER BY id DESC LIMIT $quantity OFFSET $list;");
 
             //код для виведення матеріалу а одну сторінку
         $id = isset($_GET['id']) ? $_GET['id'] : 0; 
@@ -513,7 +513,7 @@ Class Controller_Metodrecommendations Extends Controller_Base
             exit();
         }
 // Узнаем количество всех доступных записей 
-        $result = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM class_teacher");
+        $result = mysqli_query($db, "   SELECT * FROM class_teacher");
         
         $template->set('result', $result);
         $num = mysqli_num_rows($result);
@@ -549,7 +549,7 @@ Class Controller_Metodrecommendations Extends Controller_Base
         $list=--$page*$quantity;
 
 // Делаем запрос подставляя значения переменных $quantity и $list
-        $result1 = mysqli_query($db, "SELECT id, title, text, date, time, author FROM class_teacher ORDER BY id DESC LIMIT $quantity OFFSET $list;");
+        $result1 = mysqli_query($db, "SELECT * FROM class_teacher ORDER BY id DESC LIMIT $quantity OFFSET $list;");
 
             //код для виведення матеріалу а одну сторінку
         $id = isset($_GET['id']) ? $_GET['id'] : 0; 

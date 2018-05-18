@@ -1,0 +1,20 @@
+<div class="content_left">
+	<div class="sidebar2">
+
+		<h2>Пошук</h2>
+		<form action="/search" method="post">
+			<input type="search" name="search_query" id="search_form" placeholder=" ваш запит" />
+			<input type="submit" name="search" class="btn" value="знайти" />
+		</form>
+
+		<?php
+$query = $this->get('query');
+
+while ($itog = mysqli_fetch_assoc($query)) {
+printf("%s (%s)\n",$itog["title"],$itog["text"]);
+}
+
+?>
+
+	</div>
+</div>
