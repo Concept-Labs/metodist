@@ -1,14 +1,14 @@
 .header{
-	background-color: #0B0B61;
+	background-color:#0101DF;
    background: -moz-linear-gradient(#0B0B3B, #0101DF);
    background: -webkit-gradient(linear, 0 0, 0 100%, from(#0B0B3B), to(#0101DF));
    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0B61', endColorstr='#EBFFFF');
-	height: 150px;
+	height: 92px;
 	margin-left: 0px;
 	margin-right: 0px;
 	font-size: 0.8em;
 	min-width: 900px;
-	 box-shadow: 0.6em 0.6em 10px rgba(122,122,122,0.5);
+	
 	
 }
 

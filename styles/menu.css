@@ -1,8 +1,12 @@
 .menu i{
     padding-right: 3px;
 }
-.menu{
-	padding-top: 12px;
+ul.menu{
+    margin-bottom: 5px;
+    padding-left: 185px;
+    width:750px;
+    margin: 0 auto;
+
 }
 
 
@@ -12,16 +16,20 @@
 }
 
 .menubar{
-	width: 900px;
-	height: 40px;
-    float: none;
-    bottom: 10px;
-    left: 10px;
-    font: normal 170% 'century gothic', arial;
+   box-shadow: 0.3em 0.3em 10px rgba(122,122,122,0.5);
+   width: 100%;
+   background: #0101DF;
+   margin: 0 auto;
+   top:92px; /*высота шапки в пикселях*/
+   position: fixed;
+   z-index: 1000;
+   height: 41px;
+   bottom: 10px;
+   border-radius: 0 0 5px 5px;
+
+   font: normal 170% 'century gothic', arial;
 }
-ul.menu{
-	float: right;
-}
+
 ul.menu li{
 	float: left;
 	padding: 0 0 0 5px;
@@ -109,7 +117,7 @@ ul.menu li.metodrec{
 ul.submenu{
     margin-left: 20px;
     width:272px;  
-    height: 246px;
+    height: 257px;
     position: absolute;  
     z-index: 200;
     padding-top: 9px;
@@ -123,9 +131,9 @@ ul.submenu{
 }
 
 ul.menu li.metodrec:hover ul.submenu{
-   max-height:300px;
-   margin-left: 20px;
-   
+ max-height:300px;
+ margin-left: 20px;
+
 
 }
 
@@ -136,14 +144,14 @@ ul.menu li.metodrec:hover ul.submenu{
 
 
 ul.submenu li {
-    padding-top: 1px;
+    padding-top: 3px;
     z-index: 10;
     position: relative;
     width: 252px;
     height: 45px;
     background-color: #0101DF;
     border-radius: 5px;
-    box-shadow: 0.4em 0.4em 10px rgba(122,122,122,0.5);
+    box-shadow: 0.3em 0.3em 10px rgba(122,122,122,0.5);
 } 
 
 ul.menu li:hover ul{

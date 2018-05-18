@@ -8,6 +8,7 @@
 }
 
 .content_left{
+	opacity: .2;transition: 1s;
 	float: left;
 	width: 650px;
 	margin-bottom: 15px;
@@ -33,7 +34,7 @@
 .side_content{
 	width: 900px;
 	overflow: hidden;
-	margin: 20px auto 0 auto;
+	margin: 60px auto 0 auto;
 }
 
 .sidebar_right{
@@ -53,7 +54,9 @@
    
 	
 }
-
+.sidebar2 img{
+	width: 99.5%;
+}
 .sidebar1{
 	float: left;
 	width: 575px;
