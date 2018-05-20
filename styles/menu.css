@@ -25,7 +25,7 @@ ul.menu{
    z-index: 1000;
    height: 41px;
    bottom: 10px;
-   border-radius: 0 0 5px 5px;
+   border-radius: 0 0 10px 10px;
 
    font: normal 170% 'century gothic', arial;
 }
