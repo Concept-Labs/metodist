@@ -86,6 +86,9 @@ Class Controller_Internship Extends Controller_Base
             $author = strip_tags(trim($_POST['author']));
 
             mysqli_query($db, "UPDATE internship SET title='$title', text='$text', author='$author' WHERE id='$id'");
+
+            header("Location: /admin/internship");
+            exit();
         }
 
 //видалення статті

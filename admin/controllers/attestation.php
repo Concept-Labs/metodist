@@ -30,7 +30,7 @@ Class Controller_Attestation Extends Controller_Base
 // страницу, чтобы избежать ошибки
         if ($page<1) {
             $page=1;
-             header("Location: /metodrecommendations/attestation?page=1");
+            header("Location: /metodrecommendations/attestation?page=1");
             exit();
         }
 // Узнаем количество всех доступных записей 
@@ -87,6 +87,9 @@ Class Controller_Attestation Extends Controller_Base
             $author = strip_tags(trim($_POST['author']));
 
             mysqli_query($db, "UPDATE attestation SET title='$title', text='$text', author='$author' WHERE id='$id'");
+
+            header("Location: /admin/attestation");
+            exit();
         }
 
 //видалення статті

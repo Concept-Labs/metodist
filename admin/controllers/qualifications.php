@@ -86,6 +86,9 @@ Class Controller_Qualifications Extends Controller_Base
             $author = strip_tags(trim($_POST['author']));
 
             mysqli_query($db, "UPDATE qualifications SET title='$title', text='$text', author='$author' WHERE id='$id'");
+
+            header("Location: /admin/qualifications");
+            exit();
         }
 
 //видалення статті

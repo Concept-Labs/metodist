@@ -28,7 +28,7 @@ Class Controller_Search Extends Controller_Base
                     } else {
                         $query_search .= $_GET['allwords'];
                     }                    
-            }
+                }
                 $query_search .= "(`title` LIKE '%$value%' OR `text` LIKE '%$value%')";
             }
             $query= mysqli_query($db, " SELECT * FROM `teacher` WHERE $query_search 

@@ -86,6 +86,9 @@ Class Controller_Pedagogical_Experience Extends Controller_Base
             $author = strip_tags(trim($_POST['author']));
 
             mysqli_query($db, "UPDATE pedagogical_experience SET title='$title', text='$text', author='$author' WHERE id='$id'");
+
+            header("Location: /admin/pedagogical_experience");
+            exit();
         }
 
 //видалення статті

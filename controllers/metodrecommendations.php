@@ -33,82 +33,12 @@ Class Controller_Metodrecommendations Extends Controller_Base
             header("Location: /metodrecommendations/teacher?page=1");
             exit();
         }
-// Достаєм всі елементи із таблиці teacher і поміщаємо в таблицю metodrecommendations
-        $result1 = mysqli_query($db, "   SELECT * FROM teacher");
 
-        while ($row1 = mysqli_fetch_array($result1)) {
-            $title1 = $row1['title'];
-            
-            $resultat1 = mysqli_query($db, "   SELECT * FROM metodrecommendations WHERE title='$title1'");
-
-            $myrow1 = mysqli_fetch_array($resultat1);
-            
-            if (empty($myrow1['id'])) {                    
-                $sql1 = mysqli_query($db, "INSERT INTO `metodrecommendations` (`id`, `title`, `text`, `date`, `time`, `author`) VALUES (null, '{$row1['title']}', '{$row1['text']}', '{$row1['date']}', '{$row1['time']}', '{$row1['author']}')");
-            }
-        }
-
-// Достаєм всі елементи із таблиці master і поміщаємо в таблицю metodrecommendations
-        $result2 = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM master");
-
-        while ($row2 = mysqli_fetch_array($result2)) {
-            $title2 = $row2['title'];
-            
-            $resultat2 = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM metodrecommendations WHERE title='$title2'");
-
-            $myrow2 = mysqli_fetch_array($resultat2);
-            
-            if (empty($myrow2['id'])) {                    
-                $sql2 = mysqli_query($db, "INSERT INTO `metodrecommendations` (`id`, `title`, `text`, `date`, `time`, `author`) VALUES (null, '{$row2['title']}', '{$row2['text']}', '{$row2['date']}', '{$row2['time']}', '{$row2['author']}')");
-            }
-        }
-
-// Достаєм всі елементи із таблиці chairman_mk і поміщаємо в таблицю metodrecommendations
-        $result3 = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM chairman_mk");
-
-        while ($row3 = mysqli_fetch_array($result3)) {
-            $title3 = $row3['title'];
-            
-            $resultat3 = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM metodrecommendations WHERE title='$title3'");
-
-            $myrow3 = mysqli_fetch_array($resultat3);
-            
-            if (empty($myrow3['id'])) {                    
-                $sql3 = mysqli_query($db, "INSERT INTO `metodrecommendations` (`id`, `title`, `text`, `date`, `time`, `author`) VALUES (null, '{$row3['title']}', '{$row3['text']}', '{$row3['date']}', '{$row3['time']}', '{$row3['author']}')");
-            }
-        }
-
-// Достаєм всі елементи із таблиці young_teacher і поміщаємо в таблицю metodrecommendations
-        $result4 = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM young_teacher");
-
-        while ($row4 = mysqli_fetch_array($result4)) {
-            $title4 = $row4['title'];
-            
-            $resultat4 = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM metodrecommendations WHERE title='$title4'");
-
-            $myrow4 = mysqli_fetch_array($resultat4);
-            
-            if (empty($myrow4['id'])) {                    
-                $sql4 = mysqli_query($db, "INSERT INTO `metodrecommendations` (`id`, `title`, `text`, `date`, `time`, `author`) VALUES (null, '{$row4['title']}', '{$row4['text']}', '{$row4['date']}', '{$row4['time']}', '{$row4['author']}')");
-            }
-        }
-
-// Достаєм всі елементи із таблиці class_teacher і поміщаємо в таблицю metodrecommendations
-        $result5 = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM class_teacher");
-
-        while ($row5 = mysqli_fetch_array($result5)) {
-            $title5 = $row5['title'];
-            
-            $resultat5 = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM metodrecommendations WHERE title='$title5'");
-
-            $myrow5 = mysqli_fetch_array($resultat5);
-            
-            if (empty($myrow5['id'])) {                    
-                $sql5 = mysqli_query($db, "INSERT INTO `metodrecommendations` (`id`, `title`, `text`, `date`, `time`, `author`) VALUES (null, '{$row5['title']}', '{$row5['text']}', '{$row5['date']}', '{$row5['time']}', '{$row5['author']}')");
-            }
-        }
-
-        $resultat = mysqli_query($db, "   SELECT id, title, text, date, time, author FROM metodrecommendations");
+        $resultat = mysqli_query($db, "   SELECT * FROM `teacher` 
+            UNION SELECT * FROM `master` 
+            UNION SELECT * FROM `chairman_mk`
+            UNION SELECT * FROM `young_teacher`
+            UNION SELECT * FROM `class_teacher`");
 
 // Узнаем количество всех доступных записей 
         $num = mysqli_num_rows($resultat);
@@ -144,24 +74,18 @@ Class Controller_Metodrecommendations Extends Controller_Base
         $list=--$page*$quantity;
 
 // Делаем запрос подставляя значения переменных $quantity и $list
-        $result = mysqli_query($db, "SELECT id, title, text, date, time, author FROM metodrecommendations ORDER BY id DESC LIMIT $quantity OFFSET $list;"); 
+        $result = mysqli_query($db, "(SELECT * FROM `teacher`)  
+            UNION (SELECT * FROM `master`)  
+            UNION (SELECT * FROM `chairman_mk`)  
+            UNION (SELECT * FROM `young_teacher`)  
+            UNION (SELECT * FROM `class_teacher`) ORDER BY date DESC, time DESC LIMIT $quantity OFFSET $list
+            "); 
 
-            //код для виведення матеріалу а одну сторінку
-        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
-
-
-        $res = mysqli_query($db, "   SELECT * FROM metodrecommendations WHERE id='$id'");
-
-
-        $roww = mysqli_fetch_array($res);
-        $template->set('roww', $roww); 
-
-        mysqli_close($db);
         $template->set('result', $result);
 // Считаем количество полученных записей
         $num_result = mysqli_num_rows($result);
         $template->set('num_result', $num_result);
-        
+        mysqli_close($db);
         $this->_renderLayout($template);
     }
     
