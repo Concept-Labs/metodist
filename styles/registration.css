@@ -45,6 +45,21 @@
 	border-color: #b03535
 }
 
+.search input:required{
+	background: #fff url(../img/label/red_asterisk.png) no-repeat 93.5% center;
+}
+.search input:required:valid{
+	background: #fff url(../img/label/valid.png) no-repeat 93.5% center;
+	box-shadow: 0 0 5px #5cd053;
+	border-color: #28921f;
+}
+
+.search input[type="search"]:focus:invalid, .sidebar2 input[type="text"]:focus:invalid, .sidebar2 input[type="login"]:focus:invalid, .sidebar2 input[type="password"]:focus:invalid, .sidebar2 input[type="email"]:focus:invalid{
+	background: #fff url(../img//label/invalid.png) no-repeat 93.5% center;
+	box-shadow: 0 0 5px #d45252;
+	border-color: #b03535
+}
+
 .sidebar2 ul {
     list-style-type:none;
 	list-style-position:outside;

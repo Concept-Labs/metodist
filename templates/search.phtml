@@ -9,7 +9,7 @@
 		<span style="color:white;"><?php echo $search_error; ?></span> 
 	</div>
 	<?php } ?>
-	<div class="sidebar2">
+	<div class="sidebar2 search">
 		<h2>Пошук</h2>
 		<form action="/search" method="get">
 			<input type="search" name="search_query" id="search_form" placeholder=" ваш запит" value="<?php echo @$_GET['search_query']; ?>" minlength="4"/>
