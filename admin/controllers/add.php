@@ -35,8 +35,7 @@ Class Controller_Add Extends Controller_Base
                 if( substr($_FILES['image']['type'], 0, 5)=='image' ) {
       // Читаем содержимое файла
                   $image = $_FILES['image']['tmp_name'];
-      // Экранируем специальные символы в содержимом файла
-                 // $image = mysqli_escape_string($db, $images );
+      
                   $location = 'c:\xampp\htdocs\metodist\media\articles\images'.DS.$img;
                   $copy = copy($image, $location);
                   if (!$copy) {
@@ -46,6 +45,25 @@ Class Controller_Add Extends Controller_Base
 
             }else {$errore = 'Файл не графічний!';}
         }else {$errore = 'Є ошибки по зображеню!';}
+    }
+
+    // Проверяем пришел ли файл
+            $doc = $_FILES['doc']['name'];
+            if( !empty($doc) ) {
+  // Проверяем, что при загрузке не произошло ошибок
+              if ( $_FILES['doc']['error'] == 0 ) {
+ 
+      // Читаем содержимое файла
+                  $docum = $_FILES['doc']['tmp_name'];
+      
+                  $location = 'c:\xampp\htdocs\metodist\media\articles\doc'.DS.$doc;
+                  $copy = copy($docum, $location);
+                  if (!$copy) {
+                    $errore = 'Файл не скопійовано!';
+                }
+
+
+            }else {$errore = 'Є ошибки по документу!';}
     }
 
     if (empty(trim($title))) {
@@ -60,7 +78,7 @@ Class Controller_Add Extends Controller_Base
 
     if (empty($errore)) { 
 
-        mysqli_query($db, "INSERT INTO $section (title, text, image, date, time, author) VALUES ('$title', '$text', '$img', '$date', '$time', '$author')");
+        mysqli_query($db, "INSERT INTO $section (title, text, image, doc, date, time, author) VALUES ('$title', '$text', '$img', '$doc', '$date', '$time', '$author')");
   }
 
 }
