@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 26 2018 г., 18:23
+-- Время создания: Май 21 2018 г., 21:43
 -- Версия сервера: 10.1.30-MariaDB
 -- Версия PHP: 7.2.2
 
@@ -32,13 +32,18 @@ CREATE TABLE `attestation` (
   `id` int(11) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
   `text` text NOT NULL,
-  `image` varchar(100) NOT NULL DEFAULT 'default.jpg',
+  `image` varchar(100) DEFAULT 'default.jpg',
+  `doc` varchar(255) NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL,
   `author` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-COMMIT;
 
+--
+-- Индексы сохранённых таблиц
+--
+
+--
 -- Индексы таблицы `attestation`
 --
 ALTER TABLE `attestation`
@@ -52,7 +57,7 @@ ALTER TABLE `attestation`
 -- AUTO_INCREMENT для таблицы `attestation`
 --
 ALTER TABLE `attestation`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

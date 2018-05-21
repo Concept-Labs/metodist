@@ -74,12 +74,12 @@ Class Controller_Metodrecommendations Extends Controller_Base
         $list=--$page*$quantity;
 
 // Делаем запрос подставляя значения переменных $quantity и $list
-        $result = mysqli_query($db, "(SELECT * FROM `teacher`)  
-                UNION (SELECT * FROM `master`)  
-                UNION (SELECT * FROM `chairman_mk`)  
-                UNION (SELECT * FROM `young_teacher`)  
-                UNION (SELECT * FROM `class_teacher`) ORDER BY date DESC, time DESC LIMIT $quantity OFFSET $list
-                "); 
+        $result = mysqli_query($db, "(SELECT *, 'teacher' AS 'table' FROM `teacher`)  
+            UNION (SELECT *, 'master' AS 'table' FROM `master`)  
+            UNION (SELECT *, 'chairman_mk' AS 'table' FROM `chairman_mk`)  
+            UNION (SELECT *, 'young_teacher' AS 'table' FROM `young_teacher`)  
+            UNION (SELECT *, 'class_teacher' AS 'table' FROM `class_teacher`) ORDER BY date DESC, time DESC LIMIT $quantity OFFSET $list
+            "); 
 
         $template->set('result', $result);
 // Считаем количество полученных записей

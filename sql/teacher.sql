@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 21 2018 г., 11:49
+-- Время создания: Май 21 2018 г., 21:43
 -- Версия сервера: 10.1.30-MariaDB
 -- Версия PHP: 7.2.2
 
@@ -32,7 +32,7 @@ CREATE TABLE `teacher` (
   `id` int(11) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
   `text` text NOT NULL,
-  `image` varchar(100) DEFAULT,
+  `image` varchar(100) DEFAULT 'default.jpg',
   `doc` varchar(255) NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL,
@@ -57,7 +57,7 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT для таблицы `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `id` int(0) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
