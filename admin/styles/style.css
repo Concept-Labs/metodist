@@ -115,3 +115,7 @@ outline: none;
 div.sidebar li a.current {
     color: red;
 }
+
+ul.menu li a.current {
+    color: red;
+}
