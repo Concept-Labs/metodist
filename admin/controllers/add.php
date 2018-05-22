@@ -39,7 +39,7 @@ Class Controller_Add Extends Controller_Base
                   $location = 'c:\xampp\htdocs\metodist\media\articles\images'.DS.$img;
                   $copy = copy($image, $location);
                   if (!$copy) {
-                    $errore = 'Файл не скопійовано!';
+                    $errore = 'Зображення не скопійовано!';
                 }
 
 
@@ -59,7 +59,7 @@ Class Controller_Add Extends Controller_Base
                   $location = 'c:\xampp\htdocs\metodist\media\articles\doc'.DS.$doc;
                   $copy = copy($docum, $location);
                   if (!$copy) {
-                    $errore = 'Файл не скопійовано!';
+                    $errore = 'Документ не скопійовано!';
                 }
 
 

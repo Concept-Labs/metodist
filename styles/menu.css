@@ -42,7 +42,8 @@ ul.menu li a{
 	font-size: 20px;
 	color: #fff;
 	display: block;
-	padding-left: 20px;
+    width: 100%;
+	margin-left: 20px;
     padding-top: 10px;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
@@ -50,9 +51,19 @@ ul.menu li a{
 
 }
 
-ul.menu > li > a:hover{
-	color: #EFFBFB;
+ul.menu li a.current {
+    color: red;
+    border-bottom: 3px solid red;
+    padding-bottom: 7px;
+    width: 85%;   
+}
 
+ul.menu li a.current_met {
+    color: red;
+}
+
+ul.menu > li > a:hover{
+	color: #EFFBFB; !important
 }
 
 ul.menu li a:focus{
@@ -78,7 +89,7 @@ ul.menu > li > a:after {
     height: 3px;
     display: block;
     width: 0%;
-    left:60%;
+    left:42%;
     position:absolute;
     -webkit-transition: width .3s ease-in-out;
     -moz--transition: width .3s ease-in-out;

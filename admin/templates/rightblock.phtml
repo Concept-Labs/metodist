@@ -1,4 +1,6 @@
-			
+<?php
+$current = $_SERVER['REQUEST_URI'];
+?>			
 <div class="sidebar_right">
 
 <div class="sidebar">
@@ -14,21 +16,21 @@
 	<div class="sidebar">
 		<h2><i class="fas fa-puzzle-piece"></i>Розділи</h2>
 		<ul>
-			<li><a href="<?php echo base_url . 'index'; ?>">Головна</a>
-			<li class="rec"><a href="<?php echo base_url . 'metodrecommendations'; ?>">Методичні рекомендації<i class="fas fa-caret-down"></i></a>
+			<li><a class="<?php if($current == '/admin/index' || $current == '/'): ?>current<?php endif; ?>" href="<?php echo base_url . 'index'; ?>">Головна</a>
+			<li class="rec"><a class="<?php if($current == '/admin/metodrecommendations'): ?>current<?php endif; ?>" href="<?php echo base_url . 'metodrecommendations'; ?>">Методичні рекомендації<i class="fas fa-caret-down"></i></a>
 				<ul class="metod">
-					<li><a href="<?php echo base_url . 'metodrecommendations/teacher'; ?>">Викладачу</a></li>
-					<li><a href="<?php echo base_url . 'metodrecommendations/master'; ?>">Майстру в/н</a></li>
-					<li><a href="<?php echo base_url . 'metodrecommendations/chairman_mk'; ?>">Голові МК</a></li>
-					<li><a href="<?php echo base_url . 'metodrecommendations/young_teacher'; ?>">Молодому педагогу</a></li>
-					<li><a href="<?php echo base_url . 'metodrecommendations/class_teacher'; ?>">Класному керівнику</a></li>
+					<li><a class="<?php if($current == '/admin/metodrecommendations/teacher'): ?>current<?php endif; ?>" href="<?php echo base_url . 'metodrecommendations/teacher'; ?>">Викладачу</a></li>
+					<li><a class="<?php if($current == '/admin/metodrecommendations/master'): ?>current<?php endif; ?>" href="<?php echo base_url . 'metodrecommendations/master'; ?>">Майстру в/н</a></li>
+					<li><a class="<?php if($current == '/admin/metodrecommendations/chairman_mk'): ?>current<?php endif; ?>" href="<?php echo base_url . 'metodrecommendations/chairman_mk'; ?>">Голові МК</a></li>
+					<li><a class="<?php if($current == '/admin/metodrecommendations/young_teacher'): ?>current<?php endif; ?>" href="<?php echo base_url . 'metodrecommendations/young_teacher'; ?>">Молодому педагогу</a></li>
+					<li><a class="<?php if($current == '/admin/metodrecommendations/class_teacher'): ?>current<?php endif; ?>" href="<?php echo base_url . 'metodrecommendations/class_teacher'; ?>">Класному керівнику</a></li>
 				</ul>
 			</li>
-			<li><a href="<?php echo base_url . 'attestation'; ?>">Атестація</a></li>
-			<li><a href="<?php echo base_url . 'qualifications'; ?>">Підвищення кваліфікації</a></li>
-			<li><a href="<?php echo base_url . 'internship'; ?>">Стажування</a></li>
-			<li><a href="<?php echo base_url . 'pedagogical_experience'; ?>">Поширення педагогічного досвіду</a></li>
-			<li><a href="<?php echo base_url . 'news'; ?>">Новини</a></li>		
+			<li><a class="<?php if($current == '/admin/attestation'): ?>current<?php endif; ?>" href="<?php echo base_url . 'attestation'; ?>">Атестація</a></li>
+			<li><a class="<?php if($current == '/admin/qualifications'): ?>current<?php endif; ?>" href="<?php echo base_url . 'qualifications'; ?>">Підвищення кваліфікації</a></li>
+			<li><a class="<?php if($current == '/admin/internship'): ?>current<?php endif; ?>" href="<?php echo base_url . 'internship'; ?>">Стажування</a></li>
+			<li><a class="<?php if($current == '/admin/pedagogical_experience'): ?>current<?php endif; ?>" href="<?php echo base_url . 'pedagogical_experience'; ?>">Поширення педагогічного досвіду</a></li>
+			<li><a class="<?php if($current == '/admin/news'): ?>current<?php endif; ?>" href="<?php echo base_url . 'news'; ?>">Новини</a></li>		
 		</ul>
 		
 
