@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 21 2018 г., 11:49
+-- Время создания: Май 21 2018 г., 21:43
 -- Версия сервера: 10.1.30-MariaDB
 -- Версия PHP: 7.2.2
 
@@ -57,7 +57,9 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT для таблицы `teacher`
 --
 ALTER TABLE `teacher`
+
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0 ;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -111,3 +111,11 @@ outline: none;
 .a-left{
   float: right;
 }
+
+div.sidebar li a.current {
+    color: red;
+}
+
+ul.menu li a.current {
+    color: red;
+}

@@ -1,21 +1,20 @@
 <?php
-/* @var $this Block_Menu */
-$current = $this->getCurrentUrl();
+$current = $_SERVER['REQUEST_URI'];
 ?>
 <nav class="menubar">
 	<ul class="menu">
-		<li class="golovna <?php if($current == '/index'): ?>current<?php endif; ?>"><a href="/index"><i class="fas fa-home"></i>Головна</a></li>
-		<li class="metodrec"><a  href="/metodrecommendations" >Метод. рекомендації  <i class="fas fa-caret-down"></i></a>
+		<li class="golovna"><a class="<?php if($current == '/index' || $current == '/'): ?>current<?php endif; ?>" href="/index"><i class="fas fa-home"></i>Головна</a></li>
+		<li class="metodrec"><a class="<?php if($current == '/metodrecommendations' || $current == '/metodrecommendations/teacher' || $current == '/metodrecommendations/master' || $current == '/metodrecommendations/chairman_mk' || $current == '/metodrecommendations/young_teacher' || $current == '/metodrecommendations/class_teacher'): ?>current_met<?php endif; ?>"  href="/metodrecommendations" >Метод. рекомендації  <i class="fas fa-caret-down"></i></a>
 			<ul class="submenu">
-				<li><a href="/metodrecommendations/teacher">Викладачу</a></li>
-				<li><a href="/metodrecommendations/master">Майстру в/н</a></li>
-				<li><a href="/metodrecommendations/chairman_mk">Голові МК</a></li>
-				<li><a href="/metodrecommendations/young_teacher">Молодому педагогу</a></li>
-				<li><a href="/metodrecommendations/class_teacher">Класному керівнику</a></li>
+				<li><a class="<?php if($current == '/metodrecommendations/teacher'): ?>current<?php endif; ?>" href="/metodrecommendations/teacher">Викладачу</a></li>
+				<li><a class="<?php if($current == '/metodrecommendations/master'): ?>current<?php endif; ?>" href="/metodrecommendations/master">Майстру в/н</a></li>
+				<li><a class="<?php if($current == '/metodrecommendations/chairman_mk'): ?>current<?php endif; ?>" href="/metodrecommendations/chairman_mk">Голові МК</a></li>
+				<li><a class="<?php if($current == '/metodrecommendations/young_teacher'): ?>current<?php endif; ?>" href="/metodrecommendations/young_teacher">Молодому педагогу</a></li>
+				<li><a class="<?php if($current == '/metodrecommendations/class_teacher'): ?>current<?php endif; ?>" href="/metodrecommendations/class_teacher">Класному керівнику</a></li>
 			</ul>
 		</li>
-		<li><a href="/attestation">Атестація</a></li>
-		<li><a href="/news">Новини</a></li>
-		<li><a href="/contacts">Контакти</a></li>
+		<li><a class="<?php if($current == '/attestation'): ?>current<?php endif; ?>" href="/attestation">Атестація</a></li>
+		<li><a class="<?php if($current == '/news'): ?>current<?php endif; ?>" href="/news">Новини</a></li>
+		<li><a class="<?php if($current == '/contacts'): ?>current<?php endif; ?>" href="/contacts">Контакти</a></li>
 	</ul>
 </nav>

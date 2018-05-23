@@ -40,7 +40,7 @@
 
 			<select name="year">
 				<option>Рік</option>
-				<?php for($i = 2018; 1950 <= $i; $i-- ): ?>
+				<?php for($i = date('Y'); 1950 <= $i; $i-- ): ?>
 					<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
 				<?php endfor; ?>
 			</select>

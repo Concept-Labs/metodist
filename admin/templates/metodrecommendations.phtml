@@ -21,10 +21,45 @@
 		$result = $this->get('result');    
 		for ($i = 0; $i<$num_result; $i++) {
 			while ($row = mysqli_fetch_array($result)) {
-				?>
+				$middleUrl = '';
+				switch ($row['table']) {
+					case 'teacher':
+					$middleUrl = 'metodrecommendations/teacher';
+					break;
+					case 'master':
+					$middleUrl = 'metodrecommendations/master';
+					break;
+					case 'chairman_mk':
+					$middleUrl = 'metodrecommendations/chairman_mk';
+					break;
+					case 'young_teacher':
+					$middleUrl = 'metodrecommendations/young_teacher';
+					break;
+					case 'class_teacher':
+					$middleUrl = 'metodrecommendations/class_teacher';
+					break;
+					case 'attestation':
+					$middleUrl = 'attestation';
+					break;
+					case 'internship':
+					$middleUrl = 'internship';
+					break;
+					case 'pedagogical_experience':
+					$middleUrl = 'pedagogical_experience';
+					break;
+					case 'qualifications':
+					$middleUrl = 'qualifications';
+					break;
+					case 'news':
+					$middleUrl = 'news';
+					break;
+					case 'main':
+					$middleUrl = 'main';
+					break;
+				}  ?>
 
 				<div class="sidebar2">
-					<h1><a href="<?php echo base_url . 'metodrecommendations?articles&id='.$row['id']; ?>"><?php echo $row['title']."<br/>"; ?></a></h1>
+					<h1><a href="<?php echo base_url .$middleUrl .'?articles&id='.$row['id']; ?>"><?php echo $row['title']."<br/>"; ?></a></h1>
 					<p><?php $text = $row['text'];
 					$counttext = 1000;
 					$text = substr($text, 0, $counttext);
