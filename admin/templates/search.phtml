@@ -11,7 +11,7 @@
 	<?php } ?>
 	<div class="sidebar2">
 		<h2>Пошук</h2>
-		<form action="/search" method="get">
+		<form action="/admin/search" method="get">
 			<input type="search" name="search_query" id="search_form" placeholder=" ваш запит" value="<?php echo @$_GET['search_query']; ?>" minlength="4"/>
 			<input type="submit" name="search" class="btn" value="знайти" /><br/><br/>
 			<input type="checkbox" id="allwords" name="allwords" value=" AND " />

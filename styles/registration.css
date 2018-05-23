@@ -1,4 +1,4 @@
-.sidebar2 input[type="text"], .sidebar2 input[type="password"], .sidebar2 input[type="search"], .sidebar2 input[type="email"] {
+.sidebar2 input[type="text"], .sidebar2 input[type="password"], .sidebar2 input[type="email"] {
 	width: 60%;
 	transition: all 0.3s ease-out;
 	padding: 5px;
@@ -19,7 +19,7 @@
     0 0 6px 3px #C0C0CC;
 }
 
-.sidebar2 input[type="search"]:focus, .sidebar2 input[type="text"]:focus, .sidebar2 input[type="login"]:focus, .sidebar2 input[type="password"]:focus, .sidebar2 input[type="email"]:focus{
+ .sidebar2 input[type="text"]:focus, .sidebar2 input[type="login"]:focus, .sidebar2 input[type="password"]:focus, .sidebar2 input[type="email"]:focus{
 	width: 65%;
 	outline: none;
 	-webkit-transition: all 0.3s ease-out;
@@ -46,7 +46,7 @@
 }
 
 .search input:required{
-	background: #fff url(../img/label/red_asterisk.png) no-repeat 93.5% center;
+	background: #fff url(../img/label/red_asterisk.png) no-repeat 98% center;
 }
 .search input:required:valid{
 	background: #fff url(../img/label/valid.png) no-repeat 93.5% center;
@@ -54,7 +54,7 @@
 	border-color: #28921f;
 }
 
-.search input[type="search"]:focus:invalid, .sidebar2 input[type="text"]:focus:invalid, .sidebar2 input[type="login"]:focus:invalid, .sidebar2 input[type="password"]:focus:invalid, .sidebar2 input[type="email"]:focus:invalid{
+.search input[type="search"]:focus:invalid{
 	background: #fff url(../img//label/invalid.png) no-repeat 93.5% center;
 	box-shadow: 0 0 5px #d45252;
 	border-color: #b03535

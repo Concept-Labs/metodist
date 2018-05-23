@@ -1,6 +1,4 @@
-#EFFBFB.menu{
-	padding-top: 10px;
-}
+
 
 .menu li.golovna a{
 	color: #81BEF7;
@@ -112,7 +110,14 @@ ul.menu li:hover ul{
 
 
 .menu li a.current {
-    color: #FFFF00;
+    color: #EFFBFB;
+}
+.menu li a:hover{
+    color: #EFFBFB; !important
+}
+
+.menu li a:focus{
+    color: #EFFBFB;
 }
 
 .submenu li a{

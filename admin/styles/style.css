@@ -113,9 +113,10 @@ outline: none;
 }
 
 div.sidebar li a.current {
-    color: red;
+    color: #0B0B61;
+  font-weight: bold;
 }
 
 ul.menu li a.current {
-    color: red;
+    color: #FFFF00;
 }

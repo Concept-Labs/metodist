@@ -2,7 +2,7 @@
     padding-right: 3px;
 }
 ul.menu{
-    margin-bottom: 5px;
+
     padding-left: 185px;
     width:750px;
     margin: 0 auto;
@@ -51,15 +51,15 @@ ul.menu li a{
 
 }
 
-ul.menu li a.current {
-    color: red;
-    border-bottom: 3px solid red;
+ul.menu > li > a.current {
+    color: #EFFBFB;
+    border-bottom: 3px solid #EFFBFB;
     padding-bottom: 7px;
     width: 85%;   
 }
 
-ul.menu li a.current_met {
-    color: red;
+ul.menu > li > a.current_met {
+    color: #EFFBFB;
 }
 
 ul.menu > li > a:hover{
@@ -179,11 +179,8 @@ ul.submenu li:hover{
 }
 
 .submenu li:hover a{
-    padding-left: 15px;
+    padding-left: 10px;
     color: #000;
     width: 100%;
-    font-size: 22px;
-
 }
-
 

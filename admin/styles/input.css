@@ -1,5 +1,5 @@
 /* ФОРМИ ДЛЯ РЕЄСТРАЦІЇ */
-.add input[type="text"], .add input[type="password"], .add input[type="search"], .add input[type="email"] {
+ .add input[type="text"], .add input[type="password"], .add input[type="search"], .add input[type="email"] {
 	width: 99%;
 	padding: 5px;
 	border-radius: 5px;
@@ -7,6 +7,9 @@
 	border: 0px;
 	box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
 	margin-top: 10px;
+}
+.sidebar2 input[type="text"]{
+	width: 99%;
 }
 input[type="search"]:hover, input[type="text"]:hover, input[type="login"]:hover, input[type="password"]:hover, input[type="email"]:hover{
 	outline: none;
@@ -24,7 +27,8 @@ input[type="search"]:focus, input[type="text"]:focus, input[type="login"]:focus,
 }
 /* КІНЕЦЬ ФОРМ РЕЄСТРАЦІЇ*/
 
-.add textarea {
+
+textarea {
 	font-size: 120%;
 	width: 99%;
 	height: 400px;
@@ -35,14 +39,15 @@ input[type="search"]:focus, input[type="text"]:focus, input[type="login"]:focus,
 	box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
 	margin-top: 10px;
 }
-.add textarea:hover{
+
+textarea:hover{
 	outline: none;
 	transition: all 0.3s ease-out;
 	 box-shadow: inset 0 2px 0 rgba(122,122,122,0.5), 
     0.4em 0.4em 5px rgba(122,122,122,0.5),
     0 0 6px 3px #C0C0CC;
 }
-.add textarea:focus{
+ textarea:focus{
 	outline: none;
 	transition: all 0.3s ease-out;
 	 box-shadow: inset 0 2px 0 rgba(122,122,122,0.5), 

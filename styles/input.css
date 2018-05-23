@@ -1,5 +1,14 @@
 /* ФОРМИ ДЛЯ РЕЄСТРАЦІЇ */
-input[type="text"], input[type="password"], input[type="search"], input[type="email"] {
+input[type="search"], input[type="text"], input[type="password"], input[type="email"] {
+	width: 60%;
+	padding: 5px;
+	border-radius: 5px;
+	margin: 3px 0 0 0;
+	border: 0px;
+	box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
+	margin-top: 10px;
+}
+.sidebar2 input[type="search"]{
 	width: 60%;
 	padding: 5px;
 	border-radius: 5px;
@@ -163,7 +172,7 @@ a.save-ic:hover{
 /* КІНЕЦЬ ЗБЕРЕЖЕННЯ*/
 .save-right{
 	cursor: pointer;
-	font-size: 90%;
+	font-size: 95%;
 	color: #0080FF;
 	font-weight: bold;
 	float: right;
@@ -220,4 +229,30 @@ label[for="file"]:active{
 
 i.fas{
 	padding-right: 5px;
+}
+
+a.search-but{
+	margin-left: 10px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25), 0 2px 10px 0 rgba(0, 0, 0, 0.20);
+	color: #fff;
+	text-align: center;
+	background: #A4A4A4;
+	border-radius: 50%;
+	font-size: 120%;
+	padding: 7px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+a.search-but:hover{
+	box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.25), 0 5px 18px 0 rgba(0, 0, 0, 0.20);
+}
+a.search-but:active{
+	box-shadow: none;
+	background: #848484;
+}	
+
+i.fa-search{
+	padding-left: 3px;	
 }
