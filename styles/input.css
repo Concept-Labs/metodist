@@ -145,10 +145,48 @@ a.save:active{
 	background: #0040FF;
 	box-shadow: none;
 }
+
+ul.subsave li{
+	z-index: 10;
+	position: relative;
+	width: 130px;
+	height: 20px;
+
+}
+a.save-ic{
+	color: #0080FF;
+	font-weight: bold;
+}
+a.save-ic:hover{
+	text-decoration: underline;
+}
 /* КІНЕЦЬ ЗБЕРЕЖЕННЯ*/
 .save-right{
+	cursor: pointer;
+	font-size: 90%;
+	color: #0080FF;
+	font-weight: bold;
 	float: right;
+ 	text-align: left;
 }
+
+ul.subsave{
+	 width:130px;  
+    height: 20px;
+    position: absolute;  
+    z-index: 200;
+
+	 max-height:0px;
+    overflow:hidden;
+    -webkit-transition:max-height 0.3s linear;
+    -moz-transition:max-height 0.3s linear;
+    transition:max-height 0.3s linear;
+}
+.hover-save:hover .subsave{
+	max-height: 30px;
+	padding-bottom: 3px;
+	}
+
 /* КНОПКА ДЛЯ ЗАВАНТАЖЕННЯ ФАЙЛІВ */
 .upload {
 	width: 0.1px;

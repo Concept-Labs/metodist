@@ -115,14 +115,20 @@
 					<?php 
 					if (isset($_SESSION['email'])) {            
 					if ($roww['doc'] != '') { ?>
-					<span class="save-right">
-					<a class="save" href="<?php echo base_url . 'media\articles\doc'.DS.$roww['doc'];?>"><i class="fas fa-save"></i><?php echo $roww['doc'] ?></a></span><br/><br/>
+					<ul class="save-right">
+						<li class="hover-save"><i class="fas fa-save"></i>Завантажити
+							<ul class="subsave">
+								<li><a class="save-ic" href="<?php echo base_url . 'media\articles\doc'.DS.$roww['doc'];?>"><?php echo $roww['doc'] ?></a></li>
+							</ul>
+						</li>
+					</ul>
+					<br/><br/>
 					<?php } } elseif ($roww['doc'] != '') {
 						echo "<p style='color: green;'>Щоб завантажити даний матеріал, Вам потрібно <a href=" .base_url . 'user/login' .">авторизуватися</a> на сайті!</p><br/>";
 					} ?>		
-					<p><i class="far fa-clock"></i> <?php echo $roww['date'];?> / <?php echo $roww['time']; ?>
+					<i class="far fa-clock"></i> <?php echo $roww['date'];?> / <?php echo $roww['time']; ?>
 						<span class="author"><i class="fas fa-user-edit"></i><?php echo $roww['author']."<br/>"; ?></span>
-					</p>
+					
 
 				</div>
 

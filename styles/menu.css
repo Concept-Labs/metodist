@@ -18,7 +18,7 @@ ul.menu{
 .menubar{
    box-shadow: 0.3em 0.3em 10px rgba(122,122,122,0.5);
    width: 100%;
-   background: #0101DF;
+   background: rgba(1, 1, 223, 0.81) ;
    margin: 0 auto;
    top:92px; /*высота шапки в пикселях*/
    position: fixed;
@@ -149,7 +149,7 @@ ul.submenu li {
     position: relative;
     width: 252px;
     height: 45px;
-    background-color: #0101DF;
+    background-color: rgba(1, 1, 223, 0.81);
     border-radius: 5px;
     box-shadow: 0.3em 0.3em 10px rgba(122,122,122,0.5);
 } 
