@@ -20,7 +20,7 @@ Class Controller_Add Extends Controller_Base
         if (isset($data['add'])) {
 
             $title = strip_tags(trim($data['title']));
-            $text = strip_tags(trim($data['text']));
+            $text = quotemeta($data['text']);
             $section = $data['section'];
             $author = strip_tags(trim($data['author']));
             $date = $data['date'];

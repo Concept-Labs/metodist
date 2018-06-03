@@ -35,10 +35,10 @@ Class Controller_Metodrecommendations Extends Controller_Base
         }
 
         $resultat = mysqli_query($db, "   SELECT * FROM `teacher` 
-                UNION SELECT * FROM `master` 
-                UNION SELECT * FROM `chairman_mk`
-                UNION SELECT * FROM `young_teacher`
-                UNION SELECT * FROM `class_teacher`");
+            UNION SELECT * FROM `master` 
+            UNION SELECT * FROM `chairman_mk`
+            UNION SELECT * FROM `young_teacher`
+            UNION SELECT * FROM `class_teacher`");
 
 // Узнаем количество всех доступных записей 
         $num = mysqli_num_rows($resultat);
@@ -89,494 +89,494 @@ Class Controller_Metodrecommendations Extends Controller_Base
         $this->_renderLayout($template);
     }
 
-            public function teacher() 
-            {
-                $template = $this->_initTemplate('Рекомендації викладачу');
-                $template->setFile('templates/metodrecommendations/teacher.phtml');
+    public function teacher() 
+    {
+        $template = $this->_initTemplate('Рекомендації викладачу');
+        $template->setFile('templates/metodrecommendations/teacher.phtml');
 
-                $db = $this->_registry->get('db');
+        $db = $this->_registry->get('db');
 // Устанавливаем количество записей, которые будут выводиться на одной странице
 // Поставьте нужное вам число. Для примера я указал одну запись на страницу
-                $quantity=2;
-                $template->set('quantity', $quantity);
+        $quantity=2;
+        $template->set('quantity', $quantity);
 // Если значение page= не является числом, то показываем
 // пользователю первую страницу
-                $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                if(!is_numeric($page)) $page=1;
+        $page = isset($_GET['page']) ? $_GET['page'] : 1;
+        if(!is_numeric($page)) $page=1;
 
 // Если пользователь вручную поменяет в адресной строке значение page= на нуль,
 // то мы определим это и поменяем на единицу, то-есть отправим на первую
 // страницу, чтобы избежать ошибки
-                if ($page<1) {
-                    $page=1;
-                    header("Location: /metodrecommendations/teacher?page=1");
-                    exit();
-                }
-
-// Узнаем количество всех доступных записей 
-                $result = mysqli_query($db, "   SELECT * FROM teacher");
-
-                $template->set('result', $result);
-                $num = mysqli_num_rows($result);
-                $template->set('num', $num);
-// Вычисляем количество страниц, чтобы знать сколько ссылок выводить
-                $pages = $num/$quantity;
-
-// Округляем полученное число страниц в большую сторону
-                $pages = ceil($pages);
-
-// Здесь мы увеличиваем число страниц на единицу чтобы начальное значение было
-// равно единице, а не нулю. Значение page= будет
-// совпадать с цифрой в ссылке, которую будут видеть посетители
-                $pages++; 
-
-// Если значение page= больше числа страниц, то выводим первую страницу
-                if ($page>$pages) $page = 1;
-
-                $template->set('page', $page);
-                $template->set('pages', $pages);
-// Выводим заголовок с номером текущей страницы 
-
-// Переменная $list указывает с какой записи начинать выводить данные.
-// Если это число не определено, то будем выводить
-// с самого начала, то-есть с нулевой записи
-                if (!isset($list)) $list=0;
-
-// Чтобы у нас значение page= в адресе ссылки совпадало с номером
-// страницы мы будем его увеличивать на единицу при выводе ссылок, а
-// здесь наоборот уменьшаем чтобы ничего не нарушить.
-                $list=--$page*$quantity;
-
-// Делаем запрос подставляя значения переменных $quantity и $list
-                $result1 = mysqli_query($db, "SELECT * FROM teacher ORDER BY id DESC LIMIT $quantity OFFSET $list;");
-
-//код для редагування статті
-                $id = isset($_GET['id']) ? $_GET['id'] : 0; 
-
-
-                $res = mysqli_query($db, "   SELECT * FROM teacher WHERE id='$id'");
-
-
-                $roww = mysqli_fetch_array($res);
-                $template->set('roww', $roww);
-
-                if (isset($_POST['save'])) {
-                    $title = strip_tags(trim($_POST['title']));
-                    $text = strip_tags(trim($_POST['text']));
-                    $author = strip_tags(trim($_POST['author']));
-
-                    mysqli_query($db, "UPDATE teacher SET title='$title', text='$text', author='$author' WHERE id='$id'");
-
-                    header("Location: /admin/metodrecommendations/teacher");
-                    exit();
-                }
-
-//видалення статті
-                if (isset($_GET['delete'])) {
-                    $delete = mysqli_query($db, "DELETE FROM `teacher` WHERE id='$id'");
-                    $template->set('delete', $delete);
-                }
-
-                mysqli_close($db);
-                $template->set('result1', $result1);
-// Считаем количество полученных записей
-                $num_result = mysqli_num_rows($result1);
-                $template->set('num_result', $num_result);
-
-                $this->_renderLayout($template);
-
-            }
-
-            public function master() 
-            {
-                $template = $this->_initTemplate('Рекомендації майстру в/н');
-                $template->setFile('templates/metodrecommendations/master.phtml');
-
-                $db = $this->_registry->get('db');
-        // Устанавливаем количество записей, которые будут выводиться на одной странице
-// Поставьте нужное вам число. Для примера я указал одну запись на страницу
-                $quantity=10;
-                $template->set('quantity', $quantity);
-// Если значение page= не является числом, то показываем
-// пользователю первую страницу
-                $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                if(!is_numeric($page)) $page=1;
-
-// Если пользователь вручную поменяет в адресной строке значение page= на нуль,
-// то мы определим это и поменяем на единицу, то-есть отправим на первую
-// страницу, чтобы избежать ошибки
-                if ($page<1) {
-                    $page=1;
-                    header("Location: /metodrecommendations/master?page=1");
-                    exit();
-                }
-
-// Узнаем количество всех доступных записей 
-                $result = mysqli_query($db, "   SELECT * FROM master");
-
-                $template->set('result', $result);
-                $num = mysqli_num_rows($result);
-                $template->set('num', $num);
-
-// Вычисляем количество страниц, чтобы знать сколько ссылок выводить
-                $pages = $num/$quantity;
-
-// Округляем полученное число страниц в большую сторону
-                $pages = ceil($pages);
-
-// Здесь мы увеличиваем число страниц на единицу чтобы начальное значение было
-// равно единице, а не нулю. Значение page= будет
-// совпадать с цифрой в ссылке, которую будут видеть посетители
-                $pages++; 
-
-// Если значение page= больше числа страниц, то выводим первую страницу
-                if ($page>$pages) $page = 1;
-
-                $template->set('page', $page);
-                $template->set('pages', $pages);
-// Выводим заголовок с номером текущей страницы 
-
-// Переменная $list указывает с какой записи начинать выводить данные.
-// Если это число не определено, то будем выводить
-// с самого начала, то-есть с нулевой записи
-                if (!isset($list)) $list=0;
-
-// Чтобы у нас значение page= в адресе ссылки совпадало с номером
-// страницы мы будем его увеличивать на единицу при выводе ссылок, а
-// здесь наоборот уменьшаем чтобы ничего не нарушить.
-                $list=--$page*$quantity;
-
-// Делаем запрос подставляя значения переменных $quantity и $list
-                $result1 = mysqli_query($db, "SELECT * FROM master ORDER BY id DESC LIMIT $quantity OFFSET $list;");
-
-//код для редагування статті
-                $id = isset($_GET['id']) ? $_GET['id'] : 0; 
-
-
-                $res = mysqli_query($db, "   SELECT * FROM master WHERE id='$id'");
-
-
-                $roww = mysqli_fetch_array($res);
-                $template->set('roww', $roww);
-
-                if (isset($_POST['save'])) {
-                    $title = strip_tags(trim($_POST['title']));
-                    $text = strip_tags(trim($_POST['text']));
-                    $author = strip_tags(trim($_POST['author']));
-
-                    mysqli_query($db, "UPDATE master SET title='$title', text='$text', author='$author' WHERE id='$id'");
-
-                    header("Location: /admin/metodrecommendations/master");
-                    exit();
-                }
-
-//видалення статті
-                if (isset($_GET['delete'])) {
-                    $delete = mysqli_query($db, "DELETE FROM `master` WHERE id='$id'");
-                    $template->set('delete', $delete);
-                }
-
-                mysqli_close($db);
-                $template->set('result1', $result1);
-// Считаем количество полученных записей
-                $num_result = mysqli_num_rows($result1);
-                $template->set('num_result', $num_result);
-
-                $this->_renderLayout($template);
-            }
-
-            public function chairman_mk() 
-            {
-                $template = $this->_initTemplate('Рекомендації голові МК');
-                $template->setFile('templates/metodrecommendations/chairman_mk.phtml');
-
-                $db = $this->_registry->get('db');
-        // Устанавливаем количество записей, которые будут выводиться на одной странице
-// Поставьте нужное вам число. Для примера я указал одну запись на страницу
-                $quantity=10;
-                $template->set('quantity', $quantity);
-// Если значение page= не является числом, то показываем
-// пользователю первую страницу
-                $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                if(!is_numeric($page)) $page=1;
-
-// Если пользователь вручную поменяет в адресной строке значение page= на нуль,
-// то мы определим это и поменяем на единицу, то-есть отправим на первую
-// страницу, чтобы избежать ошибки
-                if ($page<1) {
-                    $page=1;
-                    header("Location: /metodrecommendations/chairman_mk?page=1");
-                    exit();
-                }
-
-// Узнаем количество всех доступных записей 
-                $result = mysqli_query($db, "   SELECT * FROM chairman_mk");
-
-                $template->set('result', $result);
-                $num = mysqli_num_rows($result);
-                $template->set('num', $num);
-
-// Вычисляем количество страниц, чтобы знать сколько ссылок выводить
-                $pages = $num/$quantity;
-
-// Округляем полученное число страниц в большую сторону
-                $pages = ceil($pages);
-
-// Здесь мы увеличиваем число страниц на единицу чтобы начальное значение было
-// равно единице, а не нулю. Значение page= будет
-// совпадать с цифрой в ссылке, которую будут видеть посетители
-                $pages++; 
-
-// Если значение page= больше числа страниц, то выводим первую страницу
-                if ($page>$pages) $page = 1;
-
-                $template->set('page', $page);
-                $template->set('pages', $pages);
-// Выводим заголовок с номером текущей страницы 
-
-
-// Переменная $list указывает с какой записи начинать выводить данные.
-// Если это число не определено, то будем выводить
-// с самого начала, то-есть с нулевой записи
-                if (!isset($list)) $list=0;
-
-// Чтобы у нас значение page= в адресе ссылки совпадало с номером
-// страницы мы будем его увеличивать на единицу при выводе ссылок, а
-// здесь наоборот уменьшаем чтобы ничего не нарушить.
-                $list=--$page*$quantity;
-
-// Делаем запрос подставляя значения переменных $quantity и $list
-                $result1 = mysqli_query($db, "SELECT * FROM chairman_mk ORDER BY id DESC LIMIT $quantity OFFSET $list;");
-
-//код для редагування статті
-                $id = isset($_GET['id']) ? $_GET['id'] : 0; 
-
-
-                $res = mysqli_query($db, "   SELECT * FROM chairman_mk WHERE id='$id'");
-
-
-                $roww = mysqli_fetch_array($res);
-                $template->set('roww', $roww);
-
-                if (isset($_POST['save'])) {
-                    $title = strip_tags(trim($_POST['title']));
-                    $text = strip_tags(trim($_POST['text']));
-                    $author = strip_tags(trim($_POST['author']));
-
-                    mysqli_query($db, "UPDATE chairman_mk SET title='$title', text='$text', author='$author' WHERE id='$id'");
-
-                    header("Location: /admin/metodrecommendations/chairman_mk");
-                    exit();
-                }
-
-//видалення статті
-                if (isset($_GET['delete'])) {
-                    $delete = mysqli_query($db, "DELETE FROM `chairman_mk` WHERE id='$id'");
-                    $template->set('delete', $delete);
-                }
-
-                mysqli_close($db);
-                $template->set('result1', $result1);
-// Считаем количество полученных записей
-                $num_result = mysqli_num_rows($result1);
-                $template->set('num_result', $num_result);
-
-                $this->_renderLayout($template);
-            }
-
-            public function young_teacher() 
-            {
-                $template = $this->_initTemplate('Рекомендації молодому педагогу');
-                $template->setFile('templates/metodrecommendations/young_teacher.phtml');
-
-                $db = $this->_registry->get('db');
-        // Устанавливаем количество записей, которые будут выводиться на одной странице
-// Поставьте нужное вам число. Для примера я указал одну запись на страницу
-                $quantity=10;
-                $template->set('quantity', $quantity);
-// Если значение page= не является числом, то показываем
-// пользователю первую страницу
-                $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                if(!is_numeric($page)) $page=1;
-
-// Если пользователь вручную поменяет в адресной строке значение page= на нуль,
-// то мы определим это и поменяем на единицу, то-есть отправим на первую
-// страницу, чтобы избежать ошибки
-                if ($page<1) {
-                    $page=1;
-                    header("Location: /metodrecommendations/young_teacher?page=1");
-                    exit();
-                }
-// Узнаем количество всех доступных записей 
-                $result = mysqli_query($db, "   SELECT * FROM young_teacher");
-
-                $template->set('result', $result);
-                $num = mysqli_num_rows($result);
-                $template->set('num', $num);
-
-// Вычисляем количество страниц, чтобы знать сколько ссылок выводить
-                $pages = $num/$quantity;
-
-// Округляем полученное число страниц в большую сторону
-                $pages = ceil($pages);
-
-// Здесь мы увеличиваем число страниц на единицу чтобы начальное значение было
-// равно единице, а не нулю. Значение page= будет
-// совпадать с цифрой в ссылке, которую будут видеть посетители
-                $pages++; 
-
-// Если значение page= больше числа страниц, то выводим первую страницу
-                if ($page>$pages) $page = 1;
-
-                $template->set('page', $page);
-                $template->set('pages', $pages);
-// Выводим заголовок с номером текущей страницы 
-
-
-// Переменная $list указывает с какой записи начинать выводить данные.
-// Если это число не определено, то будем выводить
-// с самого начала, то-есть с нулевой записи
-                if (!isset($list)) $list=0;
-
-// Чтобы у нас значение page= в адресе ссылки совпадало с номером
-// страницы мы будем его увеличивать на единицу при выводе ссылок, а
-// здесь наоборот уменьшаем чтобы ничего не нарушить.
-                $list=--$page*$quantity;
-
-// Делаем запрос подставляя значения переменных $quantity и $list
-                $result1 = mysqli_query($db, "SELECT * FROM young_teacher ORDER BY id DESC LIMIT $quantity OFFSET $list;");
-
-//код для редагування статті
-                $id = isset($_GET['id']) ? $_GET['id'] : 0; 
-
-
-                $res = mysqli_query($db, "   SELECT * FROM young_teacher WHERE id='$id'");
-
-
-                $roww = mysqli_fetch_array($res);
-                $template->set('roww', $roww);
-
-                if (isset($_POST['save'])) {
-                    $title = strip_tags(trim($_POST['title']));
-                    $text = strip_tags(trim($_POST['text']));
-                    $author = strip_tags(trim($_POST['author']));
-
-                    mysqli_query($db, "UPDATE young_teacher SET title='$title', text='$text', author='$author' WHERE id='$id'");
-
-                    header("Location: /admin/metodrecommendations/young_teacher");
-                    exit();
-                }
-
-//видалення статті
-                if (isset($_GET['delete'])) {
-                    $delete = mysqli_query($db, "DELETE FROM `young_teacher` WHERE id='$id'");
-                    $template->set('delete', $delete);
-                }
-
-                mysqli_close($db);
-                $template->set('result1', $result1);
-// Считаем количество полученных записей
-                $num_result = mysqli_num_rows($result1);
-                $template->set('num_result', $num_result);
-
-                $this->_renderLayout($template);
-            }
-
-            public function class_teacher() 
-            {
-                $template = $this->_initTemplate('Рекомендації класному керівнику');
-                $template->setFile('templates/metodrecommendations/class_teacher.phtml');
-
-                $db = $this->_registry->get('db');
-        // Устанавливаем количество записей, которые будут выводиться на одной странице
-// Поставьте нужное вам число. Для примера я указал одну запись на страницу
-                $quantity=10;
-                $template->set('quantity', $quantity);
-// Если значение page= не является числом, то показываем
-// пользователю первую страницу
-                $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                if(!is_numeric($page)) $page=1;
-
-// Если пользователь вручную поменяет в адресной строке значение page= на нуль,
-// то мы определим это и поменяем на единицу, то-есть отправим на первую
-// страницу, чтобы избежать ошибки
-                if ($page<1) {
-                    $page=1;
-                    header("Location: /metodrecommendations/class_teacher?page=1");
-                    exit();
-                }
-// Узнаем количество всех доступных записей 
-                $result = mysqli_query($db, "   SELECT * FROM class_teacher");
-
-                $template->set('result', $result);
-                $num = mysqli_num_rows($result);
-                $template->set('num', $num);
-
-// Вычисляем количество страниц, чтобы знать сколько ссылок выводить
-                $pages = $num/$quantity;
-
-// Округляем полученное число страниц в большую сторону
-                $pages = ceil($pages);
-
-// Здесь мы увеличиваем число страниц на единицу чтобы начальное значение было
-// равно единице, а не нулю. Значение page= будет
-// совпадать с цифрой в ссылке, которую будут видеть посетители
-                $pages++; 
-
-// Если значение page= больше числа страниц, то выводим первую страницу
-                if ($page>$pages) $page = 1;
-
-                $template->set('page', $page);
-                $template->set('pages', $pages);
-// Выводим заголовок с номером текущей страницы 
-
-
-// Переменная $list указывает с какой записи начинать выводить данные.
-// Если это число не определено, то будем выводить
-// с самого начала, то-есть с нулевой записи
-                if (!isset($list)) $list=0;
-
-// Чтобы у нас значение page= в адресе ссылки совпадало с номером
-// страницы мы будем его увеличивать на единицу при выводе ссылок, а
-// здесь наоборот уменьшаем чтобы ничего не нарушить.
-                $list=--$page*$quantity;
-
-// Делаем запрос подставляя значения переменных $quantity и $list
-                $result1 = mysqli_query($db, "SELECT * FROM class_teacher ORDER BY id DESC LIMIT $quantity OFFSET $list;");
-
-//код для редагування статті
-                $id = isset($_GET['id']) ? $_GET['id'] : 0; 
-
-
-                $res = mysqli_query($db, "   SELECT * FROM class_teacher WHERE id='$id'");
-
-
-                $roww = mysqli_fetch_array($res);
-                $template->set('roww', $roww);
-
-                if (isset($_POST['save'])) {
-                    $title = strip_tags(trim($_POST['title']));
-                    $text = strip_tags(trim($_POST['text']));
-                    $author = strip_tags(trim($_POST['author']));
-
-                    mysqli_query($db, "UPDATE class_teacher SET title='$title', text='$text', author='$author' WHERE id='$id'");
-
-                    header("Location: /admin/metodrecommendations/class_teacher");
-                    exit();
-                }
-
-//видалення статті
-                if (isset($_GET['delete'])) {
-                    $delete = mysqli_query($db, "DELETE FROM `class_teacher` WHERE id='$id'");
-                    $template->set('delete', $delete);
-                }
-
-                mysqli_close($db);
-                $template->set('result1', $result1);
-// Считаем количество полученных записей
-                $num_result = mysqli_num_rows($result1);
-                $template->set('num_result', $num_result);
-
-                $this->_renderLayout($template);
-            }
+        if ($page<1) {
+            $page=1;
+            header("Location: /metodrecommendations/teacher?page=1");
+            exit();
         }
+
+// Узнаем количество всех доступных записей 
+        $result = mysqli_query($db, "   SELECT * FROM teacher");
+
+        $template->set('result', $result);
+        $num = mysqli_num_rows($result);
+        $template->set('num', $num);
+// Вычисляем количество страниц, чтобы знать сколько ссылок выводить
+        $pages = $num/$quantity;
+
+// Округляем полученное число страниц в большую сторону
+        $pages = ceil($pages);
+
+// Здесь мы увеличиваем число страниц на единицу чтобы начальное значение было
+// равно единице, а не нулю. Значение page= будет
+// совпадать с цифрой в ссылке, которую будут видеть посетители
+        $pages++; 
+
+// Если значение page= больше числа страниц, то выводим первую страницу
+        if ($page>$pages) $page = 1;
+
+        $template->set('page', $page);
+        $template->set('pages', $pages);
+// Выводим заголовок с номером текущей страницы 
+
+// Переменная $list указывает с какой записи начинать выводить данные.
+// Если это число не определено, то будем выводить
+// с самого начала, то-есть с нулевой записи
+        if (!isset($list)) $list=0;
+
+// Чтобы у нас значение page= в адресе ссылки совпадало с номером
+// страницы мы будем его увеличивать на единицу при выводе ссылок, а
+// здесь наоборот уменьшаем чтобы ничего не нарушить.
+        $list=--$page*$quantity;
+
+// Делаем запрос подставляя значения переменных $quantity и $list
+        $result1 = mysqli_query($db, "SELECT * FROM teacher ORDER BY id DESC LIMIT $quantity OFFSET $list;");
+
+//код для редагування статті
+        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
+
+
+        $res = mysqli_query($db, "   SELECT * FROM teacher WHERE id='$id'");
+
+
+        $roww = mysqli_fetch_array($res);
+        $template->set('roww', $roww);
+
+        if (isset($_POST['save'])) {
+            $title = strip_tags(trim($_POST['title']));
+            $text = quotemeta($_POST['text']);
+            $author = strip_tags(trim($_POST['author']));
+
+            mysqli_query($db, "UPDATE teacher SET title='$title', text='$text', author='$author' WHERE id='$id'");
+
+            header("Location: /admin/metodrecommendations/teacher");
+            exit();
+        }
+
+//видалення статті
+        if (isset($_GET['delete'])) {
+            $delete = mysqli_query($db, "DELETE FROM `teacher` WHERE id='$id'");
+            $template->set('delete', $delete);
+        }
+
+        mysqli_close($db);
+        $template->set('result1', $result1);
+// Считаем количество полученных записей
+        $num_result = mysqli_num_rows($result1);
+        $template->set('num_result', $num_result);
+
+        $this->_renderLayout($template);
+
+    }
+
+    public function master() 
+    {
+        $template = $this->_initTemplate('Рекомендації майстру в/н');
+        $template->setFile('templates/metodrecommendations/master.phtml');
+
+        $db = $this->_registry->get('db');
+        // Устанавливаем количество записей, которые будут выводиться на одной странице
+// Поставьте нужное вам число. Для примера я указал одну запись на страницу
+        $quantity=10;
+        $template->set('quantity', $quantity);
+// Если значение page= не является числом, то показываем
+// пользователю первую страницу
+        $page = isset($_GET['page']) ? $_GET['page'] : 1;
+        if(!is_numeric($page)) $page=1;
+
+// Если пользователь вручную поменяет в адресной строке значение page= на нуль,
+// то мы определим это и поменяем на единицу, то-есть отправим на первую
+// страницу, чтобы избежать ошибки
+        if ($page<1) {
+            $page=1;
+            header("Location: /metodrecommendations/master?page=1");
+            exit();
+        }
+
+// Узнаем количество всех доступных записей 
+        $result = mysqli_query($db, "   SELECT * FROM master");
+
+        $template->set('result', $result);
+        $num = mysqli_num_rows($result);
+        $template->set('num', $num);
+
+// Вычисляем количество страниц, чтобы знать сколько ссылок выводить
+        $pages = $num/$quantity;
+
+// Округляем полученное число страниц в большую сторону
+        $pages = ceil($pages);
+
+// Здесь мы увеличиваем число страниц на единицу чтобы начальное значение было
+// равно единице, а не нулю. Значение page= будет
+// совпадать с цифрой в ссылке, которую будут видеть посетители
+        $pages++; 
+
+// Если значение page= больше числа страниц, то выводим первую страницу
+        if ($page>$pages) $page = 1;
+
+        $template->set('page', $page);
+        $template->set('pages', $pages);
+// Выводим заголовок с номером текущей страницы 
+
+// Переменная $list указывает с какой записи начинать выводить данные.
+// Если это число не определено, то будем выводить
+// с самого начала, то-есть с нулевой записи
+        if (!isset($list)) $list=0;
+
+// Чтобы у нас значение page= в адресе ссылки совпадало с номером
+// страницы мы будем его увеличивать на единицу при выводе ссылок, а
+// здесь наоборот уменьшаем чтобы ничего не нарушить.
+        $list=--$page*$quantity;
+
+// Делаем запрос подставляя значения переменных $quantity и $list
+        $result1 = mysqli_query($db, "SELECT * FROM master ORDER BY id DESC LIMIT $quantity OFFSET $list;");
+
+//код для редагування статті
+        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
+
+
+        $res = mysqli_query($db, "   SELECT * FROM master WHERE id='$id'");
+
+
+        $roww = mysqli_fetch_array($res);
+        $template->set('roww', $roww);
+
+        if (isset($_POST['save'])) {
+            $title = strip_tags(trim($_POST['title']));
+            $text = quotemeta($_POST['text']);
+            $author = strip_tags(trim($_POST['author']));
+
+            mysqli_query($db, "UPDATE master SET title='$title', text='$text', author='$author' WHERE id='$id'");
+
+            header("Location: /admin/metodrecommendations/master");
+            exit();
+        }
+
+//видалення статті
+        if (isset($_GET['delete'])) {
+            $delete = mysqli_query($db, "DELETE FROM `master` WHERE id='$id'");
+            $template->set('delete', $delete);
+        }
+
+        mysqli_close($db);
+        $template->set('result1', $result1);
+// Считаем количество полученных записей
+        $num_result = mysqli_num_rows($result1);
+        $template->set('num_result', $num_result);
+
+        $this->_renderLayout($template);
+    }
+
+    public function chairman_mk() 
+    {
+        $template = $this->_initTemplate('Рекомендації голові МК');
+        $template->setFile('templates/metodrecommendations/chairman_mk.phtml');
+
+        $db = $this->_registry->get('db');
+        // Устанавливаем количество записей, которые будут выводиться на одной странице
+// Поставьте нужное вам число. Для примера я указал одну запись на страницу
+        $quantity=10;
+        $template->set('quantity', $quantity);
+// Если значение page= не является числом, то показываем
+// пользователю первую страницу
+        $page = isset($_GET['page']) ? $_GET['page'] : 1;
+        if(!is_numeric($page)) $page=1;
+
+// Если пользователь вручную поменяет в адресной строке значение page= на нуль,
+// то мы определим это и поменяем на единицу, то-есть отправим на первую
+// страницу, чтобы избежать ошибки
+        if ($page<1) {
+            $page=1;
+            header("Location: /metodrecommendations/chairman_mk?page=1");
+            exit();
+        }
+
+// Узнаем количество всех доступных записей 
+        $result = mysqli_query($db, "   SELECT * FROM chairman_mk");
+
+        $template->set('result', $result);
+        $num = mysqli_num_rows($result);
+        $template->set('num', $num);
+
+// Вычисляем количество страниц, чтобы знать сколько ссылок выводить
+        $pages = $num/$quantity;
+
+// Округляем полученное число страниц в большую сторону
+        $pages = ceil($pages);
+
+// Здесь мы увеличиваем число страниц на единицу чтобы начальное значение было
+// равно единице, а не нулю. Значение page= будет
+// совпадать с цифрой в ссылке, которую будут видеть посетители
+        $pages++; 
+
+// Если значение page= больше числа страниц, то выводим первую страницу
+        if ($page>$pages) $page = 1;
+
+        $template->set('page', $page);
+        $template->set('pages', $pages);
+// Выводим заголовок с номером текущей страницы 
+
+
+// Переменная $list указывает с какой записи начинать выводить данные.
+// Если это число не определено, то будем выводить
+// с самого начала, то-есть с нулевой записи
+        if (!isset($list)) $list=0;
+
+// Чтобы у нас значение page= в адресе ссылки совпадало с номером
+// страницы мы будем его увеличивать на единицу при выводе ссылок, а
+// здесь наоборот уменьшаем чтобы ничего не нарушить.
+        $list=--$page*$quantity;
+
+// Делаем запрос подставляя значения переменных $quantity и $list
+        $result1 = mysqli_query($db, "SELECT * FROM chairman_mk ORDER BY id DESC LIMIT $quantity OFFSET $list;");
+
+//код для редагування статті
+        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
+
+
+        $res = mysqli_query($db, "   SELECT * FROM chairman_mk WHERE id='$id'");
+
+
+        $roww = mysqli_fetch_array($res);
+        $template->set('roww', $roww);
+
+        if (isset($_POST['save'])) {
+            $title = strip_tags(trim($_POST['title']));
+            $text = quotemeta($_POST['text']);
+            $author = strip_tags(trim($_POST['author']));
+
+            mysqli_query($db, "UPDATE chairman_mk SET title='$title', text='$text', author='$author' WHERE id='$id'");
+
+            header("Location: /admin/metodrecommendations/chairman_mk");
+            exit();
+        }
+
+//видалення статті
+        if (isset($_GET['delete'])) {
+            $delete = mysqli_query($db, "DELETE FROM `chairman_mk` WHERE id='$id'");
+            $template->set('delete', $delete);
+        }
+
+        mysqli_close($db);
+        $template->set('result1', $result1);
+// Считаем количество полученных записей
+        $num_result = mysqli_num_rows($result1);
+        $template->set('num_result', $num_result);
+
+        $this->_renderLayout($template);
+    }
+
+    public function young_teacher() 
+    {
+        $template = $this->_initTemplate('Рекомендації молодому педагогу');
+        $template->setFile('templates/metodrecommendations/young_teacher.phtml');
+
+        $db = $this->_registry->get('db');
+        // Устанавливаем количество записей, которые будут выводиться на одной странице
+// Поставьте нужное вам число. Для примера я указал одну запись на страницу
+        $quantity=10;
+        $template->set('quantity', $quantity);
+// Если значение page= не является числом, то показываем
+// пользователю первую страницу
+        $page = isset($_GET['page']) ? $_GET['page'] : 1;
+        if(!is_numeric($page)) $page=1;
+
+// Если пользователь вручную поменяет в адресной строке значение page= на нуль,
+// то мы определим это и поменяем на единицу, то-есть отправим на первую
+// страницу, чтобы избежать ошибки
+        if ($page<1) {
+            $page=1;
+            header("Location: /metodrecommendations/young_teacher?page=1");
+            exit();
+        }
+// Узнаем количество всех доступных записей 
+        $result = mysqli_query($db, "   SELECT * FROM young_teacher");
+
+        $template->set('result', $result);
+        $num = mysqli_num_rows($result);
+        $template->set('num', $num);
+
+// Вычисляем количество страниц, чтобы знать сколько ссылок выводить
+        $pages = $num/$quantity;
+
+// Округляем полученное число страниц в большую сторону
+        $pages = ceil($pages);
+
+// Здесь мы увеличиваем число страниц на единицу чтобы начальное значение было
+// равно единице, а не нулю. Значение page= будет
+// совпадать с цифрой в ссылке, которую будут видеть посетители
+        $pages++; 
+
+// Если значение page= больше числа страниц, то выводим первую страницу
+        if ($page>$pages) $page = 1;
+
+        $template->set('page', $page);
+        $template->set('pages', $pages);
+// Выводим заголовок с номером текущей страницы 
+
+
+// Переменная $list указывает с какой записи начинать выводить данные.
+// Если это число не определено, то будем выводить
+// с самого начала, то-есть с нулевой записи
+        if (!isset($list)) $list=0;
+
+// Чтобы у нас значение page= в адресе ссылки совпадало с номером
+// страницы мы будем его увеличивать на единицу при выводе ссылок, а
+// здесь наоборот уменьшаем чтобы ничего не нарушить.
+        $list=--$page*$quantity;
+
+// Делаем запрос подставляя значения переменных $quantity и $list
+        $result1 = mysqli_query($db, "SELECT * FROM young_teacher ORDER BY id DESC LIMIT $quantity OFFSET $list;");
+
+//код для редагування статті
+        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
+
+
+        $res = mysqli_query($db, "   SELECT * FROM young_teacher WHERE id='$id'");
+
+
+        $roww = mysqli_fetch_array($res);
+        $template->set('roww', $roww);
+
+        if (isset($_POST['save'])) {
+            $title = strip_tags(trim($_POST['title']));
+            $text = quotemeta($_POST['text']);
+            $author = strip_tags(trim($_POST['author']));
+
+            mysqli_query($db, "UPDATE young_teacher SET title='$title', text='$text', author='$author' WHERE id='$id'");
+
+            header("Location: /admin/metodrecommendations/young_teacher");
+            exit();
+        }
+
+//видалення статті
+        if (isset($_GET['delete'])) {
+            $delete = mysqli_query($db, "DELETE FROM `young_teacher` WHERE id='$id'");
+            $template->set('delete', $delete);
+        }
+
+        mysqli_close($db);
+        $template->set('result1', $result1);
+// Считаем количество полученных записей
+        $num_result = mysqli_num_rows($result1);
+        $template->set('num_result', $num_result);
+
+        $this->_renderLayout($template);
+    }
+
+    public function class_teacher() 
+    {
+        $template = $this->_initTemplate('Рекомендації класному керівнику');
+        $template->setFile('templates/metodrecommendations/class_teacher.phtml');
+
+        $db = $this->_registry->get('db');
+        // Устанавливаем количество записей, которые будут выводиться на одной странице
+// Поставьте нужное вам число. Для примера я указал одну запись на страницу
+        $quantity=10;
+        $template->set('quantity', $quantity);
+// Если значение page= не является числом, то показываем
+// пользователю первую страницу
+        $page = isset($_GET['page']) ? $_GET['page'] : 1;
+        if(!is_numeric($page)) $page=1;
+
+// Если пользователь вручную поменяет в адресной строке значение page= на нуль,
+// то мы определим это и поменяем на единицу, то-есть отправим на первую
+// страницу, чтобы избежать ошибки
+        if ($page<1) {
+            $page=1;
+            header("Location: /metodrecommendations/class_teacher?page=1");
+            exit();
+        }
+// Узнаем количество всех доступных записей 
+        $result = mysqli_query($db, "   SELECT * FROM class_teacher");
+
+        $template->set('result', $result);
+        $num = mysqli_num_rows($result);
+        $template->set('num', $num);
+
+// Вычисляем количество страниц, чтобы знать сколько ссылок выводить
+        $pages = $num/$quantity;
+
+// Округляем полученное число страниц в большую сторону
+        $pages = ceil($pages);
+
+// Здесь мы увеличиваем число страниц на единицу чтобы начальное значение было
+// равно единице, а не нулю. Значение page= будет
+// совпадать с цифрой в ссылке, которую будут видеть посетители
+        $pages++; 
+
+// Если значение page= больше числа страниц, то выводим первую страницу
+        if ($page>$pages) $page = 1;
+
+        $template->set('page', $page);
+        $template->set('pages', $pages);
+// Выводим заголовок с номером текущей страницы 
+
+
+// Переменная $list указывает с какой записи начинать выводить данные.
+// Если это число не определено, то будем выводить
+// с самого начала, то-есть с нулевой записи
+        if (!isset($list)) $list=0;
+
+// Чтобы у нас значение page= в адресе ссылки совпадало с номером
+// страницы мы будем его увеличивать на единицу при выводе ссылок, а
+// здесь наоборот уменьшаем чтобы ничего не нарушить.
+        $list=--$page*$quantity;
+
+// Делаем запрос подставляя значения переменных $quantity и $list
+        $result1 = mysqli_query($db, "SELECT * FROM class_teacher ORDER BY id DESC LIMIT $quantity OFFSET $list;");
+
+//код для редагування статті
+        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
+
+
+        $res = mysqli_query($db, "   SELECT * FROM class_teacher WHERE id='$id'");
+
+
+        $roww = mysqli_fetch_array($res);
+        $template->set('roww', $roww);
+
+        if (isset($_POST['save'])) {
+            $title = strip_tags(trim($_POST['title']));
+            $text = quotemeta($_POST['text']);
+            $author = strip_tags(trim($_POST['author']));
+
+            mysqli_query($db, "UPDATE class_teacher SET title='$title', text='$text', author='$author' WHERE id='$id'");
+
+            header("Location: /admin/metodrecommendations/class_teacher");
+            exit();
+        }
+
+//видалення статті
+        if (isset($_GET['delete'])) {
+            $delete = mysqli_query($db, "DELETE FROM `class_teacher` WHERE id='$id'");
+            $template->set('delete', $delete);
+        }
+
+        mysqli_close($db);
+        $template->set('result1', $result1);
+// Считаем количество полученных записей
+        $num_result = mysqli_num_rows($result1);
+        $template->set('num_result', $num_result);
+
+        $this->_renderLayout($template);
+    }
+}

@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="ua">
-    <head>
-        <title>{{$title}}</title>
-        <meta name="title" content="{{$title}}" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        {{$headfiles}}
-         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-        <link rel="shortcut icon" href="/img/x-icon.png" type="image/x-icon">
-        <script type="text/javascript" src="../script/Jquery.js"></script>
-     </head>
-    <body>
-        {{$header}}
-        
-        <div class="side_content">
+<head>
+    <title>{{$title}}</title>
+    <meta name="title" content="{{$title}}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    {{$headfiles}}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/img/x-icon.png" type="image/x-icon">
+    <script type="text/javascript" src="../script/Jquery.js"></script>
+    <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+</head>
+<body>
+    {{$header}}
+    
+    <div class="side_content">
         {{$content}}
         {{$rightblock}}
-        </div>
-        
-         <script type="text/javascript" src="../script/upload.js"></script>
-       
-    </body>
+    </div>
+    
+    <script type="text/javascript" src="../script/upload.js"></script>
+   
+</body>
 </html>
