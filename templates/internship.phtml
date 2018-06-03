@@ -122,7 +122,7 @@
 							</li>
 						</ul>
 						<br/><br/>
-						<?php } } else {
+						<?php } } elseif ($roww['doc'] != '') {
 							echo "<p style='color: green;'>Щоб завантажити даний матеріал, Вам потрібно <a href=" .base_url . 'user/login' .">авторизуватися</a> на сайті!</p><br/>";
 						} ?>		
 						<i class="far fa-clock"></i> <?php echo $roww['date'];?> / <?php echo $roww['time']; ?>
