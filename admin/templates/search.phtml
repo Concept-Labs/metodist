@@ -73,7 +73,7 @@
 			$text = substr($text, 0, strrpos($text, ' '));
 			if (mb_strlen($row['text']) > $counttext) {
 				echo $text; 
-				echo "<a href=".base_url . 'news?articles&id='.$row['id']."> Читати далі . . .</a>";
+				echo "<a href=".base_url .$middleUrl .'?articles&id='.$row['id']."> Читати далі . . .</a>";
 			} else {
 				echo $row['text'];
 			}	?></p>	<br/>		

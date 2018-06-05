@@ -97,7 +97,7 @@ Class Controller_Metodrecommendations Extends Controller_Base
         $db = $this->_registry->get('db');
 // Устанавливаем количество записей, которые будут выводиться на одной странице
 // Поставьте нужное вам число. Для примера я указал одну запись на страницу
-        $quantity=2;
+        $quantity=10;
         $template->set('quantity', $quantity);
 // Если значение page= не является числом, то показываем
 // пользователю первую страницу

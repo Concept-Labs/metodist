@@ -153,9 +153,7 @@ Class Controller_Metodrecommendations Extends Controller_Base
             //код для виведення матеріалу а одну сторінку
         $id = isset($_GET['id']) ? $_GET['id'] : 0; 
 
-
         $res = mysqli_query($db, "   SELECT * FROM teacher WHERE id='$id'");
-
 
         $roww = mysqli_fetch_array($res);
         $template->set('roww', $roww);

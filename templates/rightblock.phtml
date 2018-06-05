@@ -53,22 +53,17 @@
 // Делаем запрос подставляя значения переменных $quantity и $list
         $result1 = mysqli_query($db, "SELECT * FROM news ORDER BY id DESC LIMIT $quantity");
 
-    //код для виведення матеріалу а одну сторінку
-        $id = isset($_GET['id']) ? $_GET['id'] : 0; 
-
-        $res = mysqli_query($db, "   SELECT * FROM news WHERE id='$id'");
-
-        $roww = mysqli_fetch_array($res);
-
         mysqli_close($db);
 
 // Считаем количество полученных записей
         $num_result = mysqli_num_rows($result1);
-
-			while ($row = mysqli_fetch_array($result1)) {
+if ($num_result) {
+	while ($row = mysqli_fetch_array($result1)) {
 				?>				
-					<a href="<?php echo base_url . 'news?articles&id='.$row['id']; ?>"><?php echo $row['title']."<br/>"; ?></a>				
-				<?php }     
+					<a href="<?php echo base_url . 'news?articles&id='.$row['id']; ?>"><?php echo $row['title']."<br/>"; ?></a>		
+
+					
+				<?php }     }
 			?>
 	</div>
 </div>
