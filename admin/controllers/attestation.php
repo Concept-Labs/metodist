@@ -83,7 +83,7 @@ Class Controller_Attestation Extends Controller_Base
 
         if (isset($_POST['save'])) {
             $title = strip_tags(trim($_POST['title']));
-            $text = strip_tags(trim($_POST['text']));
+            $text = quotemeta($_POST['text']);
             $author = strip_tags(trim($_POST['author']));
 
             mysqli_query($db, "UPDATE attestation SET title='$title', text='$text', author='$author' WHERE id='$id'");

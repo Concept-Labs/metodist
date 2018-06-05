@@ -101,7 +101,7 @@ Class Template
         }
         $js = '';
         foreach($this->__js as $file){
-            $js .= '<script type="text/javascript" src="'.base_url . $file.'"></script>';
+            $js .= '<script type="text/javascript" src="'.base_url .$file.'"></script>';
         }
         $this->vars['headfiles'] = $css.' '.$js;
         return $this;

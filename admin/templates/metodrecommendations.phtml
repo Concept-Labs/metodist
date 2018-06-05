@@ -38,24 +38,6 @@
 					case 'class_teacher':
 					$middleUrl = 'metodrecommendations/class_teacher';
 					break;
-					case 'attestation':
-					$middleUrl = 'attestation';
-					break;
-					case 'internship':
-					$middleUrl = 'internship';
-					break;
-					case 'pedagogical_experience':
-					$middleUrl = 'pedagogical_experience';
-					break;
-					case 'qualifications':
-					$middleUrl = 'qualifications';
-					break;
-					case 'news':
-					$middleUrl = 'news';
-					break;
-					case 'main':
-					$middleUrl = 'main';
-					break;
 				}  ?>
 
 				<div class="sidebar2">
@@ -71,8 +53,8 @@
 					} else {
 						echo $row['text'];
 					}	?></p>	<br/>		
-					<p><i class="far fa-clock"></i> <?php echo $row['date'];?> / <?php echo $row['time']; ?>
-						<span class="author"><i class="fas fa-user-edit"></i><?php echo $row['author']."<br/>"; ?></span>
+					<p>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
+						<span class="author">Автор: <?php echo $row['author']."<br/>"; ?></span>
 					</p><br/>
 					
 				</div>
@@ -148,8 +130,8 @@
 					<?php if ($roww['image'] != '') { ?>
 					<img src="<?php echo base_url . 'media\articles\images'.DS.$roww['image'];?>" alt="<?php echo $roww['image'];?>"/><br/><br/>	
 					<?php } ?>	
-					<p><i class="far fa-clock"></i> <?php echo $roww['date'];?> / <?php echo $roww['time']; ?>
-						<span class="author"><i class="fas fa-user-edit"></i><?php echo $roww['author']."<br/>"; ?></span>
+					<p>Дата публікації: <?php echo $roww['date'];?> / <?php echo $roww['time']; ?>
+						<span class="author">Автор: <?php echo $roww['author']."<br/>"; ?></span>
 					</p>
 
 				</div>

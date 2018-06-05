@@ -18,8 +18,8 @@
 			<input type="text" name="title"  value="<?php echo @$_POST['title']; ?>"/><br/><br/>
 
 			Текст матеріалу:<br/>
-			<textarea name="text" id="" cols="40" rows="10" value="<?php echo @$_POST['text']; ?>"></textarea><br/><br/>
-
+			<textarea class="ckeditor" name="text" cols="40" rows="20" ><?php echo @$_POST['text'];?></textarea><br/><br/>
+			
 			Зображення:<br/>
 			<input type="file" name="image" id="file" class="upload" data-multiple-caption="{count} файлів завантажено" multiple />
 			<label for="file"><span><i class="fas fa-upload"></i>Завантажити</span></label>	<br/><br/>
@@ -53,3 +53,4 @@
 		
 	</div>
 </div>
+ 

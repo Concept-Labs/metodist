@@ -19,11 +19,16 @@
 		</form>
 		<?php
 		if ($num != 0 && !empty($search_query)) {
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> 4d30a0c8b8dd326a8e62e9454ac673ecfec3dbe4
 			echo '<br/><p style="color:green;">За запитом <b>"'. $search_query.'"</b> знайдено збігів: '.$num.'</p>';
 		} ?>	
 	</div>
 	<?php
+<<<<<<< HEAD
 	$query1 = 'SELECT * FROM `master` WHERE $query_search';
 	if ($num != 0 && !empty($search_query)) {
 		while ($row = mysqli_fetch_array($query)) { ?>
@@ -47,12 +52,68 @@
 			<p>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
 				<span class="author">Автор: <?php echo $row['author']."<br/>"; ?></span>
 			</p><br/>
+=======
+	if ($num != 0 && !empty($search_query)) {
+		while ($row = mysqli_fetch_array($query)) { 
+			$middleUrl = '';
+			switch ($row['table']) {
+				case 'teacher':
+				$middleUrl = 'metodrecommendations/teacher';
+				break;
+				case 'master':
+				$middleUrl = 'metodrecommendations/master';
+				break;
+				case 'chairman_mk':
+				$middleUrl = 'metodrecommendations/chairman_mk';
+				break;
+				case 'young_teacher':
+				$middleUrl = 'metodrecommendations/young_teacher';
+				break;
+				case 'class_teacher':
+				$middleUrl = 'metodrecommendations/class_teacher';
+				break;
+				case 'attestation':
+				$middleUrl = 'attestation';
+				break;
+				case 'internship':
+				$middleUrl = 'internship';
+				break;
+				case 'pedagogical_experience':
+				$middleUrl = 'pedagogical_experience';
+				break;
+				case 'qualifications':
+				$middleUrl = 'qualifications';
+				break;
+				case 'news':
+				$middleUrl = 'news';
+				break;
+				case 'main':
+				$middleUrl = 'main';
+				break;
+			} ?>
+			<div class="sidebar2">
+				<h1><a href="<?php echo base_url .$middleUrl .'?articles&id='.$row['id']; ?>"><?php echo $row['title']."<br/>"; ?></a></h1>
+				<p><?php $text = $row['text'];
+				$counttext = 1000;
+				$text = substr($text, 0, $counttext);
+				$text = rtrim($text);
+				$text = substr($text, 0, strrpos($text, ' '));
+				if (mb_strlen($row['text']) > $counttext) {
+					echo $text; 
+					echo "<a href=".base_url .$middleUrl .'?articles&id='.$row['id']."> Читати далі . . .</a>";
+				} else {
+					echo $row['text'];
+				}	?></p>	<br/>		
+				<i class="far fa-clock"></i> <?php echo $row['date'];?> / <?php echo $row['time']; ?>
+				<span class="author"><i class="fas fa-user-edit"></i><?php echo $row['author']."<br/>"; ?></span>
+				<br/>
 
-		</div>
-		<?php }
-	} 
+			</div>
+			<?php }
+		} 
+>>>>>>> 4d30a0c8b8dd326a8e62e9454ac673ecfec3dbe4
 
-	?>
+		?>
 
-	
-</div>
+
+	</div>

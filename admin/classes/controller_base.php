@@ -20,13 +20,13 @@ Abstract Class Controller_Base
     protected function _initTemplate($title)
     {
 		$this->_baseTemplate->addCss('styles/header.css');
-		$this->_baseTemplate->addJs('');
         $this->_baseTemplate->addCss('styles/style.css');
 		$this->_baseTemplate->addCss('styles/menu.css');
          $this->_baseTemplate->addCss('styles/input.css');
         $this->_baseTemplate->addCss('styles/storinky.css');
 		$this->_baseTemplate->addCss('styles/site_content.css');
-        $this->_baseTemplate->addCss('styles/metodrecommendations.css');	
+        $this->_baseTemplate->addCss('styles/metodrecommendations.css');
+        
 		
         $parentTemplate = $this->_baseTemplate;
         $parentTemplate->set('title', $title);

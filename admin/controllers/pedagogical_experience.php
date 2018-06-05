@@ -82,7 +82,7 @@ Class Controller_Pedagogical_Experience Extends Controller_Base
 
         if (isset($_POST['save'])) {
             $title = strip_tags(trim($_POST['title']));
-            $text = strip_tags(trim($_POST['text']));
+            $text = quotemeta($_POST['text']);
             $author = strip_tags(trim($_POST['author']));
 
             mysqli_query($db, "UPDATE pedagogical_experience SET title='$title', text='$text', author='$author' WHERE id='$id'");

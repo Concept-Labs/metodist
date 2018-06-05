@@ -14,10 +14,11 @@ h2 a:hover, h1 a:hover{
 
 p {
   text-indent: 20px; /* Отступ первой строки в пикселах */
-  text-align: justify; /* Вирівнювання тексту по ширині */
+  /*text-align: justify; /* Вирівнювання тексту по ширині */
   line-height: 22px;/* Відступ тексту зверху */
   -webkit-user-select: none; /* Це для того, щоб користувачі не могли копіювать текст */
   font-family: 'Trebuchet MS', sans-serif;
+  white-space: pre-wrap; /*виводить текст з бази даних так як він є в бд*/
 }
 
 a{

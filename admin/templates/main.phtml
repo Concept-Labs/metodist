@@ -1,51 +1,49 @@
+	<div class="content_left">
+		<div class="sidebar1">
+			<p style="text-align:justify"><strong>Методична робота</strong> &ndash; система аналітичної, організаційної, діагностичної, пошукової, дослідницької, науково-практичної, інформаційної діяльності з метою удосконалення професійної компетентності педагогічних працівників та підвищення ефективності навчального процесу.</p>
 
-	<?php 
+			<p style="text-align:justify"><strong>Планування методичної роботи</strong> &ndash; це система заходів, що забезпечують визначеність, відповідність потребам навчально-виховного процесу та педагогічних працівників.</p>
 
+			<p style="text-align:justify">В навчальному закладі методична робота здійснюється згідно Конституції України, законів України &laquo;Про освіту&raquo;, &laquo;про професійно-технічну освіту&raquo;, &laquo;Про методичну роботу у професійно-технічному навчальному закладі&raquo; та регламентується єдиним планом методичної роботи, який включає:&nbsp;<br />
+	&nbsp; &nbsp; - план педагогічних рад;<br />
+	&nbsp; &nbsp; - план інструктивно-методичних нарад;<br />
+	&nbsp; &nbsp; - план науково-методичної ради;<br />
+	&nbsp; &nbsp; - план роботи методичного кабінету;<br />
+	&nbsp; &nbsp; - плани роботи методичних комісій;<br />
+	&nbsp; &nbsp; - план роботи школи молодого педагога;<br />
+	&nbsp; &nbsp; - план роботи школи педагогічної майстерності;<br />
+	&nbsp; &nbsp; - графік стажування майстрів в/н;<br />
+	&nbsp; &nbsp; - план-графік підвищення кваліфікації.</p>
 
+			<p style="text-align:justify">Методична робота перш за все є спрямованою на створення умов для розвитку педагогічної майстерності, творчої ініціативи педагогічних працівників, підвищення їх кваліфікації, пошуку інновацій.</p>
+		</div> 
 
-	// Ограничиваем количество ссылок, которые будут выводиться перед и
-// после текущей страницы
-		$limit=3;
+		<div class="sidebar1">
+			<h2>Інформаційна діяльність педагогічного колективу</h2>
 
-		$page = $this->get('page');
-		$pages = $this->get('pages');	
-		$num = $this->get('num');
-		$quantity = $this->get('quantity');
-		$result1 = $this->get('result1');
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Trebuchet MS,Helvetica,sans-serif">Інформація про інновації у педагогічній практиці творчо опрацьовується в колективі і впроваджується у навчально-виховний процес. Педагогами училища широко використовувались сучасні освітні технології, спрямовані на розвиток здібностей учнів, формування професійної компетентності майбутніх робітників, здатних до саморозвитку, до опрацювання різноманітної інформації, творчого застосування одержаних знань. Практично на всіх уроках як виробничого, так і теоретичного навчання в училищі використовується проблемне навчання, яке передбачає створення проблемної ситуації та активну самостійну діяльність учнів у її розв&rsquo;язанні, елементи особистісно-орієнтованого навчання&nbsp; і виховання учнів, інтерактивні методи навчально-виховної роботи, розвивальне навчання, елементи проектного навчання та модульної системи освоєння професій, тестовий контроль знань тощо.</span></p>
 
-			while ($row = mysqli_fetch_array($result1)) {
-				?>
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Trebuchet MS,Helvetica,sans-serif">Серед інновацій педагогами опрацьовано технологію &laquo;Коучинг&raquo;, PREZI, мобільний додаток для тестового опитування учнів PLIKERS. Їх впроваджують сертифіковані педагоги Мельник Н.В., Герасимчук О.М.</span></p>
 
-				
-					<h1><a href="<?php echo base_url . 'metodrecommendations/teacher?articles&id='.$row['id']; ?>"><?php echo $row['title']."<br/>"; ?></a></h1>
-					<p><?php $text = $row['text'];
-					$counttext = 1000;
-					$text = substr($text, 0, $counttext);
-					$text = rtrim($text);
-					$text = substr($text, 0, strrpos($text, ' '));
-					if (mb_strlen($row['text']) > $counttext) {
-						echo $text; 
-						echo "<a href=".base_url . 'metodrecommendations/teacher?articles&id='.$row['id']."> Читати далі . . .</a>";
-					} else {
-						echo $row['text'];
-					}	?></p>	<br/>		
-					<p>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
-						<span class="author">Автор: <?php echo $row['author']."<br/>"; ?></span>
-					</p><br/>
-					<a class="a-left delete" href="<?php echo base_url . 'metodrecommendations/teacher?delete&id='.$row['id']; ?>"><i class="fas fa-trash-alt"></i>Видалити</a>
-					<a class="a-left edit" href="<?php echo base_url . 'metodrecommendations/teacher?edit&id='.$row['id']; ?>"><i class="fas fa-pencil-alt"></i>Редагувати</a>
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Trebuchet MS,Helvetica,sans-serif">Дуже поширені ігрові, групові технології навчання, коли навчання здійснюється у процесі спілкування між учнями, тобто взаємонавчання в групах. Використовуються такі методи навчання: відтворюючий, кейсу, змістовного бачення, дослідження, аналізу, індивідуалізації та диференціації навчання, полілогу, веб-квест та ін. </span></p>
+
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Trebuchet MS,Helvetica,sans-serif">У навчальних майстернях впроваджені такі нововведення: </span></p>
+
+			<ul style="margin-left:40px">
+				<li style="text-align:justify"><span style="font-family:Trebuchet MS,Helvetica,sans-serif">використання комп&rsquo;ютерної техніки на виробничих заняттях, демонстрація відеофрагментів по виконанню технологічних операцій;</span></li>
+				<li style="text-align:justify"><span style="font-family:Trebuchet MS,Helvetica,sans-serif">проведення навчальних семінарів, майстер-класів фірмою ESTEL по сучасних прийомах фарбування волосся;</span></li>
+				<li style="text-align:justify"><span style="font-family:Trebuchet MS,Helvetica,sans-serif">розробка конструкції виробу муляжним методом;</span></li>
+				<li style="text-align:justify"><span style="font-family:Trebuchet MS,Helvetica,sans-serif">макетування виробів;</span></li>
+				<li style="text-align:justify"><span style="font-family:Trebuchet MS,Helvetica,sans-serif">створення технічних малюнків для вишивки за допомогою онлайн-конструктора;</span></li>
+			</ul>
+
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Trebuchet MS,Helvetica,sans-serif">В навчальних кабінетах широко використовуються інформаційно-комунікативні технології. Частина викладачів має свої власні блоги, розміщують напрацювання на YouTube каналах.</span></p>
+
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Trebuchet MS,Helvetica,sans-serif">У педагогічному колективі започаткований інноваційний підхід до систематизації накопичених навчально-методичних матеріалів у електронне портфоліо педагогічного працівника.</span></p>
+
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Trebuchet MS,Helvetica,sans-serif">Поряд з інноваціями у навчальній роботі колектив у 2018 році приступив до реалізації завдань проекту &laquo;Модернізація професій швейного профілю. Розвиток людського потенціалу&raquo; який реалізується за кошти ЄС. Основними завданнями даного проекту є підготовка висококваліфікованого робітника затребуваного на ринку праці.</span></p>
+
+		</div>
+				</div>
 					
-				
-
-				<?php }     
-			
-			
-		
-
-		?>
 	
-fafregrsegs
-
-
-
-				
