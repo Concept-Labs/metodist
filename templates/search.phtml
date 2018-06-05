@@ -14,24 +14,24 @@
 		<form action="/search" method="get">
 			<input type="search" name="search_query" id="search_form" placeholder=" ваш запит" value="<?php echo @$_GET['search_query']; ?>" minlength="4"/ required>
 			<input type="submit" name="search" class="btn" value="знайти" /><br/><br/>
-			<input type="checkbox" id="allwords" name="allwords" value=" AND " />
+			<input type="checkbox" class="checkbox" id="allwords" name="allwords" value=" AND " />
 			<label for="allwords">Точний збіг всіх слів</label>
 		</form>
 		<?php
-	if ($num != 0 && !empty($search_query)) {
-		
-		echo '<br/><p style="color:green;">За запитом <b>"'. $search_query.'"</b> знайдено збігів: '.$num.'</p>';
+		if ($num != 0 && !empty($search_query)) {
+			
+			echo '<br/><p style="color:green;">За запитом <b>"'. $search_query.'"</b> знайдено збігів: '.$num.'</p>';
 		} ?>	
 	</div>
 	<?php
-$query1 = 'SELECT * FROM `master` WHERE $query_search';
+	$query1 = 'SELECT * FROM `master` WHERE $query_search';
 	if ($num != 0 && !empty($search_query)) {
 		while ($row = mysqli_fetch_array($query)) { ?>
 		<div class="sidebar2">
 			<h1><a href="<?php echo base_url;
 			if ($query == $query1) {
-			echo 'metodrecommendations/master';
-		}
+				echo 'metodrecommendations/master';
+			}
 			echo '?articles&id='.$row['id']; ?>"><?php echo $row['title']."<br/>"; ?></a></h1>
 			<p><?php $text = $row['text'];
 			$counttext = 1000;

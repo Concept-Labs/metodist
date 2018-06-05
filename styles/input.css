@@ -16,36 +16,39 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	border: 0px;
 	box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
 	margin-top: 10px;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
 }
 input[type="search"]:hover, input[type="text"]:hover, input[type="login"]:hover, input[type="password"]:hover, input[type="email"]:hover{
 	outline: none;
 	-webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-	 box-shadow: inset 0 2px 0 rgba(122,122,122,0.5), 
-    0.4em 0.4em 5px rgba(122,122,122,0.5),
-    0 0 6px 3px #C0C0CC;
+	-moz-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+	box-shadow: inset 0 2px 0 rgba(122,122,122,0.5), 
+	0.4em 0.4em 5px rgba(122,122,122,0.5),
+	0 0 6px 3px #C0C0CC;
 }
 input[type="search"]:focus, input[type="text"]:focus, input[type="login"]:focus, input[type="password"]:focus, input[type="email"]:focus{
 	outline: none;
 	-webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-	 box-shadow: inset 0 2px 0 rgba(122,122,122,0.5), 
-    0.4em 0.4em 5px rgba(122,122,122,0.5),
-    0 0 6px 3px #C0C0CC;
+	-moz-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+	box-shadow: inset 0 2px 0 rgba(122,122,122,0.5), 
+	0.4em 0.4em 5px rgba(122,122,122,0.5),
+	0 0 6px 3px #C0C0CC;
 }
 /* КІНЕЦЬ ФОРМ РЕЄСТРАЦІЇ*/
 
 /* СТИЛЬ ДЛЯ SUBMIT */
 input[type="submit"] {
 	background: -moz-linear-gradient(#F2F2F2, #848484);
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#F2F2F2), to(#848484));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#848484', endColorstr='#EBFFFF');
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#F2F2F2), to(#848484));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#848484', endColorstr='#EBFFFF');
 	
-    display: inline-block;
-    vertical-align: middle;
-  
+	display: inline-block;
+	vertical-align: middle;
+	
 	width: 30%;
 	padding: 5px;
 	border-radius: 5px;
@@ -53,8 +56,8 @@ input[type="submit"] {
 	color: #000;
 	font-weight: bold;
 	-webkit-transition: all 0.4s ease-out;
-    -moz-transition: all 0.4s ease-out;
-    transition: all 0.4s ease-out;
+	-moz-transition: all 0.4s ease-out;
+	transition: all 0.4s ease-out;
 	border: 0px;
 	box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
 	margin-left: 8px;
@@ -63,8 +66,8 @@ input[type="submit"] {
 }
 input[type="submit"]:hover{
 	background: -moz-linear-gradient(#0101DF, #0B0B3B);
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#0101DF), to(#0B0B3B));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0B61', endColorstr='#EBFFFF');
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#0101DF), to(#0B0B3B));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0B61', endColorstr='#EBFFFF');
 	color: #fff;
 	transition: all 0.3s ease-out;
 	-webkit-transition: all .3s;
@@ -78,8 +81,8 @@ input[type="submit"]:active{
 	transition: all .3s;
 	box-shadow: inset 0 0 0 1px rgba(122,122,122,0.5),inset 0 15px 40px rgba(122,122,122,0.5);
 	background: -moz-linear-gradient(#0B0B3B, #0101DF);
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#0B0B3B), to(#0101DF));
-   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0B61', endColorstr='#EBFFFF');
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#0B0B3B), to(#0101DF));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0B61', endColorstr='#EBFFFF');
 }
 /* КІНЕЦЬ SUBMIT*/
 
@@ -92,8 +95,8 @@ a.delete{
 	border-radius: 5px;
 	color: #fff;
 	-webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.4s;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25), 0 2px 10px 0 rgba(0, 0, 0, 0.20);
 }
 a.delete:hover{
@@ -117,8 +120,8 @@ a.edit{
 	border-radius: 5px;
 	color: #fff;
 	-webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.4s;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25), 0 2px 10px 0 rgba(0, 0, 0, 0.20);
 }
 a.edit:hover{
@@ -143,8 +146,8 @@ a.save{
 	border-radius: 5px;
 	color: #fff;
 	-webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.4s;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25), 0 2px 10px 0 rgba(0, 0, 0, 0.20);
 }
 a.save:hover{
@@ -176,25 +179,25 @@ a.save-ic:hover{
 	color: #0080FF;
 	font-weight: bold;
 	float: right;
- 	text-align: left;
+	text-align: left;
 }
 
 ul.subsave{
-	 width:130px;  
-    height: 20px;
-    position: absolute;  
-    z-index: 200;
+	width:130px;  
+	height: 20px;
+	position: absolute;  
+	z-index: 200;
 
-	 max-height:0px;
-    overflow:hidden;
-    -webkit-transition:max-height 0.3s linear;
-    -moz-transition:max-height 0.3s linear;
-    transition:max-height 0.3s linear;
+	max-height:0px;
+	overflow:hidden;
+	-webkit-transition:max-height 0.3s linear;
+	-moz-transition:max-height 0.3s linear;
+	transition:max-height 0.3s linear;
 }
 .hover-save:hover .subsave{
 	max-height: 30px;
 	padding-bottom: 3px;
-	}
+}
 
 /* КНОПКА ДЛЯ ЗАВАНТАЖЕННЯ ФАЙЛІВ */
 .upload {
@@ -215,8 +218,8 @@ label[for="file"] {
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25), 0 2px 10px 0 rgba(0, 0, 0, 0.20);
 	border-radius:5px;
 	-webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
 }
 label[for="file"]:hover{
 	box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.25), 0 5px 18px 0 rgba(0, 0, 0, 0.20);
@@ -242,8 +245,8 @@ a.search-but{
 	padding: 7px;
 	cursor: pointer;
 	-webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
 }
 a.search-but:hover{
 	box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.25), 0 5px 18px 0 rgba(0, 0, 0, 0.20);
@@ -256,3 +259,52 @@ a.search-but:active{
 i.fa-search{
 	padding-left: 3px;	
 }
+/* СТИЛЬ ДЛЯ CHECKBOX ЯК У IOS */
+.checkbox {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	margin: 10px 0 0 20px;
+}
+.checkbox + label {
+	position: relative;
+	padding: 0 0 0 60px;
+	cursor: pointer;
+}
+.checkbox + label:before {
+	content: '';
+	position: absolute;
+	top: -4px;
+	left: 0;
+	width: 50px;
+	height: 26px;
+	border-radius: 13px;
+	background: #CDD1DA;
+	box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+	-webkit-transition: .2s;
+	-moz-transition: .2s;
+	-o-transition: .2s;
+	transition: .2s;
+}
+.checkbox + label:after {
+	content: '';
+	position: absolute;
+	top: -2px;
+	left: 2px;
+	width: 22px;
+	height: 22px;
+	border-radius: 10px;
+	background: #FFF;
+	box-shadow: 0 2px 5px rgba(0,0,0,.3);
+	-webkit-transition: .2s;
+	-moz-transition: .2s;
+	-o-transition: .2s;
+	transition: .2s;
+}
+.checkbox:checked + label:before {
+	background: #58ACFA;
+}
+.checkbox:checked + label:after {
+	left: 26px;
+}
+/* КІНЕЦЬ СТИЛЬ ДЛЯ CHECKBOX */
