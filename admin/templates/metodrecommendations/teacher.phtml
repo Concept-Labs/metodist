@@ -17,34 +17,36 @@
 		}	
 
 		$num_result = $this->get('num_result');	
-		$result1 = $this->get('result1');    
-		for ($i = 0; $i<$num_result; $i++) {
-			while ($row = mysqli_fetch_array($result1)) {
-				?>
+		$result1 = $this->get('result1');
+		if ($num_result) {    
+			for ($i = 0; $i<$num_result; $i++) {
+				while ($row = mysqli_fetch_array($result1)) {
+					?>
 
-				<div class="sidebar2">
-					<h1><a href="<?php echo base_url . 'metodrecommendations/teacher?articles&id='.$row['id']; ?>"><?php echo $row['title']."<br/>"; ?></a></h1>
-					<p><?php $text = $row['text'];
-					$counttext = 1000;
-					$text = substr($text, 0, $counttext);
-					$text = rtrim($text);
-					$text = substr($text, 0, strrpos($text, ' '));
-					if (mb_strlen($row['text']) > $counttext) {
-						echo $text; 
-						echo "<a href=".base_url . 'metodrecommendations/teacher?articles&id='.$row['id']."> Читати далі . . .</a>";
-					} else {
-						echo $row['text'];
-					}	?></p>	<br/>		
-					<p>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
-						<span class="author">Автор: <?php echo $row['author']."<br/>"; ?></span>
-					</p><br/>
-					<a class="a-left delete" href="<?php echo base_url . 'metodrecommendations/teacher?delete&id='.$row['id']; ?>"><i class="fas fa-trash-alt"></i>Видалити</a>
-					<a class="a-left edit" href="<?php echo base_url . 'metodrecommendations/teacher?edit&id='.$row['id']; ?>"><i class="fas fa-pencil-alt"></i>Редагувати</a>
-					
-				</div>
+					<div class="sidebar2">
+						<h1><a href="<?php echo base_url . 'metodrecommendations/teacher?articles&id='.$row['id']; ?>"><?php echo $row['title']."<br/>"; ?></a></h1>
+						<p><?php $text = $row['text'];
+						$counttext = 1000;
+						$text = substr($text, 0, $counttext);
+						$text = rtrim($text);
+						$text = substr($text, 0, strrpos($text, ' '));
+						if (mb_strlen($row['text']) > $counttext) {
+							echo $text; 
+							echo "<a href=".base_url . 'metodrecommendations/teacher?articles&id='.$row['id']."> Читати далі . . .</a>";
+						} else {
+							echo $row['text'];
+						}	?></p>	<br/>		
+						<p>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
+							<span class="author">Автор: <?php echo $row['author']."<br/>"; ?></span>
+						</p><br/>
+						<a class="a-left delete" href="<?php echo base_url . 'metodrecommendations/teacher?delete&id='.$row['id']; ?>"><i class="fas fa-trash-alt"></i>Видалити</a>
+						<a class="a-left edit" href="<?php echo base_url . 'metodrecommendations/teacher?edit&id='.$row['id']; ?>"><i class="fas fa-pencil-alt"></i>Редагувати</a>
+						
+					</div>
 
-				<?php }     
-			}
+					<?php }     
+				}
+			} else echo "<div class='sidebar2'>На даний момент в цьому розділі немає матеріалу!</div>"; 
 			if ($num > $quantity) {
 
 
@@ -116,7 +118,18 @@
 					<p><?php echo $roww['text']."<br/><br/>";	?></p>
 					<?php if ($roww['image'] != '') { ?>
 					<img src="<?php echo base_urlimg . 'media\articles\images'.DS.$roww['image'];?>" alt="<?php echo $roww['image'];?>"/><br/><br/>	
-					<?php } ?>				
+					<?php } ?>
+					<?php            
+						if ($roww['doc'] != '') { ?>
+						<ul class="save-right">
+							<li class="hover-save"><i class="fas fa-save"></i><a class="save-ic" href="<?php echo base_url . 'media\articles\doc'.DS.$roww['doc'];?>">Завантажити</a>
+								<ul class="subsave">
+									<li><?php echo $roww['doc'] ?></li>
+								</ul>
+							</li>
+						</ul>
+						<br/><br/>
+						<?php } ?>					
 					<p>Дата публікації: <?php echo $roww['date'];?> / <?php echo $roww['time']; ?>
 						<span class="author">Автор: <?php echo $roww['author']."<br/>"; ?></span>
 					</p>

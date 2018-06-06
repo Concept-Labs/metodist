@@ -63,7 +63,9 @@ if ($num_result) {
 					<a href="<?php echo base_url . 'news?articles&id='.$row['id']; ?>"><?php echo $row['title']."<br/>"; ?></a>		
 
 					
-				<?php }     }
+				<?php }     
+			}
+			else echo "На даний момент нема ніяких новин!"; 
 			?>
 	</div>
 </div>

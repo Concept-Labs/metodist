@@ -16,13 +16,15 @@
 			<label for="name"></label><br/>
 			<input type="text" name="name" id="name" value="<?php echo @$data['name']; ?>" placeholder=" І'мя" required>      <br/></li>
 			<li>
-			<label for="surname"></label><br/>
-			<input type="text" name="surname" id="surname" value="<?php echo @$data['surname']; ?>" placeholder=" Прізвище" required><br/>
-			</li>
-			<li>
 			<label for="patronymic"></label><br/>
-			<input type="text" name="patronymic" id="patronymic" value="<?php echo @$data['patronymic']; ?>" placeholder=" По батькові" required><br/><br/>
+			<input type="text" name="patronymic" id="patronymic" value="<?php echo @$data['patronymic']; ?>" placeholder=" По батькові" required><br/>
 			</li>
+
+			<li>
+			<label for="surname"></label><br/>
+			<input type="text" name="surname" id="surname" value="<?php echo @$data['surname']; ?>" placeholder=" Прізвище" required><br/><br/>
+			</li>
+			
 			<li>Дата народження:<br/>
 			<select name="day">
 				<option >День</option>

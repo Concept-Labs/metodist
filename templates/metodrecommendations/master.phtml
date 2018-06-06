@@ -18,32 +18,34 @@
 		}	
 
 		$num_result = $this->get('num_result');	
-		$result1 = $this->get('result1');    
-		for ($i = 0; $i<$num_result; $i++) {
-			while ($row = mysqli_fetch_array($result1)) {
-				?>
+		$result1 = $this->get('result1');
+		if ($num_result) {	    
+			for ($i = 0; $i<$num_result; $i++) {
+				while ($row = mysqli_fetch_array($result1)) {
+					?>
 
-				<div class="sidebar2">
-					<h1><a href="<?php echo base_url . 'metodrecommendations/master?articles&id='.$row['id']; ?>"><?php echo $row['title']."<br/>"; ?></a></h1>
-					<p><?php $text = $row['text'];
-					$counttext = 1000;
-					$text = substr($text, 0, $counttext);
-					$text = rtrim($text);
-					$text = substr($text, 0, strrpos($text, ' '));
-					if (mb_strlen($row['text']) > $counttext) {
-						echo $text; 
-						echo "<a href=".base_url . 'metodrecommendations/master?articles&id='.$row['id']."> Читати далі . . .</a>";
-					} else {
-						echo $row['text'];
-					}	?></p>	<br/>		
-					<i class="far fa-clock"></i> <?php echo $row['date'];?> / <?php echo $row['time']; ?>
-					<span class="author"><i class="fas fa-user-edit"></i><?php echo $row['author']."<br/>"; ?></span>
-					<br/>
-					
-				</div>
+					<div class="sidebar2">
+						<h1><a href="<?php echo base_url . 'metodrecommendations/master?articles&id='.$row['id']; ?>"><?php echo $row['title']."<br/>"; ?></a></h1>
+						<p><?php $text = $row['text'];
+						$counttext = 1000;
+						$text = substr($text, 0, $counttext);
+						$text = rtrim($text);
+						$text = substr($text, 0, strrpos($text, ' '));
+						if (mb_strlen($row['text']) > $counttext) {
+							echo $text; 
+							echo "<a href=".base_url . 'metodrecommendations/master?articles&id='.$row['id']."> Читати далі . . .</a>";
+						} else {
+							echo $row['text'];
+						}	?></p>	<br/>		
+						<i class="far fa-clock"></i> <?php echo $row['date'];?> / <?php echo $row['time']; ?>
+						<span class="author"><i class="fas fa-user-edit"></i><?php echo $row['author']."<br/>"; ?></span>
+						<br/>
+						
+					</div>
 
-				<?php }     
-			}
+					<?php }     
+				}
+			} else echo "<div class='sidebar2'>На даний момент в цьому розділі немає матеріалу!</div>";
 			if ($num > $quantity) {
 
 

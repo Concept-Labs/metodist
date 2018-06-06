@@ -18,7 +18,8 @@
 		}	
 
 		$num_result = $this->get('num_result');	
-		$result = $this->get('result');    
+		$result = $this->get('result');
+		if ($num_result) {    
 		for ($i = 0; $i<$num_result; $i++) {
 			while ($row = mysqli_fetch_array($result)) {
 				$middleUrl = '';
@@ -61,6 +62,7 @@
 
 				<?php }     
 			}
+			} else echo "<div class='sidebar2'>На даний момент в цьому розділі немає матеріалу!</div>";
 			if ($num > $quantity) {
 
 
