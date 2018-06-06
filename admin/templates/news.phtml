@@ -117,7 +117,18 @@
 					<p><?php echo $roww['text']."<br/><br/>";	?></p>
 					<?php if ($roww['image'] != '') { ?>
 					<img src="<?php echo base_urlimg . 'media\articles\images'.DS.$roww['image'];?>" alt="<?php echo $roww['image'];?>"/><br/><br/>	
-					<?php } ?>	
+					<?php } ?>
+					<?php            
+						if ($roww['doc'] != '') { ?>
+						<ul class="save-right">
+							<li class="hover-save"><i class="fas fa-save"></i><a class="save-ic" href="<?php echo base_url . 'media\articles\doc'.DS.$roww['doc'];?>">Завантажити</a>
+								<ul class="subsave">
+									<li><?php echo $roww['doc'] ?></li>
+								</ul>
+							</li>
+						</ul>
+						<br/><br/>
+						<?php } ?>		
 					<p>Дата публікації: <?php echo $roww['date'];?> / <?php echo $roww['time']; ?>
 						<span class="author">Автор: <?php echo $roww['author']."<br/>"; ?></span>
 					</p>

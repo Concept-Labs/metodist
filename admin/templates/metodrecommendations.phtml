@@ -1,8 +1,6 @@
 <div class="content_left">
 	<?php 
 
-	if (!isset($_GET['articles'])) {
-
 	// Ограничиваем количество ссылок, которые будут выводиться перед и
 // после текущей страницы
 
@@ -120,28 +118,6 @@
 					'">>></a> &nbsp; </span>';
 				}
 			}
-		}
-		else {
-			if (isset($_GET['articles'])) {
-				$roww = $this->get('roww');	
-				?>
-
-				<div class="sidebar2">
-					<h1><?php echo $roww['title']."<br/>"; ?></h1>
-					<p><?php echo $roww['text']."<br/><br/>";	?></p>
-					<?php if ($roww['image'] != '') { ?>
-					<img src="<?php echo base_url . 'media\articles\images'.DS.$roww['image'];?>" alt="<?php echo $roww['image'];?>"/><br/><br/>	
-					<?php } ?>	
-					<p>Дата публікації: <?php echo $roww['date'];?> / <?php echo $roww['time']; ?>
-						<span class="author">Автор: <?php echo $roww['author']."<br/>"; ?></span>
-					</p>
-
-				</div>
-
-				<?php 
-			}
-			
-		}
 
 		?>
 	</div>

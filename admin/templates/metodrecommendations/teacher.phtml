@@ -35,13 +35,14 @@
 							echo "<a href=".base_url . 'metodrecommendations/teacher?articles&id='.$row['id']."> Читати далі . . .</a>";
 						} else {
 							echo $row['text'];
-						}	?></p>	<br/>		
-						<p>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
-							<span class="author">Автор: <?php echo $row['author']."<br/>"; ?></span>
-						</p><br/>
-						<a class="a-left delete" href="<?php echo base_url . 'metodrecommendations/teacher?delete&id='.$row['id']; ?>"><i class="fas fa-trash-alt"></i>Видалити</a>
-						<a class="a-left edit" href="<?php echo base_url . 'metodrecommendations/teacher?edit&id='.$row['id']; ?>"><i class="fas fa-pencil-alt"></i>Редагувати</a>
-						
+						}	?></p>	<br/>
+						<div class="awe">		
+							<p>Дата публікації: <?php echo $row['date'];?> / <?php echo $row['time']; ?>
+								<span class="author">Автор: <?php echo $row['author']."<br/>"; ?></span>
+							</p><br/>
+							<a class="a-left delete" href="<?php echo base_url . 'metodrecommendations/teacher?delete&id='.$row['id']; ?>"><i class="fas fa-trash-alt"></i>Видалити</a>
+							<a class="a-left edit" href="<?php echo base_url . 'metodrecommendations/teacher?edit&id='.$row['id']; ?>"><i class="fas fa-pencil-alt"></i>Редагувати</a>
+						</div>
 					</div>
 
 					<?php }     
@@ -120,20 +121,21 @@
 					<img src="<?php echo base_urlimg . 'media\articles\images'.DS.$roww['image'];?>" alt="<?php echo $roww['image'];?>"/><br/><br/>	
 					<?php } ?>
 					<?php            
-						if ($roww['doc'] != '') { ?>
-						<ul class="save-right">
-							<li class="hover-save"><i class="fas fa-save"></i><a class="save-ic" href="<?php echo base_url . 'media\articles\doc'.DS.$roww['doc'];?>">Завантажити</a>
-								<ul class="subsave">
-									<li><?php echo $roww['doc'] ?></li>
-								</ul>
-							</li>
-						</ul>
-						<br/><br/>
-						<?php } ?>					
+					if ($roww['doc'] != '') { ?>
+					<ul class="save-right">
+						<li class="hover-save"><i class="fas fa-save"></i><a class="save-ic" href="<?php echo base_url . 'media\articles\doc'.DS.$roww['doc'];?>">Завантажити</a>
+							<ul class="subsave">
+								<li><?php echo $roww['doc'] ?></li>
+							</ul>
+						</li>
+					</ul>
+					<br/><br/>
+					<?php } ?>
+					<div>					
 					<p>Дата публікації: <?php echo $roww['date'];?> / <?php echo $roww['time']; ?>
 						<span class="author">Автор: <?php echo $roww['author']."<br/>"; ?></span>
 					</p>
-					
+					</div>
 					
 				</div>
 
