@@ -161,10 +161,10 @@ a.save:active{
 ul.subsave li{
 	z-index: 10;
 	position: relative;
-	width: 130px;
-	height: 20px;
-
+	width: auto;
+	height: auto;
 }
+
 a.save-ic{
 	color: #0080FF;
 	font-weight: bold;
@@ -183,11 +183,10 @@ a.save-ic:hover{
 }
 
 ul.subsave{
-	width:130px;  
-	height: 20px;
+	width:575px;  
+	height: auto;
 	position: absolute;  
 	z-index: 200;
-
 	max-height:0px;
 	overflow:hidden;
 	-webkit-transition:max-height 0.3s linear;

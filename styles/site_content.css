@@ -102,3 +102,8 @@
     -transition: all .5s ;
 }
 
+div.sidebar2 div.bottom_sidebar {
+	margin-top: 16px;
+	float: left;
+	width: 100%;
+}

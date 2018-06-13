@@ -162,15 +162,16 @@ a.save:active{
 	box-shadow: none;
 }
 
-ul.subsave li{ 
-	z-index: 10;
-	position: relative;
-	width: 130px;
-	height: 20px;
-}
 li {
 	list-style-type: none; /* Убираем маркеры */
 }
+ul.subsave li{
+	z-index: 10;
+	position: relative;
+	width: auto;
+	height: auto;
+}
+
 a.save-ic{
 	color: #0080FF;
 	font-weight: bold;
@@ -178,7 +179,7 @@ a.save-ic{
 a.save-ic:hover{
 	text-decoration: underline;
 }
-
+/* КІНЕЦЬ ЗБЕРЕЖЕННЯ*/
 .save-right{
 	cursor: pointer;
 	font-size: 95%;
@@ -189,8 +190,8 @@ a.save-ic:hover{
 }
 
 ul.subsave{
-	width:130px;  
-	height: 20px;
+	width:575px;  
+	height: auto;
 	position: absolute;  
 	z-index: 200;
 

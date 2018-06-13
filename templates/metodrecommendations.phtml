@@ -51,11 +51,12 @@
 						echo "<a href=".base_url .$middleUrl .'?articles&id='.$row['id']."> Читати далі . . .</a>";
 					} else {
 						echo $row['text'];
-					}	?></p>	<br/>		
-					<i class="far fa-clock"></i> <?php echo $row['date'];?> / <?php echo $row['time']; ?>
-					<span class="author"><i class="fas fa-user-edit"></i><?php echo $row['author']."<br/>"; ?></span>
-					<br/>
-
+					}	?></p>	<br/>
+					<div class="bottom_sidebar">		
+						<i class="far fa-clock"></i> <?php echo $row['date'];?> / <?php echo $row['time']; ?>
+						<span class="author"><i class="fas fa-user-edit"></i><?php echo $row['author']."<br/>"; ?></span>
+						<br/>
+					</div>
 				</div>
 
 				<?php }     
