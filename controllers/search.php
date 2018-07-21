@@ -1,15 +1,16 @@
 <?php
 Class Controller_Search Extends Controller_Base 
 {
-    protected function _initTemplate($title)
+    protected function _initTemplate($title, $description)
     {
-        //єто файл templates/index.phtml
-        return parent::_initTemplate($title);
+       
+        return parent::_initTemplate($title, $description);
+      
     }
     
     public function index() 
     {
-        $template = $this->_initTemplate('Пошук');
+        $template = $this->_initTemplate('Пошук', '');
         
         $template->setFile('templates/search.phtml');
         

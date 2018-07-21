@@ -1,15 +1,16 @@
 <?php
 Class Controller_Pedagogical_Experience Extends Controller_Base 
 {
-    protected function _initTemplate($title)
+    protected function _initTemplate($title, $description)
     {
-        //єто файл templates/index.phtml
-        return parent::_initTemplate($title);
+       
+        return parent::_initTemplate($title, $description);
+      
     }
     
     public function index() 
     {
-        $template = $this->_initTemplate('Поширення педагогічного досвіду');
+        $template = $this->_initTemplate('Поширення педагогічного досвіду', '');
         
         $template->setFile('templates/pedagogical_experience.phtml');
 

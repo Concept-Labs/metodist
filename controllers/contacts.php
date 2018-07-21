@@ -1,15 +1,16 @@
 <?php
 Class Controller_Contacts Extends Controller_Base 
 {
-    protected function _initTemplate($title)
+    protected function _initTemplate($title, $description)
     {
-        //єто файл templates/index.phtml
-        return parent::_initTemplate($title);
+       
+        return parent::_initTemplate($title, $description);
+      
     }
     
     public function index() 
     {
-        $template = $this->_initTemplate('Контакти');
+        $template = $this->_initTemplate('Контакти', '');
         
         $template->setFile('templates/contacts.phtml');
                

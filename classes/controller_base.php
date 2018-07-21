@@ -17,7 +17,7 @@ Abstract Class Controller_Base
     
     abstract function index();
 
-    protected function _initTemplate($title)
+    protected function _initTemplate($title, $description)
     {
 		$this->_baseTemplate->addCss('styles/header.css');
 		$this->_baseTemplate->addJs('');
@@ -35,6 +35,7 @@ Abstract Class Controller_Base
 		
         $parentTemplate = $this->_baseTemplate;
         $parentTemplate->set('title', $title);
+        $parentTemplate->set('description', $description);
         return clone $this->_registry->get('template');
     }
 

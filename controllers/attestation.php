@@ -1,15 +1,16 @@
 <?php
 Class Controller_Attestation Extends Controller_Base 
 {
-    protected function _initTemplate($title)
+    protected function _initTemplate($title, $description)
     {
-        //єто файл templates/index.phtml
-        return parent::_initTemplate($title);
+       
+        return parent::_initTemplate($title, $description);
+      
     }
     
     public function index() 
     {
-        $template = $this->_initTemplate('Атестація');
+        $template = $this->_initTemplate('Атестація', 'ntc');
         
         $template->setFile('templates/attestation.phtml');
 
