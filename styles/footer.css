@@ -105,10 +105,16 @@ div.fot_bottom{
    background: -webkit-gradient(linear, 0 0, 0 130%, from(#0B0174), to(#9289FD));
    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0B0174', endColorstr='#EBFFFF');
 	height: 60px;
+	    font: normal 90% 'century gothic', arial;
 }
 
 .img_about{
 	float: left;
 	margin-right: 15px;
 	margin-bottom: 5px;
+}
+.fotright img{
+	float: right;
+	width: 100px;
+	height: auto;
 }
